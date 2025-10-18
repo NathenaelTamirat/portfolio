@@ -3,17 +3,44 @@
     color: brown;
 
 }
-body {
-    background-color: aqua;
+
+.body {
+    background: linear-gradient(135deg, rgb(10, 40, 70), rgb(50, 120, 200));
+    color: rgb(215, 220, 225);
+    font-size: 20px;
+    font-family: 'Inter', sans-serif;
 }
 
+.body2 {
+    background: linear-gradient(135deg, rgb(10, 40, 70), rgb(50, 120, 200));
+    color: rgb(215, 220, 225);
+    font-size: 40px;
+    font-family: 'Inter', sans-serif;
+}
 .container {
     border : solid 1px black;
-    padding : 14px;
-    margin : 40px;
+    padding : 20px;
+    margin : 60px;
     text-align: center;
     border-radius: 22px;
     text-decoration-color: black;
     background-color: aquamarine;
+    flex: 1;
+    width: 100px;
 }
 
+.pic1 {
+    border: solid 10px black;
+    border-radius: 10px;
+    width: 300px;
+    height: 300px;
+    margin: 20px;
+}
+
+.pic {
+    border: solid 10px black;
+    border-radius: 100%;
+    width: 300px;
+    height: 300px;
+    margin: 20px;
+}
