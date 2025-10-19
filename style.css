@@ -4,11 +4,32 @@
 
 }
 
-.body {
+.button {
+    text-decoration: none;
+    color: inherit;
+    flex: 1;
+    border: solid 1px white;
+    padding: 20px;
+    padding-top: 30px;
+    margin: 10px;
+    text-align: center;
+    border-radius: 100px;
+    height: 40px;
+    width: 200px;
+}
+
+.button:hover {
+    background-color: rgb(63, 97, 115);
+}
+body {
+    margin: 0;
+    padding: 20px; 
     background: linear-gradient(135deg, rgb(10, 40, 70), rgb(50, 120, 200));
     color: rgb(215, 220, 225);
-    font-size: 20px;
-    font-family: 'Inter', sans-serif;
+}
+.link {
+    text-decoration: none;
+    color: inherit;
 }
 
 .body2 {
