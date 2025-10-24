@@ -21,14 +21,43 @@
     width: 200px;
 }
 
+ .text { 
+    font-size: medium;
+    color: rgb(234, 224, 224);
+    font-family: 'Inter', sans-serif;
+    margin: 0 20px;      /* Space outside the div */
+    padding: 0 15px;     /* Space inside the div */
+    max-width: 800px;    /* Optional: limits width and centers */
+    margin-left: auto;   /* Centers the div */
+    margin-right: auto;  /* Centers the div */
+}
+
+.images { 
+    text-align: center;
+    margin: 20px;
+    padding: 30px;
+}
+
+.gdg-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.images1 {
+    width: 500px; 
+    height: 400px; 
+    border-radius: 10px;
+}
 .button:hover {
     background-color: rgb(63, 97, 115);
 }
 body {
     margin: 0;
     padding: 20px; 
-    background: linear-gradient(135deg, rgb(10, 40, 70), rgb(50, 120, 200));
-    color: rgb(215, 220, 225);
+    background:rgb(50, 120, 200);
+    color: rgb(185, 185, 185);
 }
 .link {
     text-decoration: none;

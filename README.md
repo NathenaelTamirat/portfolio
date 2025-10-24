@@ -1,1 +1,1 @@
-This is going to be my first project ever!
+This is going to be my first personal project ever!
