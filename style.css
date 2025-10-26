@@ -232,3 +232,9 @@ p {
 .skills-list {
   grid-template-columns: 1fr;
 }
+
+.text {
+  margin: 20px;
+  font-size: large;
+  line-height: 1.2;
+}
