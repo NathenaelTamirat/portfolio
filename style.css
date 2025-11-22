@@ -126,6 +126,7 @@ body {
 }
 
 
+
 .pic1 {
   border: solid 10px black;
   border-radius: 50%;
@@ -326,4 +327,43 @@ p {
   font-size: medium;
   font-family: Georgia, "Times New Roman", Times, serif;
   text-decoration: none;
+}
+
+h1 {
+  font-size: 68px;
+  color: #747474;
+}
+
+h1 span.text {
+  padding: 0 4px 0 0;
+  border-right: 2px solid #747474;
+  animation: blink 0.75s infinite;
+}
+
+.white {
+  color: white;
+}
+.blue {
+  color: #4480ff;
+}
+.green {
+  color: #4caf50;
+}
+.yellow {
+  color: #f4b400;
+}
+.red {
+  color: #f44336;
+}
+
+@keyframes blink {
+  0% {
+    border-right-color: #747474;
+  }
+  50% {
+    border-right-color: transparent;
+  }
+  100% {
+    border-right-color: #747474;
+  }
 }
