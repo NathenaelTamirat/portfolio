@@ -14,6 +14,11 @@
   flex-wrap: nowrap;
   margin-bottom: 40px;
 }
+.form {
+  margin-top: 100px;
+  color: rgb(247, 183, 183);
+  font-size: 20px;
+}
 
 .text {
   color: #ffffff;
@@ -257,7 +262,8 @@ p {
   display: flex;
   justify-content: center;
   gap: 20px;
-  flex-wrap: wrap;
+  flex: 1;
+  align-items: center;
 }
 
 .pictures {
@@ -273,7 +279,7 @@ p {
   font-size: 16px;
   margin-top: 10px;
 }
-  
+
 
 .images {
   transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
@@ -299,7 +305,7 @@ p {
   transform: translateY(0);
 }
 
-.dropdown-btn { 
+.dropdown-btn {
   width: 150px;
   height: 50px;
   border-radius: 30px;
@@ -307,7 +313,7 @@ p {
   background-color: #3498db;
   color: whitesmoke;
   font-size: medium;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 .dropdown-btn1 {
@@ -318,6 +324,6 @@ p {
   background-color: aqua;
   color: whitesmoke;
   font-size: medium;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
   text-decoration: none;
 }
