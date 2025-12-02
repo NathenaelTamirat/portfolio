@@ -1,3 +1,4 @@
+# <!-- Note: README — project overview. Comments added to code files for clarity. -->
 # 🌐 Personal Portfolio
 
 A modern, responsive personal portfolio website built with **Vite**, **HTML5**, **CSS3**, and **JavaScript**. Designed to showcase my projects, skills, and experience in a clean, accessible, and performant way.

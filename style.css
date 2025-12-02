@@ -1,11 +1,11 @@
+/* Layout & page-level styles: keep global settings near the top */
+
 #a {
-  text-align: center;
-  color: brown;
-}
-.buttons {
   text-decoration: none;
   color: inherit;
 }
+
+/* Navigation/buttons group: centers nav links */
 .buttons {
   display: flex;
   justify-content: center;
@@ -13,7 +13,10 @@
   gap: 40px;
   flex-wrap: nowrap;
   margin-bottom: 40px;
+  text-decoration: none;
+  color: inherit;
 }
+
 .form {
   margin-top: 100px;
   color: rgb(247, 183, 183);
@@ -21,6 +24,7 @@
 }
 
 .text {
+  /* Main readable paragraphs: centered and constrained for readability */
   color: #ffffff;
   font-family: "Inter", sans-serif;
   margin: 0 20px;
@@ -36,6 +40,7 @@
 }
 
 .images {
+  /* Image blocks used for certificates/projects */
   text-align: center;
   margin: 20px;
   padding: 30px;
