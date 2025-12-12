@@ -34,6 +34,7 @@ body {
   font-size: 1.2vw;
   font-weight: 500;
   cursor: pointer;
+  
 }
 
 #Header2 a:hover {
@@ -63,6 +64,7 @@ body {
   height: 600px;
 }
 
+
 #Main2a {
   margin-top: 20px;
   margin-bottom: 40px;
@@ -89,7 +91,6 @@ body {
   width: 160px;
   margin-right: 60px;
   height: 50px;
-
   font-size: 20px;
   text-align: center;
   align-items: center;
@@ -99,7 +100,6 @@ body {
 #Main3b {
   width: 180px;
   height: 50px;
-
   font-size: 20px;
   text-align: center;
   align-items: center;
@@ -176,7 +176,7 @@ body {
   height: 200px;
   width: 1200px;
   display: flex;
-  border: 1px solid BLACK;
+  
 }
 
 /** footer - typing section **/
@@ -202,7 +202,7 @@ body {
   50% {
     opacity: 0;
   }
-  100% {
+  100% {Anthony
     opacity: 1;
   }
 }
@@ -225,3 +225,79 @@ body {
   margin-left: 100px;
   margin-top: 300px;
 }
+
+
+/* skills section */
+
+#skillsbox1 { 
+  width: 1200px;
+  height: 300px;
+  margin: 50px auto 0 auto;
+  display: flex;
+}
+
+.skillsboxs { 
+  height: 300px;
+  width: 400px;
+  margin-right: 80px;
+}
+
+.skillsboxslast { 
+  height: 300px;
+  width: 400px;
+}
+
+#skillsbox2, #skillsbox3, #skillsbox4 { 
+  width: 1200px;
+  height: 300px;
+  margin: 50px auto 0 auto;
+  display: flex;
+}
+
+
+#skills { 
+  width: 200px;
+  height: 80px;
+  font-size: 20px;
+  margin: 300px auto 0 auto;
+}
+
+#skillsbox1 { 
+  width: 1200px;
+  height: 300px;
+  margin: 90px auto 0 auto;
+  display: flex;
+
+}
+
+.skillsboxs { 
+  height: 300px;
+  width: 240px;
+  margin-right: 80px;
+}
+
+.skillsboxslast { 
+  height: 300px;
+  width: 240px;
+}
+
+#skillsbox2, #skillsbox3, #skillsbox4 { 
+  width: 1200px;
+  height: 300px;
+  margin: 50px auto 0 auto;
+  display: flex;
+}
+
+.skillsboxstop { 
+  margin-top: 40px;
+  height: 180px;
+  width: 240px;
+}
+
+
+.skillsboxsbottom {
+  height: 80px;
+  width: 240px;
+}
+
+
