@@ -1,8 +1,12 @@
 // Typing effect in footer section
 
-const words = ["Nathenael-Tamirat", "Full-stack Developer", "Software Engineer"];
+const words = [
+  "Nathenael-Tamirat",
+  "Full-stack Developer",
+  "Software Engineer",
+];
 const colors = ["red", "green", "yellow"];
-const text = document.getElementById("typing-text"); 
+const text = document.getElementById("typing-text");
 
 function* generator() {
   let index = 0;
@@ -26,9 +30,9 @@ function typeWord(word) {
       i++;
     } else {
       clearInterval(typingInterval);
-      setTimeout(() => deleteWord(word), 500); 
+      setTimeout(() => deleteWord(word), 500);
     }
-  }, 100); 
+  }, 100);
 }
 
 function deleteWord(word) {
@@ -43,7 +47,7 @@ function deleteWord(word) {
       text.classList.remove(...colors);
       typeWord(words[gen.next().value]);
     }
-  }, 50); 
+  }, 50);
 }
 
 typeWord(words[gen.next().value]);
