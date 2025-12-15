@@ -34,7 +34,7 @@ body {
 #Header2 a {
   color: #666;
   text-decoration: none;
-  font-size: 1.2vw;
+  font-size: 1.35vw;
   font-weight: 500;
   cursor: pointer;
   
@@ -50,7 +50,7 @@ body {
 
 /* main home section */
 #Mains {
-  margin-top: 300px;
+  margin-top: 200px;
   margin-left: 180px;
   width: 1080px;
   height: 600px;
@@ -62,6 +62,9 @@ body {
   width: 400px;
   height: 600px;
   border: 1px solid black;
+  transform: translateX(-100px);
+  opacity: 0;
+  animation: slideInLeft 1s forwards ease-out;
 }
 
 #Main2 {
@@ -120,6 +123,14 @@ body {
   display: flex;
 }
 
+#Main2, #Main3 {
+  transform: translateX(100px);
+  opacity: 0;
+  animation: slideInRight 1s forwards ease-out;
+  animation-delay: 0.3s; 
+}
+
+
 .buttons { 
   background-color: #4a17cbff; 
   color: white;             
@@ -152,12 +163,26 @@ body {
   display: flex;
 }
 
+@keyframes slideInLeft {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
 /* about me section */
 
 #aboutme1 {
 width: 200px;
   height: 80px;
-  margin: 300px auto 0 auto;
+  margin: 200px auto 0 auto;
   border: 1px solid black;
   justify-content: center; 
   align-items: center; 
@@ -295,7 +320,7 @@ width: 200px;
 #skills { 
   width: 200px;
   height: 80px;
-  margin: 300px auto 0 auto;
+  margin: 200px auto 0 auto;
   border: 1px solid black;
   justify-content: center; 
   align-items: center; 
@@ -367,7 +392,7 @@ width: 200px;
 #experience { 
   width: 200px;
   height: 80px;
-  margin: 300px auto 0 auto;
+  margin: 200px auto 0 auto;
   border: 1px solid black;
   justify-content: center; 
   align-items: center; 
@@ -548,7 +573,7 @@ width: 200px;
 #project { 
  width: 200px;
   height: 80px;
-  margin: 300px auto 0 auto;
+  margin: 200px auto 0 auto;
   border: 1px solid black;
   justify-content: center; 
   align-items: center; 
@@ -564,7 +589,7 @@ width: 200px;
 #Awards {
  width: 700px;
   height: 80px;
-  margin: 300px auto 0 auto;
+  margin: 200px auto 0 auto;
   border: 1px solid black;
   justify-content: center; 
   align-items: center; 
@@ -649,7 +674,7 @@ width: 200px;
 #contact { 
   width: 200px;
   height: 60px;
-  margin: 300px auto 0 auto;
+  margin: 200px auto 0 auto;
   border: 1px solid black;
   justify-content: center; 
   align-items: center; 
@@ -657,6 +682,16 @@ width: 200px;
   display: flex;
   font-size: 40px;
   letter-spacing: 2px;
+  transform: translateY(-50px);
+  opacity: 0;
+  animation: slideDown 1s forwards ease-out;
+}
+
+#contact1, #contact2 {
+  transform: translateX(100px);
+  opacity: 0;
+  animation: slideInRight 1s forwards ease-out;
+  animation-delay: 0.3s; 
 }
 
 #contactpage { 
@@ -690,6 +725,10 @@ width: 200px;
   width: 500px;
   height: 100px;
   border: 1px solid black;
+  transform: translateY(50px);
+  opacity: 0;
+  animation: slideUp 1s forwards ease-out;
+  animation-delay: 0.6s;
 }
 
 .contactlogo { 
@@ -728,6 +767,27 @@ width: 200px;
   width: 600px;
   height: 220px;
   border: 1px solid black;
+}
+
+@keyframes slideDown {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 /** footer section **/
@@ -787,3 +847,17 @@ width: 200px;
   margin-left: 100px;
   margin-top: 300px;
 }
+
+/** more **/
+.more { 
+  height: 80px;
+  width: 100px;
+  margin: 50px auto 0 auto;
+  border: 1px solid black;
+  font-size: 20px;
+  text-align: right;
+  margin-left: 1200px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
