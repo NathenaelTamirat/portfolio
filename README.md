@@ -23,15 +23,37 @@ A modern, responsive personal portfolio website built with **Vite**, **HTML5**, 
 
 ```
 portfolio/
+├── .DS_Store
+├── index.html
+├── LICENSE
+├── README.md
 ├── assets/
+│   ├── .DS_Store
 │   ├── fonts/
 │   │   └── myfont.ttf
 │   ├── icons/
-│   │   └── logo.svg
+│   │   ├── .DS_Store
+│   │   ├── CSS.svg
+│   │   ├── Figma.svg
+│   │   ├── Git.svg
+│   │   ├── github.svg
+│   │   ├── gmail.svg
+│   │   ├── Googledrive.svg
+│   │   ├── HTML5.svg
+│   │   ├── instagram.svg
+│   │   ├── Javascript.svg
+│   │   ├── Kotlin.svg
+│   │   ├── linkedin.svg
+│   │   ├── NT.svg
+│   │   ├── telegram.svg
+│   │   └── whatsapp.svg
 │   └── images/
+│       ├── .DS_Store
 │       ├── ALX.jpeg
+│       ├── Codeinplace.png
 │       ├── css.png
 │       ├── figma.png
+│       ├── GDG.svg
 │       ├── GDG3.jpeg
 │       ├── Github.png
 │       ├── html.png
@@ -40,13 +62,19 @@ portfolio/
 │       ├── Udacity2.jpeg
 │       ├── Udacity3.jpeg
 │       └── Udacity4.jpeg
-├── pages/
+├── assets/pages/
 │   ├── aboutme.html
+│   ├── awards.html
+│   ├── certificates.html
 │   ├── contact.html
-│   ├── portfolio.html
-│   └── resume.html
-├── index.html
-├── style.css
-├── script.js
-├── LICENSE
-└── README.md
+│   ├── Education.html
+│   ├── Experience.html
+│   ├── projects.html
+│   └── Skills.html
+├── CSS/
+│   ├── style.css
+│   ├── styles.css
+│   ├── styles.css.map
+│   └── styles.scss
+└── JS/
+    └── script.js
