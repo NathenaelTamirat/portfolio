@@ -10,25 +10,24 @@
     <meta name="keywords"
         content="Nathenael Tamirat, Portfolio, Web Developer, Frontend Developer, HTML, CSS, JavaScript, Figma, GitHub, Responsive Design, UI Design, UX Design, Web Design, Landing Pages, Wireframing, Prototyping, Version Control, Clean Code, Beginner Frontend Developer, Junior Web Developer">
     <meta name="author" content="Nathenael Tamirat">
-    <link rel="stylesheet" href="/CSS/style.css">
-    <link rel="stylesheet" href="/CSS/styles.scss">
-    <link rel="icon" href="/assets/icons/NT.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="icon" href="assets/icons/NT.svg" type="image/svg+xml">
 </head>
 
 <body>
     <header>
         <div id="Mainhead">
             <div id="Header1"> Nathenael Tamirat </div>
-            <div id="Header2">
+            <nav id="Header2" aria-label="Main navigation">
                 <a class="header" href="#Mains"> Home </a>
-                <a class="header" href="#Main3b"> About </a>
+                <a class="header" href="#aboutme1"> About </a>
                 <a class="header" href="#skills"> Skills </a>
-                <a class="header" href="#"> Education </a>
+                <a class="header" href="assets/pages/Education.html"> Education </a>
                 <a class="header" href="#experience"> Experience </a>
                 <a class="header" href="#project"> Projects </a>
                 <a class="header" href="#Awards"> Awards </a>
                 <a class="header" href="#contact"> Contact </a>
-            </div>
+            </nav>
         </div>
     </header>
 
@@ -36,8 +35,7 @@
     <main>
         <div id="Mains">
             <div id="Main1">
-                <img>
-                <!--img of my self-->
+                <img src="assets/images/GDG.svg" alt="" role="presentation">
             </div>
             <div id="Main2">
 
@@ -106,9 +104,8 @@
             </div>
         </div>
         <div class="more">
-            <a href="/assets/pages/aboutme.html" style="text-decoration: none;"> More... </a>
+            <a href="assets/pages/aboutme.html" style="text-decoration: none;" aria-label="Read more about me"> More... </a>
         </div>
-    </section>
     </section>
 
     <!--skills section-->
@@ -154,7 +151,7 @@
 
             <div class="skillsboxs">
                 <div class="skillsboxstop">
-                    <img src="assets/icons/GoogleDrive.svg" alt="Google Drive">
+                    <img src="assets/icons/Googledrive.svg" alt="Google Drive">
                 </div>
                 <div class="skillsboxsbottom"> Google Drive</div>
             </div>
@@ -174,19 +171,18 @@
             </div>
         </div>
         <div class="more">
-            <a href="/assets/pages/Skills.html" style="text-decoration: none;"> More... </a>
+            <a href="assets/pages/Skills.html" style="text-decoration: none;" aria-label="Read more about my skills"> More... </a>
         </div>
-    </section>
     </section>
 
     <!--experience section -->
-    <setion>
+    <section>
         <div id="experience">Experience</div>
         <div id="experience1">
             <div class="parent">
                 <div class="div1">
                     <a>
-                        <img src="/assets/images/GDG.svg" alt="Google Developers Group">
+                        <img src="assets/images/GDG.svg" alt="Google Developers Group">
                     </a>
                 </div>
                 <div class="div2"> BITS College - GDCOC Technical Lead (2025-2026 GC)</div>
@@ -241,11 +237,9 @@
             </div>
         </div>
         <div class="more">
-            <a href="/assets/pages/Experience.html" style="text-decoration: none;"> More... </a>
+            <a href="assets/pages/Experience.html" style="text-decoration: none;" aria-label="Read more about my experience"> More... </a>
         </div>
-        </section>
-        </section>
-
+    </section>
 
         <!-- project section-->
         <section>
@@ -255,16 +249,16 @@
                     <div class="div2a">1</div>
                     <div class="div2b">2</div>
                     <div class="div2c">3</div>
-                    <div class="div2d">4</div>
-                    <div class="div2e">5</div>
+                    <div class="div2d">View Source</div>
+                    <div class="div2e">View Project</div>
                 </div>
 
                 <div class="parent2">
                     <div class="div2a">1</div>
                     <div class="div2b">2</div>
                     <div class="div2c">3</div>
-                    <div class="div2d">4</div>
-                    <div class="div2e">5</div>
+                    <div class="div2d">View Source</div>
+                    <div class="div2e">View Project</div>
                 </div>
             </div>
 
@@ -273,20 +267,20 @@
                     <div class="div2a">1</div>
                     <div class="div2b">2</div>
                     <div class="div2c">3</div>
-                    <div class="div2d">4</div>
-                    <div class="div2e">5</div>
+                    <div class="div2d">View Source</div>
+                    <div class="div2e">View Project</div>
                 </div>
 
                 <div class="parent2">
                     <div class="div2a">1</div>
                     <div class="div2b">2</div>
                     <div class="div2c">3</div>
-                    <div class="div2d">4</div>
-                    <div class="div2e">5</div>
+                    <div class="div2d">View Source</div>
+                    <div class="div2e">View Project</div>
                 </div>
             </div>
             <div class="more">
-                <a href="/assets/pages/projects.html" style="text-decoration: none;"> More... </a>
+                <a href="assets/pages/projects.html" style="text-decoration: none;" aria-label="Read more about my projects"> More... </a>
             </div>
         </section>
 
@@ -300,34 +294,46 @@
                             alt="Udacity- Introduction to programming certification"></a>
                 </div>
                 <div class="award2">
-                    <a href="https://codeinplace.stanford.edu/cip5/certificate/p1oxia"><img
+                    <a href="https://codeinplace.stanford.edu/cip5/certificate/p1oxia" target="_blank" rel="noopener noreferrer"><img
                             src="assets/images/Codeinplace.png"
-                            alt="Stanford University- Code In Place (py) certification" target="_blank"></a>
+                            alt="Stanford University- Code In Place (py) certification"></a>
                 </div>
                 <div class="award3">Udacity- Introduction to programming</div>
-                <div class="award4">4</div>
+                <div class="award4">I learned how to write and run basic programs, use variables and loops, and apply
+                    functions to solve problems. I practiced building simple projects and debugging my code. I also got
+                    an introduction to HTML, CSS, and JavaScript. Overall, it helped me understand the logic behind
+                    programming and gave me hands-on coding experienc</div>
                 <div class="award5">Stanford University- Code In Place (py)</div>
-                <div class="award6">6</div>
+                <div class="award6">I learned Python programming fundamentals, including variables, loops, and
+                    functions. I practiced solving real coding problems and building small projects. The course
+                    strengthened my problem-solving and logical thinking skills. Overall, it gave me hands-on experience
+                    writing Python code independently.</div>
             </div>
 
             <div class="Awards">
                 <div class="award1">
                     <a href="https://www.udacity.com/certificate/e/546eec08-1c80-11f0-9ff0-7f21adfdda5b"
-                        target="_blank"><img src="assets/images/Udacity3.jpeg"
+                        target="_blank" rel="noopener noreferrer"><img src="assets/images/Udacity3.jpeg"
                             alt="Udacity- Data Analysis Fundamentals certification"></a>
                 </div>
                 <div class="award2">
                     <a href="https://www.udacity.com/certificate/e/284fd838-0d6e-11f0-b8d4-3bb125f78943"
-                        target="_blank"><img src="assets/images/Udacity4.jpeg"
+                        target="_blank" rel="noopener noreferrer"><img src="assets/images/Udacity4.jpeg"
                             alt="Udacity- Andriod Developer Fundamentals certification"></a>
                 </div>
                 <div class="award3">Udacity- Andriod Developer Fundamentals</div>
-                <div class="award4">4</div>
+                <div class="award4">I learned how to build Android apps using Java, including designing interfaces,
+                    handling input, and managing app navigation. I practiced working with data storage and app lifecycle
+                    concepts. The course helped me understand mobile app structure and development workflows. Overall,
+                    it gave me hands-on experience creating functional Android applications.</div>
                 <div class="award5">Udacity- Data Analysis Fundamentals</div>
-                <div class="award6">6</div>
+                <div class="award6">I learned the fundamentals of data analysis, including working with datasets,
+                    cleaning data, and using basic statistical methods. I practiced analyzing data with tools like
+                    Python and Excel. The course helped me interpret results and visualize insights effectively.
+                    Overall, it gave me hands-on experience turning raw data into meaningful information.</div>
             </div>
             <div class="more">
-                <a href="/assets/pages/awards.html" style="text-decoration: none;"> More... </a>
+                <a href="assets/pages/awards.html" style="text-decoration: none;" aria-label="Read more about awards and certifications"> More... </a>
             </div>
         </section>
 
@@ -345,38 +351,36 @@
                     <div class="contact">Nathenaeltamiratbizuneh@gmail.com</div>
                     <div class="contact">+251991439979</div>
                     <div id="contactlogo">
-                        <div class="contactlogo" href="">
-                            <a href="https://github.com/NathenaelTamirat" target="_blank">
-                                <img src="assets/icons/github.svg" alt="Github logo">
+                        <div class="contactlogo">
+                            <a href="https://github.com/NathenaelTamirat" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+                                <img src="assets/icons/github.svg" alt="">
                             </a>
                         </div>
                         <div class="contactlogo">
-                            <a href="https://www.linkedin.com/in/nathenael-tamirat/" target="_blank">
-                                <img src="assets/icons/linkedin.svg" alt="Linkedin logo">
+                            <a href="https://www.linkedin.com/in/nathenael-tamirat/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+                                <img src="assets/icons/linkedin.svg" alt="">
                             </a>
                         </div>
                         <div class="contactlogo">
-                            <a href="https://www.instagram.com/NathenaelTamirat/" target="_blank">
-                                <img src="assets/icons/instagram.svg" alt="Instagram logo">
+                            <a href="https://www.instagram.com/NathenaelTamirat/" target="_blank" rel="noopener noreferrer" aria-label="Instagram profile">
+                                <img src="assets/icons/instagram.svg" alt="">
                             </a>
                         </div>
                         <div class="contactlogo">
-                            <a href="mailto:nathenaeltamiratbizuneh@gmail.com" target="_blank">
-                                <img src="assets/icons/gmail.svg" alt="Gmail logo">
+                            <a href="mailto:nathenaeltamiratbizuneh@gmail.com" aria-label="Send email">
+                                <img src="assets/icons/gmail.svg" alt="">
                             </a>
                         </div>
                         <div class="contactlogo">
-                            <a href="https://wa.me/251991439979" target="_blank">
-                                <img src="assets/icons/whatsapp.svg" alt="whatsapp logo">
+                            <a href="https://wa.me/251991439979" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                                <img src="assets/icons/whatsapp.svg" alt="">
                             </a>
                         </div>
                         <div class="contactlogo">
-                            <a href="https://t.me/nathenaeltamirat" target="_blank">
-                                <img src="assets/icons/telegram.svg" alt="Telegram logo">
+                            <a href="https://t.me/nathenaeltamirat" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+                                <img src="assets/icons/telegram.svg" alt="">
                             </a>
                         </div>
-                        <div class="contactlogo"></div>
-                        <div class="contactlogo"></div>
                     </div>
                 </div>
 
@@ -389,17 +393,17 @@
 
             </div>
             <div class="more">
-                <a href="/assets/pages/contact.html" style="text-decoration: none;"> More... </a>
+                <a href="assets/pages/contact.html" style="text-decoration: none;" aria-label="Go to contact page"> More... </a>
             </div>
         </section>
 
         <footer>
             <div id="typing-container">
                 <span id="typing-text"></span>
-                <span id="cursor">|</span>
+                <span id="cursor" aria-hidden="true">|</span>
             </div>
         </footer>
-        <script src="../JS/script.js"></script>
+        <script src="JS/script.js"></script>
 </body>
 
 </html>

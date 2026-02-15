@@ -410,7 +410,7 @@ width: 200px;
 .div1 {
     grid-column: span 3;
     grid-row: span 4;
-    border-radius: 20px
+    border-radius: 20px;
     border: 1px solid black;
 }
 
@@ -513,6 +513,7 @@ width: 200px;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(6, 1fr);
   gap: 20px;
+  border: 1px solid black;
 }
 
     
@@ -520,6 +521,7 @@ width: 200px;
     grid-column: span 7 / span 7;
     grid-column-start: 6;
     grid-row-start: 1;
+    border: 1px solid black;
 
 }
 
@@ -528,6 +530,7 @@ width: 200px;
     grid-row: span 5 / span 5;
     grid-column-start: 1;
     grid-row-start: 1;
+    border: 1px solid black;
 
 }
 
@@ -536,19 +539,29 @@ width: 200px;
     grid-row: span 4 / span 4;
     grid-column-start: 6;
     grid-row-start: 2;
+    border: 1px solid black;
 
 }
 
 .div2d {
     grid-column: span 5 / span 5;
     grid-row-start: 6;
-
+    border: 1px solid black;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-left: 20px;
 }
 
 .div2e {
     grid-column: span 5 / span 5;
     grid-column-start: 7;
     grid-row-start: 6;
+    border: 1px solid black;
+    align-items: center;
+    justify-content: center;
+    display: flex;
 
 }
 
@@ -633,21 +646,21 @@ width: 200px;
     grid-column: span 5 / span 5;
     grid-column-start: 1;
     grid-row-start: 7;
-
+    font-size: 22px;
 }
 
 .award5 {
     grid-column: span 5 / span 5;
     grid-column-start: 7;
     grid-row-start: 6;
-
+    font-size: 22px;
 }
 
 .award6 {
     grid-column: span 5 / span 5;
     grid-column-start: 7;
     grid-row-start: 7;
-
+    font-size: 22px;
 }
         
 /** Contacts **/
@@ -792,7 +805,7 @@ width: 200px;
   50% {
     opacity: 0;
   }
-  100% {Anthony
+  100% {
     opacity: 1;
   }
 }
@@ -826,5 +839,158 @@ width: 200px;
   margin-left: 1200px;
   cursor: pointer;
   text-decoration: none;
+}
+
+
+/** SKILLS PAGE **/
+
+/** Responsive layout **/
+@media (max-width: 1200px) {
+  #Mains {
+    max-width: 100%;
+    width: 100%;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    flex-wrap: wrap;
+  }
+  #aboutme10 {
+    max-width: 100%;
+    width: 100%;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  #skillsbox1,
+  #skillsbox2 {
+    max-width: 100%;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  #experience1,
+  #experience2,
+  #experience3 {
+    max-width: 100%;
+    width: 100%;
+  }
+  #project1,
+  #project2 {
+    max-width: 100%;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .Awards {
+    max-width: 100%;
+    width: 100%;
+  }
+  #contactpage {
+    max-width: 100%;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .more {
+    margin-left: auto;
+    margin-right: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  #Mainhead {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  #Header2 {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  #Header2 a {
+    font-size: 4vw;
+  }
+  #Mains {
+    margin-top: 2rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    flex-direction: column;
+    align-items: center;
+  }
+  #Main1 {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    min-height: 200px;
+  }
+  #Main2 {
+    margin-left: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+  #Main2a {
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
+    width: 100%;
+  }
+  #Main2b {
+    font-size: 1rem;
+    width: 100%;
+    height: auto;
+  }
+  #Main3 {
+    margin-left: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  #aboutme10 {
+    flex-direction: column;
+    height: auto;
+  }
+  #aboutme2 {
+    height: auto;
+    width: 100%;
+  }
+  #aboutme4 {
+    width: 100%;
+    margin-left: 0;
+    font-size: 1rem;
+  }
+  #skillsbox1,
+  #skillsbox2 {
+    flex-direction: column;
+    align-items: center;
+  }
+  .skillsboxs,
+  .skillsboxslast {
+    margin-right: 0;
+  }
+  #contactpage {
+    flex-direction: column;
+  }
+  #contact1 {
+    margin-right: 0;
+    width: 100%;
+  }
+  .contact {
+    width: 100%;
+  }
+  #contactlogo {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  #typing-container {
+    margin-left: 1rem;
+    margin-top: 2rem;
+    font-size: 1.5rem;
+  }
+  .more {
+    margin-left: auto;
+    margin-right: 1rem;
+  }
+}
+
+/** Focus styles for accessibility **/
+#Header2 a:focus-visible,
+.buttons:focus-visible,
+.more a:focus-visible,
+#contactlogo a:focus-visible {
+  outline: 2px solid #4a17cb;
+  outline-offset: 2px;
 }
 
