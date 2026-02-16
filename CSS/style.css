@@ -34,7 +34,6 @@ body {
   font-size: 1.35vw;
   font-weight: 500;
   cursor: pointer;
-  
 }
 
 #Header2 a:hover {
@@ -67,7 +66,6 @@ body {
   height: 600px;
   margin-left: 80px;
 }
-
 
 #Main2a {
   margin-top: 20px;
@@ -114,19 +112,19 @@ body {
   display: flex;
 }
 
-#Main2, #Main3 {
+#Main2,
+#Main3 {
   transform: translateX(100px);
   opacity: 0;
   animation: slideInRight 1s forwards ease-out;
-  animation-delay: 0.3s; 
+  animation-delay: 0.3s;
 }
 
-
-.buttons { 
-  background-color: #4a17cbff; 
-  color: white;             
-  text-decoration: none;     
-  border-radius: 8px;        
+.buttons {
+  background-color: #4a17cbff;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
   font-weight: bold;
   cursor: pointer;
   transition: background 0.3s;
@@ -138,11 +136,11 @@ body {
   display: flex;
 }
 
-.buttons:hover { 
-  background-color: #2a0e70ff; 
-  color: white;             
-  text-decoration: none;     
-  border-radius: 8px;        
+.buttons:hover {
+  background-color: #2a0e70ff;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
   font-weight: bold;
   cursor: pointer;
   transition: background 0.3s;
@@ -171,12 +169,12 @@ body {
 /* about me section */
 
 #aboutme1 {
-width: 200px;
+  width: 200px;
   height: 80px;
   margin: 200px auto 0 auto;
-  justify-content: center; 
-  align-items: center; 
-  text-align: center; 
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   display: flex;
   font-size: 40px;
   letter-spacing: 2px;
@@ -240,7 +238,6 @@ width: 200px;
   display: flex;
 }
 
-
 #aboutme9b {
   height: 66px;
   width: 300px;
@@ -251,98 +248,100 @@ width: 200px;
   display: flex;
 }
 
-#aboutme9a1, #aboutme9b1 {
+#aboutme9a1,
+#aboutme9b1 {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 100%;
-  background-color: #4a17cbff; 
-  color: white;             
-  text-decoration: none;     
-  border-radius: 30px;        
+  background-color: #4a17cbff;
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
   font-weight: bold;
   cursor: pointer;
   transition: background 0.3s;
 }
 
-#aboutme9a1:hover, #aboutme9b1:hover {
-  background-color: #211670ff; 
+#aboutme9a1:hover,
+#aboutme9b1:hover {
+  background-color: #211670ff;
 }
-
 
 /* skills section */
 
-#skillsbox1 { 
+#skillsbox1 {
   width: 1200px;
   height: 300px;
   margin: 50px auto 0 auto;
   display: flex;
 }
 
-.skillsboxs { 
+.skillsboxs {
   height: 300px;
   width: 400px;
   margin-right: 80px;
 }
 
-.skillsboxslast { 
+.skillsboxslast {
   height: 300px;
   width: 400px;
 }
 
-#skillsbox2, #skillsbox3, #skillsbox4 { 
+#skillsbox2,
+#skillsbox3,
+#skillsbox4 {
   width: 1200px;
   height: 300px;
   margin: 50px auto 0 auto;
   display: flex;
 }
 
-
-#skills { 
+#skills {
   width: 200px;
   height: 80px;
   margin: 200px auto 0 auto;
-  justify-content: center; 
-  align-items: center; 
-  text-align: center; 
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   display: flex;
   font-size: 40px;
   letter-spacing: 2px;
 }
 
-#skillsbox1 { 
+#skillsbox1 {
   width: 1200px;
   height: 300px;
   margin: 90px auto 0 auto;
   display: flex;
 }
 
-
-.skillsboxs { 
+.skillsboxs {
   height: 300px;
   width: 240px;
   margin-right: 80px;
 }
 
-.skillsboxslast { 
+.skillsboxslast {
   height: 300px;
   width: 240px;
 }
 
-#skillsbox2, #skillsbox3, #skillsbox4 { 
+#skillsbox2,
+#skillsbox3,
+#skillsbox4 {
   width: 1200px;
   height: 300px;
   margin: 50px auto 0 auto;
   display: flex;
 }
 
-.skillsboxstop { 
+.skillsboxstop {
   margin-top: 40px;
   height: 180px;
   width: 240px;
 }
-
 
 .skillsboxstop img {
   height: 180px;
@@ -352,45 +351,163 @@ width: 200px;
 .skillsboxsbottom {
   height: 80px;
   width: 240px;
-  justify-content: center; 
-  align-items: center; 
-  text-align: center; 
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   display: flex;
   font-size: 35px;
   letter-spacing: 2px;
 }
 
+/** Education **/
 
+* {
+  box-sizing: border-box;
+}
 
-/** experience section **/
+#Education {
+  width: 700px;
+  height: 80px;
+  margin: 200px auto 0 auto;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  font-size: 40px;
+  letter-spacing: 2px;
+}
+/* Timeline container */
+.timeline {
+  position: relative;
+  max-width: 800px; /* Adjust as needed */
+  margin: 0 auto;
+  padding: 20px 0;
+}
 
-#experience { 
+.timeline::after {
+  content: "";
+  position: absolute;
+  left: 20%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      #ccc 0px,
+      #ccc 2px,
+      transparent 2px,
+      transparent 6px
+    ),
+    /* Top dotted */ linear-gradient(#ccc, #ccc),
+    repeating-linear-gradient(
+      0deg,
+      #ccc 0px,
+      #ccc 2px,
+      transparent 2px,
+      transparent 6px
+    ); /* Bottom dotted */
+  background-repeat: no-repeat;
+  background-size:
+    2px 40px,
+    2px calc(100% - 80px),
+    2px 40px;
+  background-position:
+    0 0,
+    0 40px,
+    0 calc(100% - 40px);
+  z-index: -1;
+}
+
+.containers {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 80%;
+  left: 20%;
+  margin-top: 40px;
+}
+
+.contents {
+  padding: 10px;
+  background-color: #fff;
+  position: relative;
+  border-radius: 6px;
+}
+
+.date-badge {
+  position: absolute;
+  left: -120px;
+  top: 0;
+  background-color: #f0f0f0;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  width: auto;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.content h3 {
+  margin: 0 0 5px 0;
+  font-size: 18px;
+}
+
+.content h4 {
+  margin: 0 0 10px 0;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.content p {
+  margin: 0;
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+@media screen and (max-width: 600px) {
+  .timeline::after {
+    left: 40px;
+  }
+  .container {
+    width: 100%;
+    padding-left: 80px;
+    padding-right: 25px;
+    left: 0;
+  }
+  .date-badge {
+    left: -60px;
+  }
+}
+
+#experience {
   width: 200px;
   height: 80px;
   margin: 200px auto 0 auto;
-  justify-content: center; 
-  align-items: center; 
-  text-align: center; 
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   display: flex;
   font-size: 40px;
   letter-spacing: 2px;
 }
 
-#experience1 { 
+#experience1 {
   width: 1200px;
   height: 300px;
   margin: 100px auto 0 auto;
   text-align: center;
 }
 
-#experience2 { 
+#experience2 {
   width: 1200px;
   height: 300px;
   margin: 100px auto 0 auto;
   text-align: center;
 }
 
-#experience3 { 
+#experience3 {
   width: 1200px;
   height: 300px;
   margin: 100px auto 0 auto;
@@ -398,97 +515,96 @@ width: 200px;
 }
 
 .parent {
-    display: grid;
-    width: 100%;
-    height: 100%;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(7, 1fr);
-    gap: 20px;
-    border: 1px solid black;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  gap: 20px;
+  border: 1px solid black;
 }
 
 .div1 {
-    grid-column: span 3;
-    grid-row: span 4;
-    border-radius: 20px;
-    border: 1px solid black;
+  grid-column: span 3;
+  grid-row: span 4;
+  border-radius: 20px;
+  border: 1px solid black;
 }
 
-.div1 img { 
+.div1 img {
   height: 100%;
   width: 100%;
   border: 1px solid black;
 }
 
 .div2 {
-    grid-column: 5 / span 7;
-    font-size: 25px;
-    margin-top: 10px;
+  grid-column: 5 / span 7;
+  font-size: 25px;
+  margin-top: 10px;
 }
 
 .div3 {
-    grid-column: 4 / span 8;
-    grid-row: 2 / span 4;
-    text-align: left;
-    font-size: 18px;
-    margin-left: 30px;
-    width: 950px;
-    text-align: center; 
-    padding: 10px;
+  grid-column: 4 / span 8;
+  grid-row: 2 / span 4;
+  text-align: left;
+  font-size: 18px;
+  margin-left: 30px;
+  width: 950px;
+  text-align: center;
+  padding: 10px;
 }
 
-
 .div4 {
-    grid-column: span 3;
-    grid-row: 6;
-    border: 1px solid black;
+  grid-column: span 3;
+  grid-row: 6;
+  border: 1px solid black;
 }
 
 .div5 {
-    grid-column: 4 / span 3;
-    grid-row: 6;
-    border: 1px solid black;
+  grid-column: 4 / span 3;
+  grid-row: 6;
+  border: 1px solid black;
 }
 
 .div6 {
-    grid-column: 7 / span 3;
-    border: 1px solid black; 
-    grid-row: 6;
+  grid-column: 7 / span 3;
+  border: 1px solid black;
+  grid-row: 6;
 }
 
 .div7 {
-    grid-column: 10 / span 3;
-    grid-row: 6;
-    border: 1px solid black;
+  grid-column: 10 / span 3;
+  grid-row: 6;
+  border: 1px solid black;
 }
 
 .div8 {
-    grid-column: span 3;
-    grid-row: 7;
-    border: 1px solid black;
+  grid-column: span 3;
+  grid-row: 7;
+  border: 1px solid black;
 }
 
 .div9 {
-    grid-column: 4 / span 3;
-    grid-row: 7;
-    border: 1px solid black;
+  grid-column: 4 / span 3;
+  grid-row: 7;
+  border: 1px solid black;
 }
 
 .div10 {
-    grid-column: 7 / span 3;
-    grid-row: 7;
-    border: 1px solid black;
+  grid-column: 7 / span 3;
+  grid-row: 7;
+  border: 1px solid black;
 }
 
 .div11 {
-    grid-column: 10 / span 3;
-    grid-row: 7;
-    border: 1px solid black;
+  grid-column: 10 / span 3;
+  grid-row: 7;
+  border: 1px solid black;
 }
 
 /* projects section */
 
-#project1 { 
+#project1 {
   display: flex;
   width: 1300px;
   height: 300px;
@@ -496,15 +612,13 @@ width: 200px;
   margin: 200px auto 0 auto;
 }
 
-
-#project2 { 
+#project2 {
   display: flex;
   width: 1300px;
   height: 300px;
   justify-content: space-between;
   margin: 90px auto 0 auto;
 }
-
 
 .parent2 {
   display: grid;
@@ -516,161 +630,151 @@ width: 200px;
   border: 1px solid black;
 }
 
-    
 .div2a {
-    grid-column: span 7 / span 7;
-    grid-column-start: 6;
-    grid-row-start: 1;
-    border: 1px solid black;
-
+  grid-column: span 7 / span 7;
+  grid-column-start: 6;
+  grid-row-start: 1;
+  border: 1px solid black;
 }
 
 .div2b {
-    grid-column: span 5 / span 5;
-    grid-row: span 5 / span 5;
-    grid-column-start: 1;
-    grid-row-start: 1;
-    border: 1px solid black;
-
+  grid-column: span 5 / span 5;
+  grid-row: span 5 / span 5;
+  grid-column-start: 1;
+  grid-row-start: 1;
+  border: 1px solid black;
 }
 
 .div2c {
-    grid-column: span 7 / span 7;
-    grid-row: span 4 / span 4;
-    grid-column-start: 6;
-    grid-row-start: 2;
-    border: 1px solid black;
-
+  grid-column: span 7 / span 7;
+  grid-row: span 4 / span 4;
+  grid-column-start: 6;
+  grid-row-start: 2;
+  border: 1px solid black;
 }
 
 .div2d {
-    grid-column: span 5 / span 5;
-    grid-row-start: 6;
-    border: 1px solid black;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    margin-left: 20px;
+  grid-column: span 5 / span 5;
+  grid-row-start: 6;
+  border: 1px solid black;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin-left: 20px;
 }
 
 .div2e {
-    grid-column: span 5 / span 5;
-    grid-column-start: 7;
-    grid-row-start: 6;
-    border: 1px solid black;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-
+  grid-column: span 5 / span 5;
+  grid-column-start: 7;
+  grid-row-start: 6;
+  border: 1px solid black;
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }
 
-#project { 
- width: 200px;
+#project {
+  width: 200px;
   height: 80px;
   margin: 200px auto 0 auto;
-  justify-content: center; 
-  align-items: center; 
-  text-align: center; 
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   display: flex;
   font-size: 40px;
   letter-spacing: 2px;
 }
-
 
 /** Awards section **/
 
 #Awards {
- width: 700px;
+  width: 700px;
   height: 80px;
   margin: 200px auto 0 auto;
-  justify-content: center; 
-  align-items: center; 
-  text-align: center; 
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   display: flex;
   font-size: 40px;
   letter-spacing: 2px;
 }
 
-
-
 .Awards {
-    display: grid;
-    grid-template-columns: repeat(11, 1fr);
-    grid-template-rows: repeat(7, 1fr);
-    gap: 10px;
-    margin: 100px auto 0 auto;
+  display: grid;
+  grid-template-columns: repeat(11, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  gap: 10px;
+  margin: 100px auto 0 auto;
 
-    width: 1200px;
-    height: 700px;
+  width: 1200px;
+  height: 700px;
 }
-    
-.award1 {
-    grid-column: span 5 / span 5;
-    grid-row: span 5 / span 5;
 
+.award1 {
+  grid-column: span 5 / span 5;
+  grid-row: span 5 / span 5;
 }
 
 .award1 img {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .award2 img {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .award2 {
-    grid-column: span 5 / span 5;
-    grid-row: span 5 / span 5;
-    grid-column-start: 7;
-
+  grid-column: span 5 / span 5;
+  grid-row: span 5 / span 5;
+  grid-column-start: 7;
 }
 
 .award3 {
-    grid-column: span 5 / span 5;
-    grid-row-start: 6;
-
+  grid-column: span 5 / span 5;
+  grid-row-start: 6;
 }
 
-.award3, .award5{ 
+.award3,
+.award5 {
   font-size: 20px;
-  justify-content: center; 
-  align-items: center; 
-  text-align: center; 
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   display: flex;
 }
 
 .award4 {
-    grid-column: span 5 / span 5;
-    grid-column-start: 1;
-    grid-row-start: 7;
-    font-size: 22px;
+  grid-column: span 5 / span 5;
+  grid-column-start: 1;
+  grid-row-start: 7;
+  font-size: 22px;
 }
 
 .award5 {
-    grid-column: span 5 / span 5;
-    grid-column-start: 7;
-    grid-row-start: 6;
-    font-size: 22px;
+  grid-column: span 5 / span 5;
+  grid-column-start: 7;
+  grid-row-start: 6;
+  font-size: 22px;
 }
 
 .award6 {
-    grid-column: span 5 / span 5;
-    grid-column-start: 7;
-    grid-row-start: 7;
-    font-size: 22px;
+  grid-column: span 5 / span 5;
+  grid-column-start: 7;
+  grid-row-start: 7;
+  font-size: 22px;
 }
-        
+
 /** Contacts **/
-#contact { 
+#contact {
   width: 200px;
   height: 60px;
   margin: 200px auto 0 auto;
-  justify-content: center; 
-  align-items: center; 
-  text-align: center; 
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   display: flex;
   font-size: 40px;
   letter-spacing: 2px;
@@ -679,75 +783,76 @@ width: 200px;
   animation: slideDown 1s forwards ease-out;
 }
 
-#contact1, #contact2 {
+#contact1,
+#contact2 {
   transform: translateX(100px);
   opacity: 0;
   animation: slideInRight 1s forwards ease-out;
-  animation-delay: 0.3s; 
+  animation-delay: 0.3s;
 }
 
-#contactpage { 
+#contactpage {
   width: 1200px;
   height: 500px;
   margin: 80px auto 0 auto;
   display: flex;
 }
 
-#contact1 { 
+#contact1 {
   width: 500px;
   height: 500px;
   margin-right: 100px;
 }
 
-.contact { 
+.contact {
   width: 500px;
   height: 100px;
-  justify-content: center;
-  align-items: center;  
+  justify-content: left;
+  align-items: left;
   display: flex;
   font-size: 20px;
   letter-spacing: 2px;
 }
 
-#contactlogo { 
-  display: flex; 
-  width: 500px;
-  height: 100px;
+#contactlogo {
+  display: flex;
+  width: 400px;
+  height: 70px;
   transform: translateY(50px);
   opacity: 0;
   animation: slideUp 1s forwards ease-out;
   animation-delay: 0.6s;
 }
 
-.contactlogo { 
+.contactlogo {
   width: 62.5px;
   height: 100px;
   margin-right: 10px;
 }
 
-.contactlogo img { 
+.contactlogo img {
   width: 50px;
   height: 100px;
   margin-right: 20px;
 }
 
-#contact2 { 
+#contact2 {
   width: 600px;
   height: 500px;
 }
 
-#contact2a { 
+#contact2a {
   width: 600px;
   height: 100px;
   margin-top: 80px;
 }
 
-#contact2b { 
+#contact2b {
   width: 600px;
   height: 100px;
 }
 
-#contact2c { 
+#contact2c {
   width: 600px;
   height: 220px;
 }
@@ -779,7 +884,6 @@ width: 200px;
   height: 200px;
   width: 1200px;
   display: flex;
-  
 }
 
 /** footer - typing section **/
@@ -830,7 +934,7 @@ width: 200px;
 }
 
 /** more **/
-.more { 
+.more {
   height: 80px;
   width: 100px;
   margin: 50px auto 0 auto;
@@ -840,7 +944,6 @@ width: 200px;
   cursor: pointer;
   text-decoration: none;
 }
-
 
 /** SKILLS PAGE **/
 
@@ -993,4 +1096,3 @@ width: 200px;
   outline: 2px solid #4a17cb;
   outline-offset: 2px;
 }
-

@@ -1,4 +1,3 @@
-# <!-- Note: README — project overview. Comments added to code files for clarity. -->
 # 🌐 Personal Portfolio
 
 A modern, responsive personal portfolio website built with **Vite**, **HTML5**, **CSS3**, and **JavaScript**. Designed to showcase my projects, skills, and experience in a clean, accessible, and performant way.
@@ -18,6 +17,17 @@ A modern, responsive personal portfolio website built with **Vite**, **HTML5**, 
 - **Build Tool:** Vite
 - **Code Quality:** ESLint, Prettier, Husky
 - **CI/CD:** GitHub Actions
+
+## ▶ Run
+
+Clone and open the site from the project root:
+
+```bash
+git clone https://github.com/NathenaelTamirat/portfolio.git
+cd portfolio
+python3 -m http.server 8000
+# then open http://localhost:8000/
+```
 
 ## 📁 Project Structure
 
@@ -78,3 +88,4 @@ portfolio/
 │   └── styles.scss
 └── JS/
     └── script.js
+```
