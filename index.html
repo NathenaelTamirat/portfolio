@@ -69,7 +69,7 @@
             <div id="aboutme2">
                 <div id="aboutme3"></div>
             </div>
-            <div>
+            <div class="aboutme-right">
                 <div id="aboutme4">I am a software engineering professional with a focused interest in modern web
                     development and a strong commitment to building solid technical foundations. My primary experience
                     is in front-end engineering, where I work with HTML, CSS, and JavaScript to create structured,
@@ -328,51 +328,97 @@
     <!--AWARDS SECTION -->
     <section>
         <div id="Awards"> Awards and Certifications</div>
-        <div class="Awards">
-            <div class="award1">
-                <a href="https://www.udacity.com/certificate/e/6c3de1ca-12d7-11f0-b448-43b9926fad29"
-                    target="_blank"><img src="assets/images/Udacity2.jpeg"
-                        alt="Udacity- Introduction to programming certification"></a>
+
+        <!-- Certificate Carousel -->
+        <div class="carousel-wrapper">
+            <button class="carousel-arrow carousel-arrow--left" onclick="carouselPrev()"
+                aria-label="Previous certificate">&#10094;</button>
+
+            <div class="carousel-viewport">
+                <!-- Slide 1 -->
+                <div class="carousel-slide active">
+                    <div class="award-card">
+                        <div class="award-img">
+                            <a href="https://www.udacity.com/certificate/e/6c3de1ca-12d7-11f0-b448-43b9926fad29"
+                                target="_blank" rel="noopener noreferrer">
+                                <img src="assets/images/Udacity1.jpeg" alt="Udacity Certificate 1">
+                            </a>
+                        </div>
+                        <div class="award-title">Udacity &mdash; Introduction to Programming</div>
+                        <div class="award-desc">Learned to write and run basic programs, use variables and loops, and
+                            apply functions to solve problems. Built simple projects, debugged code, and got an
+                            introduction to HTML, CSS, and JavaScript.</div>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="carousel-slide">
+                    <div class="award-card">
+                        <div class="award-img">
+                            <a href="https://www.udacity.com/certificate/e/6c3de1ca-12d7-11f0-b448-43b9926fad29"
+                                target="_blank" rel="noopener noreferrer">
+                                <img src="assets/images/Udacity2.jpeg" alt="Udacity Certificate 2">
+                            </a>
+                        </div>
+                        <div class="award-title">Udacity &mdash; Certificate II</div>
+                        <div class="award-desc">Continued building on core programming fundamentals, applying structured
+                            problem-solving and expanding into modern development concepts.</div>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="carousel-slide">
+                    <div class="award-card">
+                        <div class="award-img">
+                            <a href="#" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/images/Udacity3.jpeg" alt="Udacity Certificate 3">
+                            </a>
+                        </div>
+                        <div class="award-title">Udacity &mdash; Certificate III</div>
+                        <div class="award-desc">Advanced through hands-on projects covering web development, data
+                            structures, and real-world application of coding best practices.</div>
+                    </div>
+                </div>
+
+                <!-- Slide 4 -->
+                <div class="carousel-slide">
+                    <div class="award-card">
+                        <div class="award-img">
+                            <a href="#" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/images/Udacity4.jpeg" alt="Udacity Certificate 4">
+                            </a>
+                        </div>
+                        <div class="award-title">Udacity &mdash; Certificate IV</div>
+                        <div class="award-desc">Completed a capstone-level program, integrating full-stack development
+                            skills and building production-ready web applications.</div>
+                    </div>
+                </div>
+
+                <!-- Slide 5 -->
+                <div class="carousel-slide">
+                    <div class="award-card">
+                        <div class="award-img">
+                            <a href="https://codeinplace.stanford.edu/cip5/certificate/p1oxia" target="_blank"
+                                rel="noopener noreferrer">
+                                <img src="assets/images/Codeinplace.png" alt="Stanford Code In Place certification">
+                            </a>
+                        </div>
+                        <div class="award-title">Stanford University &mdash; Code In Place (Python)</div>
+                        <div class="award-desc">Learned Python programming fundamentals including variables, loops, and
+                            functions. Practiced solving real coding problems and building small projects. Strengthened
+                            problem-solving and logical thinking skills.</div>
+                    </div>
+                </div>
             </div>
-            <div class="award2">
-                <a href="https://codeinplace.stanford.edu/cip5/certificate/p1oxia" target="_blank"
-                    rel="noopener noreferrer"><img src="assets/images/Codeinplace.png"
-                        alt="Stanford University- Code In Place (py) certification"></a>
-            </div>
-            <div class="award3">Udacity- Introduction to programming</div>
-            <div class="award4">I learned how to write and run basic programs, use variables and loops, and apply
-                functions to solve problems. I practiced building simple projects and debugging my code. I also got
-                an introduction to HTML, CSS, and JavaScript. Overall, it helped me understand the logic behind
-                programming and gave me hands-on coding experienc</div>
-            <div class="award5">Stanford University- Code In Place (py)</div>
-            <div class="award6">I learned Python programming fundamentals, including variables, loops, and
-                functions. I practiced solving real coding problems and building small projects. The course
-                strengthened my problem-solving and logical thinking skills. Overall, it gave me hands-on experience
-                writing Python code independently.</div>
+
+            <button class="carousel-arrow carousel-arrow--right" onclick="carouselNext()"
+                aria-label="Next certificate">&#10095;</button>
         </div>
 
-        <div class="Awards">
-            <div class="award1">
-                <a href="https://www.udacity.com/certificate/e/546eec08-1c80-11f0-9ff0-7f21adfdda5b" target="_blank"
-                    rel="noopener noreferrer"><img src="assets/images/Udacity3.jpeg"
-                        alt="Udacity- Data Analysis Fundamentals certification"></a>
-            </div>
-            <div class="award2">
-                <a href="https://www.udacity.com/certificate/e/284fd838-0d6e-11f0-b8d4-3bb125f78943" target="_blank"
-                    rel="noopener noreferrer"><img src="assets/images/Udacity4.jpeg"
-                        alt="Udacity- Andriod Developer Fundamentals certification"></a>
-            </div>
-            <div class="award3">Udacity- Andriod Developer Fundamentals</div>
-            <div class="award4">I learned how to build Android apps using Java, including designing interfaces,
-                handling input, and managing app navigation. I practiced working with data storage and app lifecycle
-                concepts. The course helped me understand mobile app structure and development workflows. Overall,
-                it gave me hands-on experience creating functional Android applications.</div>
-            <div class="award5">Udacity- Data Analysis Fundamentals</div>
-            <div class="award6">I learned the fundamentals of data analysis, including working with datasets,
-                cleaning data, and using basic statistical methods. I practiced analyzing data with tools like
-                Python and Excel. The course helped me interpret results and visualize insights effectively.
-                Overall, it gave me hands-on experience turning raw data into meaningful information.</div>
-        </div>
+        <!-- Dots indicator -->
+        <div class="carousel-dots" id="carouselDots"></div>
+
+
         <div class="more">
             <a href="assets/pages/awards.html" style="text-decoration: none;"
                 aria-label="Read more about awards and certifications"> More... </a>

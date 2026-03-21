@@ -51,3 +51,38 @@ function deleteWord(word) {
 }
 
 typeWord(words[gen.next().value]);
+
+
+// Certificate Carousel
+(function () {
+  const slides = document.querySelectorAll('.carousel-slide');
+  const dotsContainer = document.getElementById('carouselDots');
+  let current = 0;
+
+  // Build dot indicators
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Go to certificate ' + (i + 1));
+    dot.addEventListener('click', () => goToSlide(i));
+    dotsContainer.appendChild(dot);
+  });
+
+  function goToSlide(index) {
+    slides[current].classList.remove('active');
+    dotsContainer.children[current].classList.remove('active');
+    current = index;
+    slides[current].classList.add('active');
+    dotsContainer.children[current].classList.add('active');
+  }
+
+  // Expose globally so onclick attributes work
+  window.carouselNext = function () {
+    goToSlide((current + 1) % slides.length);
+  };
+
+  window.carouselPrev = function () {
+    goToSlide((current - 1 + slides.length) % slides.length);
+  };
+})();
+
