@@ -57,12 +57,28 @@ typeWord(words[gen.next().value]);
 (function () {
   const slides = document.querySelectorAll('.carousel-slide');
   const dotsContainer = document.getElementById('carouselDots');
-  let current = 0;
 
-  // Build dot indicators
+  // Sync initial index from whichever slide has .active in the DOM
+  let current = 0;
+  slides.forEach((slide, i) => {
+    if (slide.classList.contains('active')) {
+      current = i;
+    }
+  });
+
+  // Safety: ensure only the current slide has .active
+  slides.forEach((slide, i) => {
+    if (i === current) {
+      slide.classList.add('active');
+    } else {
+      slide.classList.remove('active');
+    }
+  });
+
+  // Build dot indicators (match the detected current)
   slides.forEach((_, i) => {
     const dot = document.createElement('button');
-    dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+    dot.className = 'carousel-dot' + (i === current ? ' active' : '');
     dot.setAttribute('aria-label', 'Go to certificate ' + (i + 1));
     dot.addEventListener('click', () => goToSlide(i));
     dotsContainer.appendChild(dot);
