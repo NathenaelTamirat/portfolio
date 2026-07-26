@@ -23,17 +23,32 @@ export default function HomePage() {
     <main id="main-content">
       <section className="hero" aria-labelledby="hero-title">
         <div className="container hero-grid">
-          <div className="hero-mark" aria-hidden="true">
-            <Image
-              src="/assets/images/logo.png"
-              width={1024}
-              height={1024}
-              sizes="(max-width: 760px) 180px, 320px"
-              alt=""
-              preload
-            />
+          <div className="hero-visual" aria-hidden="true">
+            <div className="hero-mark">
+              <Image
+                src="/assets/images/logo.png"
+                width={1024}
+                height={1024}
+                sizes="(max-width: 760px) 220px, 380px"
+                alt=""
+                preload
+              />
+            </div>
+            <div className="hero-orbit hero-orbit--html">
+              <Image src="/assets/icons/HTML5.svg" width={34} height={34} alt="" />
+            </div>
+            <div className="hero-orbit hero-orbit--js">
+              <Image src="/assets/icons/Javascript.svg" width={34} height={34} alt="" />
+            </div>
+            <div className="hero-orbit hero-orbit--figma">
+              <Image src="/assets/icons/Figma.svg" width={34} height={34} alt="" />
+            </div>
           </div>
           <div className="hero-copy">
+            <div className="availability-pill">
+              <span aria-hidden="true" />
+              Building, learning, and growing
+            </div>
             <p className="eyebrow">Software engineering portfolio</p>
             <h1 id="hero-title">
               Hello, I’m <span>Nathenael Tamirat.</span>
@@ -47,6 +62,20 @@ export default function HomePage() {
                 Contact me
               </Link>
             </div>
+            <dl className="hero-metrics" aria-label="Portfolio highlights">
+              <div>
+                <dt>Core tools</dt>
+                <dd>8</dd>
+              </div>
+              <div>
+                <dt>Certificates</dt>
+                <dd>5</dd>
+              </div>
+              <div>
+                <dt>Leadership roles</dt>
+                <dd>1</dd>
+              </div>
+            </dl>
           </div>
         </div>
       </section>
