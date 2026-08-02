@@ -31,7 +31,7 @@ export default function Home() {
             {/* Using standard img tag to prevent Next.js image errors for missing local files */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img 
-              src="/profile.jpg" 
+              src="/Nathenael.jpeg" 
               alt="Nathenael Tamirat" 
               className="h-full w-full object-cover transition-transform duration-500 group-hover/me:scale-110"
               onError={(e) => {
@@ -75,8 +75,8 @@ export default function Home() {
         <div className="w-fit rounded-full px-4 py-2 text-xl font-semibold bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-white shadow-sm dark:shadow-lg mb-10">Experience</div>
         
         <div className="relative">
-          {/* Central Line */}
-          <div className="absolute left-[20px] md:left-1/2 top-0 bottom-0 w-[2px] bg-zinc-200 dark:bg-zinc-800 -translate-x-1/2"></div>
+          {/* Central Line - made dotted */}
+          <div className="absolute left-[20px] md:left-1/2 top-0 bottom-0 border-l-[2px] border-dotted border-zinc-300 dark:border-zinc-700 -translate-x-1/2"></div>
           
           <div className="flex flex-col gap-y-12">
             
@@ -138,18 +138,18 @@ function TimelineItem({ role, company, duration, description, proofLink, positio
       {/* Spacer for the other side */}
       <div className="hidden md:block w-1/2"></div>
       
-      {/* Content Card */}
-      <div className={`w-full md:w-1/2 pl-12 md:pl-0 ${position === 'left' ? 'md:pr-10' : 'md:pl-10'} mt-0`}>
-        <div className="group flex flex-col justify-between rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-950/50 p-6 transition-all hover:border-emerald-500/30 hover:shadow-lg">
+      {/* Content Card (padding reduced to 20px from the center) */}
+      <div className={`w-full md:w-1/2 pl-10 md:pl-0 ${position === 'left' ? 'md:pr-5' : 'md:pl-5'} mt-0`}>
+        <div className="group flex flex-col justify-between rounded-none border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-950/50 p-6 transition-all hover:border-emerald-500/30 hover:shadow-lg">
           <div className="flex flex-col gap-y-1">
             <h3 className="text-lg font-semibold text-zinc-900 dark:text-white group-hover:text-emerald-500 dark:group-hover:text-emerald-400 transition-colors">{role}</h3>
             <div className="flex justify-between items-center mt-1">
               <p className="text-sm font-medium text-zinc-600 dark:text-zinc-400">{company}</p>
-              <span className="rounded-full bg-zinc-200 dark:bg-zinc-900 px-3 py-1 text-xs text-zinc-700 dark:text-zinc-300 border border-zinc-300 dark:border-zinc-800">{duration}</span>
+              <span className="rounded-full bg-zinc-200 dark:bg-zinc-900 px-3 py-1 text-xs text-zinc-700 dark:text-zinc-300 border border-zinc-300 dark:border-zinc-800 whitespace-nowrap">{duration}</span>
             </div>
             <p className="text-xs text-zinc-500 dark:text-zinc-500 mt-3 mb-4 leading-relaxed">{description}</p>
             
-            <Link href={proofLink} target="_blank" className="flex items-center gap-2 text-xs font-semibold text-emerald-600 dark:text-emerald-400 hover:underline w-fit border border-emerald-500/20 bg-emerald-500/10 px-3 py-1.5 rounded-full transition-all hover:bg-emerald-500/20">
+            <Link href={proofLink} target="_blank" className="flex items-center gap-2 text-xs font-semibold text-emerald-600 dark:text-emerald-400 hover:underline w-fit border border-emerald-500/20 bg-emerald-500/10 px-3 py-1.5 rounded-none transition-all hover:bg-emerald-500/20">
               <FiExternalLink size={14} /> View Work Proof
             </Link>
           </div>
