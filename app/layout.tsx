@@ -15,8 +15,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Nathenael Tamirat | Software Developer",
-  description: "Portfolio of Nathenael Tamirat - Software Developer, turning ideas into practical solutions.",
+  title: "Nathenael Tamirat | Software Engineer",
+  description: "Portfolio of Nathenael Tamirat - Software Engineer, turning ideas into practical solutions.",
+  icons: {
+    icon: "/logo.png",
+    apple: "/logo.png",
+  },
 };
 
 export default function RootLayout({

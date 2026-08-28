@@ -14,6 +14,7 @@ import {
   FiMessageCircle,
   FiExternalLink
 } from "react-icons/fi";
+import CertificateDock from "./components/CertificateDock";
 
 export default function Home() {
   return (
@@ -22,9 +23,13 @@ export default function Home() {
       {/* Introduction Section */}
       <div className="border-dashed border-zinc-200 dark:border-white/20 pb-10 mt-12 border-b">
         <div className="group flex flex-col items-start gap-y-6 lg:flex-row lg:items-center">
-          <div className="flex flex-col lg:hidden gap-2">
-            <h1 className="text-3xl font-semibold bg-gradient-to-r from-emerald-500 to-cyan-500 bg-clip-text text-transparent">Nathenael Tamirat</h1>
-            <span className="text-zinc-600 dark:text-zinc-400">Software Developer</span>
+          <div className="flex items-center gap-3 lg:hidden">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/logo.jpeg" alt="Logo" className="h-24 w-24 rounded-full object-cover -ml-[10%]" />
+            <div className="flex flex-col gap-1">
+              <h1 className="text-3xl font-semibold bg-gradient-to-r from-emerald-500 to-cyan-500 bg-clip-text text-transparent">Nathenael Tamirat</h1>
+              <span className="text-zinc-600 dark:text-zinc-400">Software Engineer</span>
+            </div>
           </div>
 
           <div className="group/me relative h-[400px] w-full lg:w-[32%] cursor-pointer overflow-hidden rounded-xl border border-zinc-200 dark:border-white/10 hover:border-emerald-500/50 transition-all shadow-lg dark:shadow-xl">
@@ -40,13 +45,17 @@ export default function Home() {
             />
           </div>
 
-          <div className="flex w-full flex-col justify-center gap-y-6 pt-3 lg:w-[68%] lg:pl-8 lg:pt-0">
-            <div className="hidden flex-col gap-2 lg:flex">
-              <h1 className="text-3xl font-semibold bg-gradient-to-r from-emerald-500 to-cyan-500 bg-clip-text text-transparent">Nathenael Tamirat</h1>
-              <span className="text-zinc-600 dark:text-zinc-400">Software Developer</span>
+          <div className="flex w-full flex-col justify-center gap-y-6 pt-3 lg:w-[68%] lg:pl-[10%] lg:pt-0">
+            <div className="hidden items-center gap-3 lg:flex">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/logo.jpeg" alt="Logo" className="h-24 w-24 rounded-full object-cover -ml-[10%]" />
+              <div className="flex flex-col gap-1">
+                <h1 className="text-3xl font-semibold bg-gradient-to-r from-emerald-500 to-cyan-500 bg-clip-text text-transparent">Nathenael Tamirat</h1>
+                <span className="text-zinc-600 dark:text-zinc-400">Software Engineer</span>
+              </div>
             </div>
 
-            <div className="flex flex-col gap-y-4 text-sm leading-relaxed text-zinc-700 dark:text-zinc-300">
+            <div className="flex flex-col gap-y-4 text-[16.8px] leading-relaxed text-zinc-700 dark:text-zinc-300 lg:-ml-5">
               <p>
                 Hello, I’m Nathenael Tamirat. I’m passionate about creating software that turns ideas into practical solutions. My journey into development began in 2018 when I was introduced to HTML, CSS, and JavaScript at school. What started as curiosity about how websites work gradually grew into a deeper interest in software engineering.
               </p>
@@ -56,7 +65,7 @@ export default function Home() {
             </div>
 
             {/* Socials: linkedin, github, email, telegram, twitter, whatsapp, tiktok */}
-            <div className="flex flex-wrap gap-2.5 mt-2">
+            <div className="flex flex-wrap gap-2.5 mt-2 lg:-ml-5">
               <SocialLink href="https://www.linkedin.com/in/nathenael-tamirat/" icon={<FaLinkedin size={22} />} />
               <SocialLink href="https://github.com/NathenaelTamirat" icon={<FaGithub size={22} />} />
               <SocialLink href="mailto:nathenaeltamiratbizuneh@gmail.com" icon={<FiMail size={22} />} />
@@ -147,6 +156,17 @@ export default function Home() {
         </div>
       </div>
 
+      {/* Awards and Certificates Section */}
+      <div className="pt-16">
+        <div className="w-fit rounded-none px-4 py-2 text-xl font-semibold bg-transparent border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-white shadow-sm mb-10">Awards and Certificates</div>
+        <p className="mb-8 text-sm text-zinc-600 dark:text-zinc-400">
+          A selection of certifications I’ve earned. Hover over the dock to preview each certificate.
+        </p>
+        <div className="flex justify-center">
+          <CertificateDock />
+        </div>
+      </div>
+
     </div>
   );
 }
@@ -199,7 +219,7 @@ function TimelineItem({ role, company, duration, description, proofLink, positio
       <div className="hidden md:block w-1/2"></div>
       
       {/* Content Card (padding reduced to 20px from the center) */}
-      <div className={`w-full md:w-1/2 pl-10 md:pl-0 ${position === 'left' ? 'md:pr-5' : 'md:pl-5'} mt-0`}>
+      <div className={`w-full md:w-1/2 pl-10 md:pl-0 ${position === 'left' ? 'md:ml-[40px]' : 'md:mr-[40px]'} mt-0`}>
         <div className="group flex flex-col justify-between rounded-none border border-zinc-200 dark:border-zinc-800 bg-transparent p-6 transition-all hover:border-emerald-500/30 hover:shadow-lg">
           <div className="flex flex-col gap-y-1">
             <h3 className="text-lg font-semibold text-zinc-900 dark:text-white group-hover:text-emerald-500 dark:group-hover:text-emerald-400 transition-colors">{role}</h3>
