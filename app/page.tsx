@@ -116,14 +116,33 @@ export default function Home() {
         <div className="w-fit rounded-none px-4 py-2 text-xl font-semibold bg-transparent border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-white shadow-sm mb-10">Projects</div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <ProjectCard 
-            title="Awesome Software App" 
-            description="A revolutionary app built to solve everyday problems with intuitive design and powerful features." 
-            imagePlaceholder="Image 1" 
+            title="YOM Technology" 
+            url="https://yomtechnologysolution.vercel.app"
+            description="Company website for a software engineering firm — showcases services, solutions, technologies, and a modern approach to building digital products for real-world problems." 
+            tag="Web App"
           />
           <ProjectCard 
-            title="Creative Portfolio" 
-            description="An interactive portfolio showcasing my development journey and highlighting key projects." 
-            imagePlaceholder="Image 2" 
+            title="BITS College" 
+            url="https://www.bitscollege.edu.et"
+            description="Official website for the School of Systems and Technology, presenting software engineering and IT management programs, admissions, and academic information." 
+            tag="Website"
+          />
+          <ProjectCard 
+            title="Sheba Extensionz" 
+            url="https://sheba-extentionz.vercel.app"
+            description="Digital storefront for premium luxury hair extensions, showcasing products and connecting clients to the brand." 
+            tag="E-commerce"
+          />
+          <ProjectCard 
+            title="Nahom Dental Clinic" 
+            url="https://nahom-dentali-clinic.vercel.app"
+            description="Luxury modern dentistry platform with an online appointment and contact experience for patients to reach the clinic easily." 
+            tag="Web App"
+          />
+          <ProjectCard 
+            title="Issue Management System" 
+            description="A system for tracking, managing, and resolving issues efficiently across teams and workflows." 
+            tag="Web App"
           />
         </div>
       </div>
@@ -145,20 +164,28 @@ function SocialLink({ href, icon }: { href: string; icon: React.ReactNode }) {
   );
 }
 
-function ProjectCard({ title, description, imagePlaceholder }: { title: string; description: string; imagePlaceholder: string }) {
-  return (
-    <div className="group flex flex-col gap-4 rounded-none border border-zinc-200 dark:border-zinc-800 bg-transparent p-6 transition-all hover:border-emerald-500/30 hover:shadow-lg">
-      <div className="flex flex-col sm:flex-row sm:items-start gap-4">
-        <div className="h-16 w-16 shrink-0 bg-zinc-100 dark:bg-zinc-900 border border-zinc-300 dark:border-zinc-700 flex items-center justify-center">
-          <span className="text-[10px] text-zinc-500 italic text-center leading-tight px-1">Will Attach {imagePlaceholder}</span>
-        </div>
+function ProjectCard({ title, url, description, tag }: { title: string; url?: string; description: string; tag?: string }) {
+  const card = (
+    <div className="group flex h-full flex-col gap-4 rounded-none border border-zinc-200 dark:border-zinc-800 bg-transparent p-6 transition-all hover:border-emerald-500/30 hover:shadow-lg">
+      <div className="flex flex-col gap-4">
+        {tag && (
+          <span className="w-fit rounded-full bg-zinc-200 dark:bg-zinc-900 px-3 py-1 text-xs text-zinc-700 dark:text-zinc-300 border border-zinc-300 dark:border-zinc-800">{tag}</span>
+        )}
         <div className="flex flex-col">
           <h3 className="text-lg font-bold text-zinc-900 dark:text-white group-hover:text-emerald-500 dark:group-hover:text-emerald-400 transition-colors">{title}</h3>
-          <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">{description}</p>
+          <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed flex-1">{description}</p>
+          {url && (
+            <span className="mt-4 flex items-center gap-2 text-xs font-semibold text-emerald-600 dark:text-emerald-400 w-fit border border-emerald-500/20 bg-emerald-500/10 px-3 py-1.5 rounded-none">
+              <FiExternalLink size={14} /> Visit Project
+            </span>
+          )}
         </div>
       </div>
     </div>
   );
+  return url ? (
+    <Link href={url} target="_blank" rel="noopener noreferrer" className="block h-full">{card}</Link>
+  ) : card;
 }
 
 function TimelineItem({ role, company, duration, description, proofLink, position }: { role: string; company: string; duration: string; description: string; proofLink: string; position: 'left' | 'right' }) {
