@@ -164,7 +164,7 @@ export default function CertificateDock() {
           disabled={!canLeft}
           className="flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-100/70 px-5 py-2.5 text-sm font-semibold text-emerald-700 shadow-sm backdrop-blur transition-all hover:scale-105 hover:bg-emerald-100 active:scale-95 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:scale-100 dark:bg-emerald-500/15 dark:text-emerald-300 dark:hover:bg-emerald-500/25"
         >
-          <FiChevronLeft size={20} /> <span>Previous</span>
+          <FiChevronLeft size={20} />
         </button>
         <button
           type="button"
@@ -173,7 +173,7 @@ export default function CertificateDock() {
           disabled={!canRight}
           className="flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-100/70 px-5 py-2.5 text-sm font-semibold text-emerald-700 shadow-sm backdrop-blur transition-all hover:scale-105 hover:bg-emerald-100 active:scale-95 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:scale-100 dark:bg-emerald-500/15 dark:text-emerald-300 dark:hover:bg-emerald-500/25"
         >
-          <span>Next</span> <FiChevronRight size={20} />
+          <FiChevronRight size={20} />
         </button>
       </div>
 
