@@ -51,14 +51,14 @@ const certificates: Certificate[] = [
 
 const MAX_SCALE = 1.35;
 const INFLUENCE = 240;
+const VISIBLE = 2;
 
 export default function CertificateDock() {
-  const trackRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<(HTMLAnchorElement | null)[]>([]);
   const [scales, setScales] = useState<number[]>(certificates.map(() => 1));
   const [active, setActive] = useState<number | null>(null);
-  const [canLeft, setCanLeft] = useState(false);
-  const [canRight, setCanRight] = useState(true);
+  const [start, setStart] = useState(0);
+  const [page, setPage] = useState(0);
 
   const handleMouseMove = useCallback((x: number) => {
     setScales(
@@ -76,20 +76,12 @@ export default function CertificateDock() {
     );
   }, []);
 
-  const scroll = (dir: 1 | -1) => {
-    const track = trackRef.current;
-    if (!track) return;
-    const card = cardRefs.current[0];
-    const step = card ? card.offsetWidth + 24 : 360;
-    track.scrollBy({ left: dir * step, behavior: "smooth" });
+  const go = (dir: 1 | -1) => {
+    const n = certificates.length;
+    setStart((s) => (s + dir + n) % n);
   };
 
-  const onScroll = () => {
-    const track = trackRef.current;
-    if (!track) return;
-    setCanLeft(track.scrollLeft > 10);
-    setCanRight(track.scrollLeft < track.scrollWidth - track.clientWidth - 10);
-  };
+  const step = () => setPage((p) => p + 1);
 
   return (
     <div
@@ -101,23 +93,25 @@ export default function CertificateDock() {
       }}
     >
       <div
-        ref={trackRef}
-        onScroll={onScroll}
-        className="no-scrollbar flex items-stretch gap-6 overflow-x-auto scroll-smooth px-14 py-2"
+        className="no-scrollbar flex items-stretch justify-center gap-6 px-14 py-2"
+        key={page}
+        style={{ animation: "none" }}
       >
-        {certificates.map((cert, i) => {
-          const scale = scales[i];
-          const isActive = active === i;
+        {Array.from({ length: VISIBLE }, (_, k) => {
+          const idx = (start + k) % certificates.length;
+          const cert = certificates[idx];
+          const scale = scales[idx];
+          const isActive = active === idx;
           return (
             <a
-              key={cert.link}
+              key={idx + "-" + k}
               href={cert.link}
               target="_blank"
               rel="noopener noreferrer"
               ref={(el) => {
-                cardRefs.current[i] = el;
+                cardRefs.current[idx] = el;
               }}
-              onMouseEnter={() => setActive(i)}
+              onMouseEnter={() => setActive(idx)}
               onMouseLeave={() => setActive(null)}
               className="group relative flex w-[calc(50%-12px)] shrink-0 snap-center flex-col items-center"
               style={{
@@ -155,23 +149,27 @@ export default function CertificateDock() {
         })}
       </div>
 
-      {/* Carousel controls (outside the certificates) */}
+      {/* Infinite-loop carousel controls */}
       <div className="mt-6 flex items-center justify-center gap-4">
         <button
           type="button"
-          aria-label="Scroll left"
-          onClick={() => scroll(-1)}
-          disabled={!canLeft}
-          className="flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-100/70 px-5 py-2.5 text-sm font-semibold text-emerald-700 shadow-sm backdrop-blur transition-all hover:scale-105 hover:bg-emerald-100 active:scale-95 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:scale-100 dark:bg-emerald-500/15 dark:text-emerald-300 dark:hover:bg-emerald-500/25"
+          aria-label="Previous"
+          onClick={() => {
+            go(-1);
+            step();
+          }}
+          className="flex items-center rounded-full border border-emerald-500/30 bg-emerald-100/70 px-5 py-2.5 text-sm font-semibold text-emerald-700 shadow-sm backdrop-blur transition-all hover:scale-105 hover:bg-emerald-100 active:scale-95 dark:bg-emerald-500/15 dark:text-emerald-300 dark:hover:bg-emerald-500/25"
         >
           <FiChevronLeft size={20} />
         </button>
         <button
           type="button"
-          aria-label="Scroll right"
-          onClick={() => scroll(1)}
-          disabled={!canRight}
-          className="flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-100/70 px-5 py-2.5 text-sm font-semibold text-emerald-700 shadow-sm backdrop-blur transition-all hover:scale-105 hover:bg-emerald-100 active:scale-95 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:scale-100 dark:bg-emerald-500/15 dark:text-emerald-300 dark:hover:bg-emerald-500/25"
+          aria-label="Next"
+          onClick={() => {
+            go(1);
+            step();
+          }}
+          className="flex items-center rounded-full border border-emerald-500/30 bg-emerald-100/70 px-5 py-2.5 text-sm font-semibold text-emerald-700 shadow-sm backdrop-blur transition-all hover:scale-105 hover:bg-emerald-100 active:scale-95 dark:bg-emerald-500/15 dark:text-emerald-300 dark:hover:bg-emerald-500/25"
         >
           <FiChevronRight size={20} />
         </button>

@@ -99,7 +99,7 @@ export default function Home() {
             />
 
             <TimelineItem 
-              role="Team Member / Leader" 
+              role="Technical Lead" 
               company="GDGOC BITS College" 
               duration="2025 — 2026"
               description="Collaborated with peers, organized events, and led initiatives as part of the Google Developer Groups on Campus."
@@ -218,8 +218,8 @@ function TimelineItem({ role, company, duration, description, proofLink, positio
       {/* Spacer for the other side */}
       <div className="hidden md:block w-1/2"></div>
       
-      {/* Content Card (padding reduced to 20px from the center) */}
-      <div className={`w-full md:w-1/2 pl-10 md:pl-0 ${position === 'left' ? 'md:ml-[40px]' : 'md:mr-[40px]'} mt-0`}>
+      {/* Content Card (clear gap from the vertical line) */}
+      <div className={`w-full md:w-1/2 pl-14 md:pl-0 ${position === 'left' ? 'md:ml-[48px]' : 'md:mr-[48px]'} mt-0`}>
         <div className="group flex flex-col justify-between rounded-none border border-zinc-200 dark:border-zinc-800 bg-transparent p-6 transition-all hover:border-emerald-500/30 hover:shadow-lg">
           <div className="flex flex-col gap-y-1">
             <h3 className="text-lg font-semibold text-zinc-900 dark:text-white group-hover:text-emerald-500 dark:group-hover:text-emerald-400 transition-colors">{role}</h3>
