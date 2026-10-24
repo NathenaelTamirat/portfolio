@@ -2,7 +2,6 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import { TbLanguage } from "react-icons/tb";
-import { FiCheck } from "react-icons/fi";
 import { useLanguage } from "../context/LanguageContext";
 import { LANGUAGES, LanguageCode } from "../i18n/languages";
 
@@ -19,7 +18,7 @@ export function LanguageSelector() {
     () => false
   );
 
-  // Close when clicking outside
+  // Close when clicking outside or pressing Escape
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
@@ -67,22 +66,32 @@ export function LanguageSelector() {
         aria-haspopup="listbox"
         aria-expanded={isOpen}
         title={t.nav.selectLanguage}
-        className="flex h-9 w-9 items-center justify-center rounded-full border border-zinc-200 bg-white text-zinc-600 transition-colors hover:text-emerald-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-400 dark:hover:text-emerald-400 shadow-sm"
+        className={`flex h-9 w-9 items-center justify-center rounded-full border border-zinc-200 bg-white text-zinc-600 transition-[transform,colors,box-shadow] duration-200 hover:text-emerald-500 hover:scale-105 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-400 dark:hover:text-emerald-400 shadow-sm ${
+          isOpen ? "border-emerald-500 text-emerald-500 ring-2 ring-emerald-500/20" : ""
+        }`}
       >
-        <TbLanguage className="h-5 w-5" aria-hidden="true" />
+        <TbLanguage className="h-5 w-5 transition-transform duration-200" aria-hidden="true" />
       </button>
 
-      {/* Language Dropdown Menu */}
+      {/* Floating Disconnected Pills Popover */}
       {isOpen && (
         <div 
           role="listbox"
           aria-label={t.nav.selectLanguage}
-          className="absolute right-0 top-full mt-2 w-64 max-h-[75vh] overflow-y-auto rounded-none border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 p-1.5 shadow-2xl z-50 focus:outline-none"
+          className="absolute right-0 top-full mt-2 w-[270px] sm:w-[310px] rounded-2xl border border-zinc-200/90 dark:border-zinc-800/90 bg-white/95 dark:bg-zinc-950/95 backdrop-blur-md p-3 shadow-2xl z-50 focus:outline-none transition-[opacity,transform] duration-200 ease-out"
         >
-          <div className="px-3 py-2 text-[11px] font-semibold tracking-wider text-zinc-400 dark:text-zinc-500 uppercase border-b border-zinc-100 dark:border-zinc-800/80 mb-1">
-            {t.nav.selectLanguage}
+          {/* Subtle Header */}
+          <div className="flex items-center justify-between px-1 pb-2 mb-2 border-b border-zinc-100 dark:border-zinc-800/80">
+            <span className="text-[11px] font-semibold tracking-wider text-zinc-400 dark:text-zinc-500 uppercase">
+              {t.nav.selectLanguage}
+            </span>
+            <span className="text-[10px] font-mono text-zinc-400 dark:text-zinc-500">
+              11
+            </span>
           </div>
-          <div className="flex flex-col gap-0.5">
+
+          {/* Floating Disconnected Pills Wrap */}
+          <div className="flex flex-wrap gap-2 pt-0.5">
             {LANGUAGES.map((item) => {
               const isSelected = item.code === language;
               return (
@@ -91,21 +100,22 @@ export function LanguageSelector() {
                   role="option"
                   aria-selected={isSelected}
                   onClick={() => handleSelect(item.code)}
-                  className={`flex w-full items-center justify-between gap-3 px-3 py-2 text-left text-xs transition-colors rounded-none ${
+                  className={`group relative inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium cursor-pointer touch-manipulation transition-[transform,colors,box-shadow,border-color] duration-200 ease-out hover:scale-105 hover:-translate-y-0.5 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 border ${
                     isSelected
-                      ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-semibold"
-                      : "text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-zinc-900 dark:hover:text-white"
-                  } focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-emerald-500`}
+                      ? "border-emerald-500 bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-semibold shadow-xs shadow-emerald-500/20 ring-1 ring-emerald-500/30"
+                      : "border-zinc-200 dark:border-zinc-800 bg-zinc-50/90 dark:bg-zinc-900/80 text-zinc-700 dark:text-zinc-300 shadow-xs hover:border-emerald-500/50 hover:bg-emerald-500/5 hover:text-emerald-600 dark:hover:text-emerald-400"
+                  }`}
                 >
-                  <div className="flex flex-col">
-                    <span className="font-medium">{item.label}</span>
-                    <span className="text-[11px] text-zinc-400 dark:text-zinc-500">
-                      {item.nativeName}
-                    </span>
-                  </div>
+                  {/* Active Indicator Pulse Dot */}
                   {isSelected && (
-                    <FiCheck className="h-4 w-4 text-emerald-500 shrink-0" aria-hidden="true" />
+                    <span className="relative flex h-1.5 w-1.5">
+                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
+                      <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
+                    </span>
                   )}
+                  <span translate="no" className="tracking-tight">
+                    {item.label}
+                  </span>
                 </button>
               );
             })}

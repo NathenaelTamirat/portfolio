@@ -13,20 +13,19 @@ export type LanguageCode =
 
 export type LanguageOption = {
   code: LanguageCode;
-  label: string;
-  nativeName: string;
+  label: string; // Written strictly in its own native language
 };
 
 export const LANGUAGES: LanguageOption[] = [
-  { code: "en", label: "English", nativeName: "English" },
-  { code: "zh", label: "Mandarin Chinese", nativeName: "中文" },
-  { code: "hi", label: "Hindi", nativeName: "हिन्दी" },
-  { code: "es", label: "Spanish", nativeName: "Español" },
-  { code: "de", label: "German", nativeName: "Deutsch" },
-  { code: "fr", label: "French", nativeName: "Français" },
-  { code: "ja", label: "Japanese", nativeName: "日本語" },
-  { code: "ru", label: "Russian", nativeName: "Русский" },
-  { code: "pt", label: "Portuguese", nativeName: "Português" },
-  { code: "ko", label: "Korean", nativeName: "한국어" },
-  { code: "am", label: "Amharic", nativeName: "አማርኛ" },
+  { code: "en", label: "English" },
+  { code: "zh", label: "中文" },
+  { code: "hi", label: "हिन्दी" },
+  { code: "es", label: "Español" },
+  { code: "de", label: "Deutsch" },
+  { code: "fr", label: "Français" },
+  { code: "ja", label: "日本語" },
+  { code: "ru", label: "Русский" },
+  { code: "pt", label: "Português" },
+  { code: "ko", label: "한국어" },
+  { code: "am", label: "አማርኛ" },
 ];
