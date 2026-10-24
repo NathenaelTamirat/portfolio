@@ -73,53 +73,40 @@ export function LanguageSelector() {
         <TbLanguage className="h-5 w-5 transition-transform duration-200" aria-hidden="true" />
       </button>
 
-      {/* Floating Disconnected Pills Popover */}
+      {/* Floating Vertical Disconnected Pills (No visible parent container) */}
       {isOpen && (
         <div 
           role="listbox"
           aria-label={t.nav.selectLanguage}
-          className="absolute right-0 top-full mt-2 w-[270px] sm:w-[310px] rounded-2xl border border-zinc-200/90 dark:border-zinc-800/90 bg-white/95 dark:bg-zinc-950/95 backdrop-blur-md p-3 shadow-2xl z-50 focus:outline-none transition-[opacity,transform] duration-200 ease-out"
+          className="absolute right-0 top-full mt-2 flex flex-col items-end gap-1.5 z-50 focus:outline-none"
         >
-          {/* Subtle Header */}
-          <div className="flex items-center justify-between px-1 pb-2 mb-2 border-b border-zinc-100 dark:border-zinc-800/80">
-            <span className="text-[11px] font-semibold tracking-wider text-zinc-400 dark:text-zinc-500 uppercase">
-              {t.nav.selectLanguage}
-            </span>
-            <span className="text-[10px] font-mono text-zinc-400 dark:text-zinc-500">
-              11
-            </span>
-          </div>
-
-          {/* Floating Disconnected Pills Wrap */}
-          <div className="flex flex-wrap gap-2 pt-0.5">
-            {LANGUAGES.map((item) => {
-              const isSelected = item.code === language;
-              return (
-                <button
-                  key={item.code}
-                  role="option"
-                  aria-selected={isSelected}
-                  onClick={() => handleSelect(item.code)}
-                  className={`group relative inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium cursor-pointer touch-manipulation transition-[transform,colors,box-shadow,border-color] duration-200 ease-out hover:scale-105 hover:-translate-y-0.5 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 border ${
-                    isSelected
-                      ? "border-emerald-500 bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-semibold shadow-xs shadow-emerald-500/20 ring-1 ring-emerald-500/30"
-                      : "border-zinc-200 dark:border-zinc-800 bg-zinc-50/90 dark:bg-zinc-900/80 text-zinc-700 dark:text-zinc-300 shadow-xs hover:border-emerald-500/50 hover:bg-emerald-500/5 hover:text-emerald-600 dark:hover:text-emerald-400"
-                  }`}
-                >
-                  {/* Active Indicator Pulse Dot */}
-                  {isSelected && (
-                    <span className="relative flex h-1.5 w-1.5">
-                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
-                      <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
-                    </span>
-                  )}
-                  <span translate="no" className="tracking-tight">
-                    {item.label}
+          {LANGUAGES.map((item) => {
+            const isSelected = item.code === language;
+            return (
+              <button
+                key={item.code}
+                role="option"
+                aria-selected={isSelected}
+                onClick={() => handleSelect(item.code)}
+                className={`group relative inline-flex items-center justify-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-medium cursor-pointer touch-manipulation whitespace-nowrap transition-[transform,colors,box-shadow,border-color] duration-150 ease-out hover:scale-105 hover:-translate-y-0.5 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 border backdrop-blur-md ${
+                  isSelected
+                    ? "border-emerald-500 bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 font-semibold shadow-md shadow-emerald-500/10 ring-1 ring-emerald-500/30"
+                    : "border-zinc-200 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/90 text-zinc-700 dark:text-zinc-300 shadow-sm hover:border-emerald-500/50 hover:bg-emerald-500/10 hover:text-emerald-600 dark:hover:text-emerald-400"
+                }`}
+              >
+                {/* Active Indicator Pulse Dot */}
+                {isSelected && (
+                  <span className="relative flex h-1.5 w-1.5">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
+                    <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
                   </span>
-                </button>
-              );
-            })}
-          </div>
+                )}
+                <span translate="no" className="tracking-tight">
+                  {item.label}
+                </span>
+              </button>
+            );
+          })}
         </div>
       )}
     </div>
