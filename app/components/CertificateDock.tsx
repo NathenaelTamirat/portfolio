@@ -1,6 +1,7 @@
 "use client";
 
-import { useCallback, useRef, useState } from "react";
+import { useState } from "react";
+import Image from "next/image";
 import { FiExternalLink, FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 type Certificate = {
@@ -8,6 +9,8 @@ type Certificate = {
   subtitle: string;
   preview: string;
   link: string;
+  width: number;
+  height: number;
 };
 
 const certificates: Certificate[] = [
@@ -16,187 +19,136 @@ const certificates: Certificate[] = [
     subtitle: "Udacity",
     preview: "/certificates/udacity-android.png",
     link: "https://www.udacity.com/certificate/e/284fd838-0d6e-11f0-b8d4-3bb125f78943",
+    width: 600,
+    height: 463,
   },
   {
     title: "Artificial Intelligence",
     subtitle: "Udacity",
     preview: "/certificates/udacity-ai.png",
     link: "https://www.udacity.com/certificate/e/6c3de1ca-12d7-11f0-b448-43b9926fad29",
+    width: 600,
+    height: 463,
   },
   {
     title: "Data Analysis Fundamentals",
     subtitle: "Udacity",
     preview: "/certificates/udacity-data-analyst.png",
     link: "https://www.udacity.com/certificate/e/546eec08-1c80-11f0-9ff0-7f21adfdda5b",
+    width: 600,
+    height: 463,
   },
   {
     title: "Programming Fundamentals",
     subtitle: "Udacity",
     preview: "/certificates/udacity-tech-scholarship.png",
     link: "/certificates/udacity-tech-scholarship.pdf",
+    width: 600,
+    height: 463,
   },
   {
     title: "Code in Place",
     subtitle: "Stanford",
     preview: "/certificates/stanford-code-in-place.png",
     link: "/certificates/stanford-code-in-place.pdf",
+    width: 600,
+    height: 425,
   },
   {
     title: "ALX - Professional Foundation",
     subtitle: "ALX",
     preview: "/certificates/alx-professional-foundations.png",
     link: "https://savanna.alxafrica.com/certificates/7pLMPxrseN",
+    width: 1280,
+    height: 720,
   },
 ];
 
-const MAX_SCALE = 1.35;
-const INFLUENCE = 240;
-const VISIBLE = 2;
-
 export default function CertificateDock() {
-  const cardRefs = useRef<(HTMLAnchorElement | null)[]>([]);
-  const [scales, setScales] = useState<number[]>(certificates.map(() => 1));
-  const [active, setActive] = useState<number | null>(null);
-  const [start, setStart] = useState(0);
-  const [page, setPage] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const total = certificates.length;
 
-  const handleMouseMove = useCallback((x: number) => {
-    setScales(
-      certificates.map((_, i) => {
-        const el = cardRefs.current[i];
-        if (!el) return 1;
-        const r = el.getBoundingClientRect();
-        const center = r.left + r.width / 2;
-        const dist = Math.abs(x - center);
-        if (dist > INFLUENCE) return 1;
-        const t = 1 - dist / INFLUENCE;
-        const eased = 1 - Math.pow(1 - t, 5);
-        return 1 + (MAX_SCALE - 1) * eased;
-      })
-    );
-  }, []);
-
-  const go = (dir: 1 | -1) => {
-    const n = certificates.length;
-    setStart((s) => (s + dir + n) % n);
+  const handlePrev = () => {
+    setCurrentIndex((prev) => (prev - 1 + total) % total);
   };
 
-  const step = () => setPage((p) => p + 1);
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev + 1) % total);
+  };
+
+  // On desktop we display 2 items side-by-side, on mobile 1 item
+  const item1 = certificates[currentIndex];
+  const item2 = certificates[(currentIndex + 1) % total];
 
   return (
-    <div
-      className="relative w-full"
-      onMouseMove={(e) => handleMouseMove(e.clientX)}
-      onMouseLeave={() => {
-        setScales(certificates.map(() => 1));
-        setActive(null);
-      }}
-    >
-      <div
-        className="no-scrollbar flex items-stretch justify-center gap-6 px-14 py-2"
-        key={page}
-        style={{ animation: "none" }}
-      >
-        {Array.from({ length: VISIBLE }, (_, k) => {
-          const idx = (start + k) % certificates.length;
-          const cert = certificates[idx];
-          const scale = scales[idx];
-          const isActive = active === idx;
-          return (
-            <a
-              key={idx + "-" + k}
-              href={cert.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              ref={(el) => {
-                cardRefs.current[idx] = el;
-              }}
-              onMouseEnter={() => setActive(idx)}
-              onMouseLeave={() => setActive(null)}
-              className="group relative flex w-[calc(50%-12px)] shrink-0 snap-center flex-col items-center"
-              style={{
-                opacity: active !== null && !isActive ? 0.35 : 1,
-                filter: active !== null && !isActive ? "brightness(0.7)" : "brightness(1)",
-                transition: "opacity 200ms ease, filter 200ms ease",
-              }}
-            >
-              <div
-                className="relative z-10 w-full"
-                style={{
-                  transform: `scale(${scale})`,
-                  transformOrigin: "top center",
-                  transition: "transform 200ms cubic-bezier(0.34, 1.56, 0.64, 1)",
-                  zIndex: isActive ? 30 : 10,
-                }}
-              >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={cert.preview}
-                  alt={cert.title}
-                  className="w-full rounded-lg border border-zinc-200 object-cover shadow-md transition-shadow duration-300 group-hover:shadow-xl dark:border-zinc-700"
-                />
-              </div>
-              <div className="pointer-events-none relative z-0 mt-3 flex flex-col items-center gap-1.5">
-                <span className="text-2xl font-semibold text-zinc-800 dark:text-zinc-100">
-                  {cert.title}
-                </span>
-                <span className="flex items-center gap-1 text-lg font-medium text-emerald-600 dark:text-emerald-400">
-                  {cert.subtitle} <FiExternalLink size={18} />
-                </span>
-              </div>
-            </a>
-          );
-        })}
+    <div className="w-full flex flex-col items-center">
+      
+      {/* Mobile View: 1 Certificate Card */}
+      <div className="w-full sm:hidden">
+        <CertificateCard cert={item1} />
       </div>
 
-      {/* Infinite-loop carousel controls */}
-      <div className="mt-6 flex items-center justify-center gap-4">
+      {/* Desktop / Tablet View: 2 Certificate Cards */}
+      <div className="hidden sm:grid sm:grid-cols-2 gap-6 w-full">
+        <CertificateCard cert={item1} />
+        <CertificateCard cert={item2} />
+      </div>
+
+      {/* Navigation Controls without Animation */}
+      <div className="mt-8 flex items-center justify-center gap-4">
         <button
           type="button"
-          aria-label="Previous"
-          onClick={() => {
-            go(-1);
-            step();
-          }}
-          className="flex items-center rounded-full border border-emerald-500/30 bg-emerald-100/70 px-5 py-2.5 text-sm font-semibold text-emerald-700 shadow-sm backdrop-blur transition-all hover:scale-105 hover:bg-emerald-100 active:scale-95 dark:bg-emerald-500/15 dark:text-emerald-300 dark:hover:bg-emerald-500/25"
+          aria-label="Previous certificates"
+          onClick={handlePrev}
+          className="flex items-center justify-center rounded-none border border-zinc-200 dark:border-zinc-800 bg-transparent p-2.5 text-zinc-700 dark:text-zinc-300 transition-colors hover:border-emerald-500/50 hover:text-emerald-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
         >
-          <FiChevronLeft size={20} />
+          <FiChevronLeft size={18} />
         </button>
+
+        <span className="text-xs font-mono text-zinc-500 dark:text-zinc-400">
+          {currentIndex + 1} / {total}
+        </span>
+
         <button
           type="button"
-          aria-label="Next"
-          onClick={() => {
-            go(1);
-            step();
-          }}
-          className="flex items-center rounded-full border border-emerald-500/30 bg-emerald-100/70 px-5 py-2.5 text-sm font-semibold text-emerald-700 shadow-sm backdrop-blur transition-all hover:scale-105 hover:bg-emerald-100 active:scale-95 dark:bg-emerald-500/15 dark:text-emerald-300 dark:hover:bg-emerald-500/25"
+          aria-label="Next certificates"
+          onClick={handleNext}
+          className="flex items-center justify-center rounded-none border border-zinc-200 dark:border-zinc-800 bg-transparent p-2.5 text-zinc-700 dark:text-zinc-300 transition-colors hover:border-emerald-500/50 hover:text-emerald-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
         >
-          <FiChevronRight size={20} />
+          <FiChevronRight size={18} />
         </button>
       </div>
 
-      {/* Large full-certificate overlay on hover */}
-      {active !== null && certificates[active] ? (
-        <div className="pointer-events-none fixed inset-0 z-50 flex items-center justify-center p-6">
-          <div className="relative max-h-full max-w-3xl overflow-hidden rounded-xl border border-zinc-200 bg-white/95 p-3 shadow-2xl backdrop-blur-xl dark:border-zinc-700 dark:bg-zinc-900/95">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={certificates[active].preview}
-              alt={certificates[active].title}
-              className="max-h-[70vh] w-auto rounded-lg object-contain shadow-md"
-            />
-            <div className="mt-2 flex items-center justify-center gap-2">
-              <span className="text-sm font-semibold text-zinc-800 dark:text-zinc-100">
-                {certificates[active].title}
-              </span>
-              <span className="text-sm text-zinc-400">·</span>
-              <span className="text-sm text-emerald-600 dark:text-emerald-400">
-                {certificates[active].subtitle}
-              </span>
-            </div>
-          </div>
-        </div>
-      ) : null}
     </div>
+  );
+}
+
+function CertificateCard({ cert }: { cert: Certificate }) {
+  return (
+    <a
+      href={cert.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group flex flex-col justify-between rounded-none border border-zinc-200 dark:border-zinc-800 bg-transparent p-4 transition-colors hover:border-emerald-500/40 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+    >
+      <div className="relative w-full aspect-[4/3] overflow-hidden rounded-none border border-zinc-100 dark:border-zinc-800/80 bg-zinc-50 dark:bg-zinc-900/40">
+        <Image
+          src={cert.preview}
+          alt={cert.title}
+          fill
+          sizes="(max-width: 640px) 100vw, 50vw"
+          className="object-contain p-2"
+        />
+      </div>
+
+      <div className="mt-4 flex flex-col gap-1">
+        <h3 className="text-base font-semibold text-zinc-900 dark:text-white group-hover:text-emerald-500 dark:group-hover:text-emerald-400 transition-colors">
+          {cert.title}
+        </h3>
+        <span className="flex items-center gap-1.5 text-xs font-medium text-emerald-600 dark:text-emerald-400">
+          {cert.subtitle} <FiExternalLink size={13} />
+        </span>
+      </div>
+    </a>
   );
 }
