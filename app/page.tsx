@@ -15,6 +15,7 @@ import {
   FiArrowUpRight
 } from "react-icons/fi";
 import CertificateDock from "./components/CertificateDock";
+import SkillsSection from "./components/SkillsSection";
 
 type EventItem = {
   title: string;
@@ -300,6 +301,9 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      {/* Skills & Tech Stack Section */}
+      <SkillsSection />
 
       {/* Projects Section */}
       <section aria-labelledby="projects-heading" className="pt-16">
