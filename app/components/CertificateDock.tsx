@@ -3,60 +3,47 @@
 import { useState } from "react";
 import Image from "next/image";
 import { FiExternalLink, FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import { useLanguage } from "../context/LanguageContext";
 
-type Certificate = {
-  title: string;
-  subtitle: string;
+type CertificateBase = {
   preview: string;
   link: string;
   width: number;
   height: number;
 };
 
-const certificates: Certificate[] = [
+const certificateAssets: CertificateBase[] = [
   {
-    title: "Android Developer Fundamentals",
-    subtitle: "Udacity",
     preview: "/certificates/udacity-android.png",
     link: "https://www.udacity.com/certificate/e/284fd838-0d6e-11f0-b8d4-3bb125f78943",
     width: 600,
     height: 463,
   },
   {
-    title: "Artificial Intelligence",
-    subtitle: "Udacity",
     preview: "/certificates/udacity-ai.png",
     link: "https://www.udacity.com/certificate/e/6c3de1ca-12d7-11f0-b448-43b9926fad29",
     width: 600,
     height: 463,
   },
   {
-    title: "Data Analysis Fundamentals",
-    subtitle: "Udacity",
     preview: "/certificates/udacity-data-analyst.png",
     link: "https://www.udacity.com/certificate/e/546eec08-1c80-11f0-9ff0-7f21adfdda5b",
     width: 600,
     height: 463,
   },
   {
-    title: "Programming Fundamentals",
-    subtitle: "Udacity",
     preview: "/certificates/udacity-tech-scholarship.png",
     link: "/certificates/udacity-tech-scholarship.pdf",
     width: 600,
     height: 463,
   },
   {
-    title: "Code in Place",
-    subtitle: "Stanford",
     preview: "/certificates/stanford-code-in-place.png",
     link: "/certificates/stanford-code-in-place.pdf",
     width: 600,
     height: 425,
   },
   {
-    title: "ALX - Professional Foundation",
-    subtitle: "ALX",
     preview: "/certificates/alx-professional-foundations.png",
     link: "https://savanna.alxafrica.com/certificates/7pLMPxrseN",
     width: 1280,
@@ -65,8 +52,9 @@ const certificates: Certificate[] = [
 ];
 
 export default function CertificateDock() {
+  const { t } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
-  const total = certificates.length;
+  const total = certificateAssets.length;
 
   const handlePrev = () => {
     setCurrentIndex((prev) => (prev - 1 + total) % total);
@@ -76,9 +64,20 @@ export default function CertificateDock() {
     setCurrentIndex((prev) => (prev + 1) % total);
   };
 
-  // On desktop we display 2 items side-by-side, on mobile 1 item
-  const item1 = certificates[currentIndex];
-  const item2 = certificates[(currentIndex + 1) % total];
+  const certData = certificateAssets.map((asset, index) => {
+    const item = t.certificates.items[index] || {
+      title: "Certificate",
+      subtitle: "Verified",
+    };
+    return {
+      ...asset,
+      title: item.title,
+      subtitle: item.subtitle,
+    };
+  });
+
+  const item1 = certData[currentIndex];
+  const item2 = certData[(currentIndex + 1) % total];
 
   return (
     <div className="w-full flex flex-col items-center">
@@ -94,11 +93,11 @@ export default function CertificateDock() {
         <CertificateCard cert={item2} />
       </div>
 
-      {/* Navigation Controls without Animation */}
+      {/* Navigation Controls */}
       <div className="mt-8 flex items-center justify-center gap-4">
         <button
           type="button"
-          aria-label="Previous certificates"
+          aria-label={t.certificates.prev}
           onClick={handlePrev}
           className="flex items-center justify-center rounded-none border border-zinc-200 dark:border-zinc-800 bg-transparent p-2.5 text-zinc-700 dark:text-zinc-300 transition-colors hover:border-emerald-500/50 hover:text-emerald-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
         >
@@ -111,7 +110,7 @@ export default function CertificateDock() {
 
         <button
           type="button"
-          aria-label="Next certificates"
+          aria-label={t.certificates.next}
           onClick={handleNext}
           className="flex items-center justify-center rounded-none border border-zinc-200 dark:border-zinc-800 bg-transparent p-2.5 text-zinc-700 dark:text-zinc-300 transition-colors hover:border-emerald-500/50 hover:text-emerald-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
         >
@@ -123,7 +122,18 @@ export default function CertificateDock() {
   );
 }
 
-function CertificateCard({ cert }: { cert: Certificate }) {
+function CertificateCard({ 
+  cert 
+}: { 
+  cert: { 
+    title: string; 
+    subtitle: string; 
+    preview: string; 
+    link: string; 
+    width: number; 
+    height: number; 
+  } 
+}) {
   return (
     <a
       href={cert.link}

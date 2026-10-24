@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { 
   SiTypescript, 
@@ -33,6 +35,7 @@ import {
   TbRocket, 
   TbLanguage 
 } from "react-icons/tb";
+import { useLanguage } from "../context/LanguageContext";
 
 // Authentic Vector SVG for SQL
 function SqlLogo({ className = "w-4 h-4" }: { className?: string }) {
@@ -131,109 +134,81 @@ type SkillItem = {
   icon: React.ReactNode;
 };
 
-type SkillCategory = {
-  id: string;
-  title: string;
-  icon: React.ReactNode;
-  count: string;
-  items: SkillItem[];
-};
-
-const skillCategories: SkillCategory[] = [
-  {
-    id: "programming-languages",
-    title: "Programming Languages",
-    icon: <TbCode className="text-emerald-500" size={19} />,
-    count: "4",
-    items: [
-      { name: "TypeScript", icon: <SiTypescript className="w-4 h-4 text-[#3178C6] shrink-0" aria-hidden="true" /> },
-      { name: "JavaScript", icon: <SiJavascript className="w-4 h-4 text-[#F7DF1E] bg-black/90 rounded-[2px] p-[0.5px] shrink-0" aria-hidden="true" /> },
-      { name: "Rust", icon: <SiRust className="w-4 h-4 text-[#DEA584] dark:text-[#CE412B] shrink-0" aria-hidden="true" /> },
-      { name: "SQL", icon: <SqlLogo className="w-4 h-4 shrink-0" /> },
-    ],
-  },
-  {
-    id: "frontend",
-    title: "Frontend",
-    icon: <TbDeviceDesktop className="text-emerald-500" size={19} />,
-    count: "6",
-    items: [
-      { name: "React", icon: <SiReact className="w-4 h-4 text-[#61DAFB] shrink-0" aria-hidden="true" /> },
-      { name: "Next.js", icon: <SiNextdotjs className="w-4 h-4 text-black dark:text-white shrink-0" aria-hidden="true" /> },
-      { name: "React Native", icon: <TbBrandReactNative className="w-4 h-4 text-[#61DAFB] shrink-0" aria-hidden="true" /> },
-      { name: "Tailwind CSS", icon: <SiTailwindcss className="w-4 h-4 text-[#06B6D4] shrink-0" aria-hidden="true" /> },
-      { name: "HTML5", icon: <SiHtml5 className="w-4 h-4 text-[#E34F26] shrink-0" aria-hidden="true" /> },
-      { name: "CSS3", icon: <FaCss3Alt className="w-4 h-4 text-[#1572B6] shrink-0" aria-hidden="true" /> },
-    ],
-  },
-  {
-    id: "backend-apis",
-    title: "Backend & APIs",
-    icon: <TbCpu className="text-emerald-500" size={19} />,
-    count: "4",
-    items: [
-      { name: "Node.js", icon: <SiNodedotjs className="w-4 h-4 text-[#5FA04E] shrink-0" aria-hidden="true" /> },
-      { name: "Hono", icon: <SiHono className="w-4 h-4 text-[#E36002] shrink-0" aria-hidden="true" /> },
-      { name: "Express", icon: <SiExpress className="w-4 h-4 text-black dark:text-white shrink-0" aria-hidden="true" /> },
-      { name: "NestJS", icon: <SiNestjs className="w-4 h-4 text-[#E0234E] shrink-0" aria-hidden="true" /> },
-    ],
-  },
-  {
-    id: "deployment",
-    title: "Deployment",
-    icon: <TbRocket className="text-emerald-500" size={19} />,
-    count: "3",
-    items: [
-      { name: "iOS App Store", icon: <SiAppstore className="w-4 h-4 text-[#0D96F6] shrink-0" aria-hidden="true" /> },
-      { name: "Google Play Store", icon: <GooglePlayLogo className="w-4 h-4 shrink-0" /> },
-      { name: "TestFlight", icon: <TestFlightLogo className="w-4 h-4 shrink-0" /> },
-    ],
-  },
-  {
-    id: "data-infrastructure",
-    title: "Data & Infrastructure",
-    icon: <TbDatabase className="text-emerald-500" size={19} />,
-    count: "12",
-    items: [
-      { name: "PostgreSQL", icon: <SiPostgresql className="w-4 h-4 text-[#4169E1] shrink-0" aria-hidden="true" /> },
-      { name: "MongoDB", icon: <SiMongodb className="w-4 h-4 text-[#47A248] shrink-0" aria-hidden="true" /> },
-      { name: "Redis", icon: <SiRedis className="w-4 h-4 text-[#DC382D] shrink-0" aria-hidden="true" /> },
-      { name: "Supabase", icon: <SiSupabase className="w-4 h-4 text-[#3ECF8E] shrink-0" aria-hidden="true" /> },
-      { name: "Prisma", icon: <SiPrisma className="w-4 h-4 text-[#2D3748] dark:text-white shrink-0" aria-hidden="true" /> },
-      { name: "Docker", icon: <SiDocker className="w-4 h-4 text-[#2496ED] shrink-0" aria-hidden="true" /> },
-      { name: "GitHub Actions", icon: <SiGithubactions className="w-4 h-4 text-[#2088FF] shrink-0" aria-hidden="true" /> },
-      { name: "AWS", icon: <FaAws className="w-4 h-4 text-[#FF9900] shrink-0" aria-hidden="true" /> },
-      { name: "GCP", icon: <SiGooglecloud className="w-4 h-4 text-[#4285F4] shrink-0" aria-hidden="true" /> },
-      { name: "Vercel", icon: <SiVercel className="w-4 h-4 text-black dark:text-white shrink-0" aria-hidden="true" /> },
-      { name: "VPS", icon: <TbServer2 className="w-4 h-4 text-zinc-600 dark:text-zinc-300 shrink-0" aria-hidden="true" /> },
-      { name: "CI/CD", icon: <CicdLogo className="w-4 h-4 shrink-0" /> },
-    ],
-  },
-];
-
-type SpokenLanguage = {
-  name: string;
-  proficiency: string;
-  flag: React.ReactNode;
-  subtitle: string;
-};
-
-const spokenLanguages: SpokenLanguage[] = [
-  {
-    name: "Amharic",
-    proficiency: "Native",
-    flag: <EthiopiaFlag className="w-6 h-4 shrink-0 rounded-xs shadow-xs" />,
-    subtitle: "Mother tongue · Full native fluency in spoken & written",
-  },
-  {
-    name: "English",
-    proficiency: "Professional Working Proficiency",
-    flag: <EnglishFlag className="w-6 h-4 shrink-0 rounded-xs shadow-xs" />,
-    subtitle: "Professional fluency in technical writing & international collaboration",
-  },
-];
-
 export default function SkillsSection() {
+  const { t } = useLanguage();
+
+  const skillCategories = [
+    {
+      id: "programming-languages",
+      title: t.skills.categories.programmingLanguages,
+      icon: <TbCode className="text-emerald-500" size={19} />,
+      count: "4",
+      items: [
+        { name: "TypeScript", icon: <SiTypescript className="w-4 h-4 text-[#3178C6] shrink-0" aria-hidden="true" /> },
+        { name: "JavaScript", icon: <SiJavascript className="w-4 h-4 text-[#F7DF1E] bg-black/90 rounded-[2px] p-[0.5px] shrink-0" aria-hidden="true" /> },
+        { name: "Rust", icon: <SiRust className="w-4 h-4 text-[#DEA584] dark:text-[#CE412B] shrink-0" aria-hidden="true" /> },
+        { name: "SQL", icon: <SqlLogo className="w-4 h-4 shrink-0" /> },
+      ],
+    },
+    {
+      id: "frontend",
+      title: t.skills.categories.frontend,
+      icon: <TbDeviceDesktop className="text-emerald-500" size={19} />,
+      count: "6",
+      items: [
+        { name: "React", icon: <SiReact className="w-4 h-4 text-[#61DAFB] shrink-0" aria-hidden="true" /> },
+        { name: "Next.js", icon: <SiNextdotjs className="w-4 h-4 text-black dark:text-white shrink-0" aria-hidden="true" /> },
+        { name: "React Native", icon: <TbBrandReactNative className="w-4 h-4 text-[#61DAFB] shrink-0" aria-hidden="true" /> },
+        { name: "Tailwind CSS", icon: <SiTailwindcss className="w-4 h-4 text-[#06B6D4] shrink-0" aria-hidden="true" /> },
+        { name: "HTML5", icon: <SiHtml5 className="w-4 h-4 text-[#E34F26] shrink-0" aria-hidden="true" /> },
+        { name: "CSS3", icon: <FaCss3Alt className="w-4 h-4 text-[#1572B6] shrink-0" aria-hidden="true" /> },
+      ],
+    },
+    {
+      id: "backend-apis",
+      title: t.skills.categories.backendApis,
+      icon: <TbCpu className="text-emerald-500" size={19} />,
+      count: "4",
+      items: [
+        { name: "Node.js", icon: <SiNodedotjs className="w-4 h-4 text-[#5FA04E] shrink-0" aria-hidden="true" /> },
+        { name: "Hono", icon: <SiHono className="w-4 h-4 text-[#E36002] shrink-0" aria-hidden="true" /> },
+        { name: "Express", icon: <SiExpress className="w-4 h-4 text-black dark:text-white shrink-0" aria-hidden="true" /> },
+        { name: "NestJS", icon: <SiNestjs className="w-4 h-4 text-[#E0234E] shrink-0" aria-hidden="true" /> },
+      ],
+    },
+    {
+      id: "deployment",
+      title: t.skills.categories.deployment,
+      icon: <TbRocket className="text-emerald-500" size={19} />,
+      count: "3",
+      items: [
+        { name: "iOS App Store", icon: <SiAppstore className="w-4 h-4 text-[#0D96F6] shrink-0" aria-hidden="true" /> },
+        { name: "Google Play Store", icon: <GooglePlayLogo className="w-4 h-4 shrink-0" /> },
+        { name: "TestFlight", icon: <TestFlightLogo className="w-4 h-4 shrink-0" /> },
+      ],
+    },
+    {
+      id: "data-infrastructure",
+      title: t.skills.categories.dataInfrastructure,
+      icon: <TbDatabase className="text-emerald-500" size={19} />,
+      count: "12",
+      items: [
+        { name: "PostgreSQL", icon: <SiPostgresql className="w-4 h-4 text-[#4169E1] shrink-0" aria-hidden="true" /> },
+        { name: "MongoDB", icon: <SiMongodb className="w-4 h-4 text-[#47A248] shrink-0" aria-hidden="true" /> },
+        { name: "Redis", icon: <SiRedis className="w-4 h-4 text-[#DC382D] shrink-0" aria-hidden="true" /> },
+        { name: "Supabase", icon: <SiSupabase className="w-4 h-4 text-[#3ECF8E] shrink-0" aria-hidden="true" /> },
+        { name: "Prisma", icon: <SiPrisma className="w-4 h-4 text-[#2D3748] dark:text-white shrink-0" aria-hidden="true" /> },
+        { name: "Docker", icon: <SiDocker className="w-4 h-4 text-[#2496ED] shrink-0" aria-hidden="true" /> },
+        { name: "GitHub Actions", icon: <SiGithubactions className="w-4 h-4 text-[#2088FF] shrink-0" aria-hidden="true" /> },
+        { name: "AWS", icon: <FaAws className="w-4 h-4 text-[#FF9900] shrink-0" aria-hidden="true" /> },
+        { name: "GCP", icon: <SiGooglecloud className="w-4 h-4 text-[#4285F4] shrink-0" aria-hidden="true" /> },
+        { name: "Vercel", icon: <SiVercel className="w-4 h-4 text-black dark:text-white shrink-0" aria-hidden="true" /> },
+        { name: "VPS", icon: <TbServer2 className="w-4 h-4 text-zinc-600 dark:text-zinc-300 shrink-0" aria-hidden="true" /> },
+        { name: "CI/CD", icon: <CicdLogo className="w-4 h-4 shrink-0" /> },
+      ],
+    },
+  ];
+
   return (
     <section aria-labelledby="skills-heading" className="pt-16">
       {/* Section Header */}
@@ -241,10 +216,10 @@ export default function SkillsSection() {
         id="skills-heading"
         className="w-fit rounded-none px-4 py-2 text-xl font-semibold bg-transparent border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-white shadow-sm mb-4 scroll-mt-20"
       >
-        Skills &amp; Tech Stack
+        {t.skills.sectionTitle}
       </h2>
       <p className="mb-8 text-sm text-zinc-600 dark:text-zinc-400">
-        A breakdown of programming languages, frameworks, cloud services, and production deployment environments I work with.
+        {t.skills.sectionSubtitle}
       </p>
 
       {/* Grid of 6 Category Cards (2 columns on desktop, 1 on mobile) */}
@@ -277,7 +252,7 @@ export default function SkillsSection() {
                   <TbLanguage className="text-emerald-500" size={19} />
                 </span>
                 <h3 id="category-spoken-languages" className="text-base font-bold text-zinc-900 dark:text-white">
-                  Spoken Languages
+                  {t.skills.categories.spokenLanguages}
                 </h3>
               </div>
               <span className="rounded-full bg-zinc-200 dark:bg-zinc-900 px-2.5 py-0.5 text-xs text-zinc-700 dark:text-zinc-400 border border-zinc-300 dark:border-zinc-800 font-mono">
@@ -286,28 +261,47 @@ export default function SkillsSection() {
             </div>
 
             <div className="flex flex-col gap-3">
-              {spokenLanguages.map((lang) => (
-                <div 
-                  key={lang.name}
-                  tabIndex={0}
-                  className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 rounded-none border border-zinc-200 dark:border-zinc-800/80 bg-zinc-50/70 dark:bg-zinc-900/40 p-3.5 transition-[border-color,background-color] duration-200 hover:border-emerald-500/40 hover:bg-emerald-500/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
-                >
-                  <div className="flex items-center gap-3">
-                    {lang.flag}
-                    <div className="flex flex-col">
-                      <span translate="no" className="text-xs font-semibold text-zinc-900 dark:text-white">
-                        {lang.name}
-                      </span>
-                      <span className="text-[11px] text-zinc-500 dark:text-zinc-400">
-                        {lang.subtitle}
-                      </span>
-                    </div>
+              {/* Amharic */}
+              <div 
+                tabIndex={0}
+                className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 rounded-none border border-zinc-200 dark:border-zinc-800/80 bg-zinc-50/70 dark:bg-zinc-900/40 p-3.5 transition-[border-color,background-color] duration-200 hover:border-emerald-500/40 hover:bg-emerald-500/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+              >
+                <div className="flex items-center gap-3">
+                  <EthiopiaFlag className="w-6 h-4 shrink-0 rounded-xs shadow-xs" />
+                  <div className="flex flex-col">
+                    <span translate="no" className="text-xs font-semibold text-zinc-900 dark:text-white">
+                      {t.skills.spokenAmharic.name}
+                    </span>
+                    <span className="text-[11px] text-zinc-500 dark:text-zinc-400">
+                      {t.skills.spokenAmharic.subtitle}
+                    </span>
                   </div>
-                  <span className="self-start sm:self-center shrink-0 rounded-full bg-emerald-500/10 px-2.5 py-0.5 text-[10.5px] font-medium text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
-                    {lang.proficiency}
-                  </span>
                 </div>
-              ))}
+                <span className="self-start sm:self-center shrink-0 rounded-full bg-emerald-500/10 px-2.5 py-0.5 text-[10.5px] font-medium text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+                  {t.skills.spokenAmharic.proficiency}
+                </span>
+              </div>
+
+              {/* English */}
+              <div 
+                tabIndex={0}
+                className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 rounded-none border border-zinc-200 dark:border-zinc-800/80 bg-zinc-50/70 dark:bg-zinc-900/40 p-3.5 transition-[border-color,background-color] duration-200 hover:border-emerald-500/40 hover:bg-emerald-500/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+              >
+                <div className="flex items-center gap-3">
+                  <EnglishFlag className="w-6 h-4 shrink-0 rounded-xs shadow-xs" />
+                  <div className="flex flex-col">
+                    <span translate="no" className="text-xs font-semibold text-zinc-900 dark:text-white">
+                      {t.skills.spokenEnglish.name}
+                    </span>
+                    <span className="text-[11px] text-zinc-500 dark:text-zinc-400">
+                      {t.skills.spokenEnglish.subtitle}
+                    </span>
+                  </div>
+                </div>
+                <span className="self-start sm:self-center shrink-0 rounded-full bg-emerald-500/10 px-2.5 py-0.5 text-[10.5px] font-medium text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+                  {t.skills.spokenEnglish.proficiency}
+                </span>
+              </div>
             </div>
           </div>
         </div>
@@ -317,7 +311,15 @@ export default function SkillsSection() {
   );
 }
 
-function SkillCard({ category }: { category: SkillCategory }) {
+function SkillCard({ category }: { 
+  category: { 
+    id: string; 
+    title: string; 
+    icon: React.ReactNode; 
+    count: string; 
+    items: SkillItem[];
+  } 
+}) {
   return (
     <div 
       className="group flex flex-col justify-between rounded-none border border-zinc-200 dark:border-zinc-800 bg-transparent p-5 sm:p-6 transition-[border-color,box-shadow] duration-200 hover:border-emerald-500/40 hover:shadow-lg"
