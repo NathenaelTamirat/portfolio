@@ -20,12 +20,32 @@ import CertificateDock from "./components/CertificateDock";
 import SkillsSection from "./components/SkillsSection";
 import { useLanguage } from "./context/LanguageContext";
 
-const eventImages = [
-  { image: "/events/gdg-bits-welcome.jpeg", alt: "Nathenael Tamirat at the GDG on Campus BITS College welcome banner" },
-  { image: "/events/break-the-pattern-summit.png", alt: "Organizing team at the Break The Pattern tech summit" },
-  { image: "/events/campus-developer-workshop.png", alt: "Nathenael Tamirat conducting developer training in campus lab" },
-  { image: "/events/cursor-ai-hackathon.jpeg", alt: "Nathenael Tamirat with fellow developers at Cursor AI Hackathon Ethiopia" },
-  { image: "/events/virtual-tech-webinar.jpeg", alt: "Virtual Google Meet technical webinar session with Abel Hubena" },
+const eventMetadata = [
+  { 
+    image: "/events/gdg-bits-welcome.jpeg", 
+    alt: "Nathenael Tamirat at the GDG on Campus BITS College welcome banner",
+    url: "https://t.me/c/2427984782/107",
+  },
+  { 
+    image: "/events/break-the-pattern-summit.png", 
+    alt: "Organizing team at the Break The Pattern tech summit",
+    url: "https://www.linkedin.com/posts/gdg-oncampus-bitscollege_breakthepattern-wtmethiopia-gdgocbits-activity-7458118452424159233-Wdes?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFVXqtsBafaRDuqsVWPcb1btlhJG2zERAgk",
+  },
+  { 
+    image: "/events/campus-developer-workshop.png", 
+    alt: "Nathenael Tamirat conducting developer training in campus lab",
+    url: "https://t.me/c/2427984782/46",
+  },
+  { 
+    image: "/events/cursor-ai-hackathon.jpeg", 
+    alt: "Nathenael Tamirat with fellow developers at Cursor AI Hackathon Ethiopia",
+    url: undefined,
+  },
+  { 
+    image: "/events/virtual-tech-webinar.jpeg", 
+    alt: "Virtual Google Meet technical webinar session with Abel Hubena",
+    url: "https://t.me/c/2427984782/59",
+  },
 ];
 
 const experienceMetadata = [
@@ -69,7 +89,7 @@ const projectMetadata = [
     skills: ["E-commerce", "Modern UI", "Catalog Showcase"],
   },
   {
-    url: "https://nahom-dentali-clinic.vercel.app",
+    url: "https://nahom-dental-clinic.vercel.app/#/",
     skills: ["Web App", "Appointment System", "Patient Portal"],
   },
   {
@@ -85,11 +105,11 @@ export default function Home() {
     <main 
       id="main-content" 
       tabIndex={-1}
-      className="no-scrollbar relative mx-auto w-full max-w-[96%] sm:max-w-2xl lg:max-w-3xl xl:max-w-4xl px-3 sm:px-6 pt-0 pb-20 min-h-screen outline-none"
+      className="no-scrollbar relative mx-auto w-full max-w-[96%] sm:max-w-2xl lg:max-w-3xl xl:max-w-4xl px-4 sm:px-6 pt-16 sm:pt-20 lg:pt-24 pb-20 min-h-screen outline-none"
     >
       
       {/* Introduction / Hero Section */}
-      <section aria-labelledby="hero-heading" className="border-dashed border-zinc-200 dark:border-white/20 pb-12 mt-6 sm:mt-10 border-b">
+      <section aria-labelledby="hero-heading" className="border-dashed border-zinc-200 dark:border-white/20 pb-12 mt-4 sm:mt-8 border-b">
         
         {/* Mobile Header: Logo + Name + Title at the top */}
         <div className="flex items-center gap-3.5 mb-6 lg:hidden">
@@ -103,15 +123,15 @@ export default function Home() {
               className="object-cover" 
             />
           </div>
-          <div className="flex flex-col gap-1">
+          <div className="flex flex-col gap-1 min-w-0">
             <div className="flex flex-wrap items-center gap-2">
               <h1 
                 id="hero-heading"
-                className="text-2xl font-bold bg-gradient-to-r from-emerald-500 to-cyan-500 bg-clip-text text-transparent"
+                className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-emerald-500 to-cyan-500 bg-clip-text text-transparent break-words"
               >
                 Nathenael Tamirat
               </h1>
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 px-2 py-0.5 text-[10.5px] font-medium text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 px-2 py-0.5 text-[10px] sm:text-[10.5px] font-medium text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 whitespace-nowrap">
                 <span className="relative flex h-2 w-2">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
@@ -207,7 +227,7 @@ export default function Home() {
         
         <div className="relative">
           {/* Central Dotted Spine */}
-          <div className="absolute left-[20px] md:left-1/2 top-0 bottom-0 border-l-[2px] border-dotted border-zinc-300 dark:border-zinc-700 -translate-x-1/2"></div>
+          <div className="absolute left-[16px] sm:left-[20px] md:left-1/2 top-0 bottom-0 border-l-[2px] border-dotted border-zinc-300 dark:border-zinc-700 -translate-x-1/2"></div>
           
           <div className="flex flex-col gap-y-12">
             {t.experience.items.map((item, idx) => {
@@ -244,19 +264,18 @@ export default function Home() {
           {t.events.sectionSubtitle}
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
           {t.events.items.map((event, idx) => {
-            const asset = eventImages[idx] || eventImages[0];
-            return (
+            const meta = eventMetadata[idx] || eventMetadata[0];
+            const cardContent = (
               <div 
-                key={event.title + idx}
-                className="group flex flex-col justify-between rounded-none border border-zinc-200 dark:border-zinc-800 bg-transparent p-5 transition-colors hover:border-emerald-500/40 hover:shadow-lg"
+                className="group flex h-full flex-col justify-between rounded-none border border-zinc-200 dark:border-zinc-800 bg-transparent p-4 sm:p-5 transition-colors hover:border-emerald-500/40 hover:shadow-lg focus-within:border-emerald-500/50"
               >
                 <div>
                   <div className="relative w-full aspect-[16/10] overflow-hidden rounded-none border border-zinc-100 dark:border-zinc-800/80 mb-4 bg-zinc-50 dark:bg-zinc-900/40">
                     <Image
-                      src={asset.image}
-                      alt={asset.alt}
+                      src={meta.image}
+                      alt={meta.alt}
                       fill
                       sizes="(max-width: 768px) 100vw, 50vw"
                       className="object-cover transition-transform duration-300 group-hover:scale-105"
@@ -265,7 +284,7 @@ export default function Home() {
                   <span className="w-fit rounded-full bg-zinc-200 dark:bg-zinc-900 px-3 py-1 text-xs text-zinc-700 dark:text-zinc-300 border border-zinc-300 dark:border-zinc-800 font-medium">
                     {event.role}
                   </span>
-                  <h3 className="text-lg font-bold text-zinc-900 dark:text-white group-hover:text-emerald-500 dark:group-hover:text-emerald-400 transition-colors mt-3">
+                  <h3 className="text-base sm:text-lg font-bold text-zinc-900 dark:text-white group-hover:text-emerald-500 dark:group-hover:text-emerald-400 transition-colors mt-3">
                     {event.title}
                   </h3>
                   <p className="text-xs font-medium text-emerald-600 dark:text-emerald-400 mt-1">
@@ -275,6 +294,30 @@ export default function Home() {
                     {event.description}
                   </p>
                 </div>
+
+                {meta.url && (
+                  <div className="mt-4 pt-2">
+                    <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 bg-emerald-500/10 px-3 py-1.5 rounded-none transition-colors group-hover:bg-emerald-500/20">
+                      <FiExternalLink size={13} /> {t.projects.visitProject}
+                    </span>
+                  </div>
+                )}
+              </div>
+            );
+
+            return meta.url ? (
+              <a 
+                key={event.title + idx}
+                href={meta.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+              >
+                {cardContent}
+              </a>
+            ) : (
+              <div key={event.title + idx} className="h-full">
+                {cardContent}
               </div>
             );
           })}
@@ -334,7 +377,7 @@ export default function Home() {
         >
           {t.connect.sectionTitle}
         </h2>
-        <div className="rounded-none border border-zinc-200 dark:border-zinc-800 bg-transparent p-6 sm:p-8">
+        <div className="rounded-none border border-zinc-200 dark:border-zinc-800 bg-transparent p-5 sm:p-8">
           <div className="flex flex-col gap-4">
             <h3 className="text-xl font-bold text-zinc-900 dark:text-white">
               {t.connect.heading}
@@ -342,10 +385,10 @@ export default function Home() {
             <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-xl">
               {t.connect.description}
             </p>
-            <div className="flex flex-wrap gap-3 pt-2">
+            <div className="flex flex-wrap gap-2.5 sm:gap-3 pt-2">
               <Link
                 href="mailto:nathenaeltamiratbizuneh@gmail.com"
-                className="inline-flex items-center gap-2 rounded-none bg-emerald-600 hover:bg-emerald-500 text-white dark:text-black dark:bg-emerald-400 dark:hover:bg-emerald-300 px-5 py-2.5 text-xs font-semibold uppercase tracking-wider transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+                className="inline-flex items-center justify-center gap-2 rounded-none bg-emerald-600 hover:bg-emerald-500 text-white dark:text-black dark:bg-emerald-400 dark:hover:bg-emerald-300 px-5 py-2.5 text-xs font-semibold uppercase tracking-wider transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 w-full sm:w-auto"
               >
                 <FiMail size={16} /> {t.connect.getInTouch}
               </Link>
@@ -353,7 +396,7 @@ export default function Home() {
                 href="https://t.me/nathenaeltamirat"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-none border border-zinc-200 dark:border-zinc-800 bg-transparent hover:border-emerald-500/40 px-5 py-2.5 text-xs font-semibold text-zinc-800 dark:text-zinc-200 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+                className="inline-flex items-center justify-center gap-2 rounded-none border border-zinc-200 dark:border-zinc-800 bg-transparent hover:border-emerald-500/40 px-5 py-2.5 text-xs font-semibold text-zinc-800 dark:text-zinc-200 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 w-full sm:w-auto"
               >
                 <FaTelegram size={16} /> {t.connect.telegram} <FiArrowUpRight size={14} />
               </Link>
@@ -361,7 +404,7 @@ export default function Home() {
                 href="https://www.linkedin.com/in/nathenael-tamirat/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-none border border-zinc-200 dark:border-zinc-800 bg-transparent hover:border-emerald-500/40 px-5 py-2.5 text-xs font-semibold text-zinc-800 dark:text-zinc-200 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+                className="inline-flex items-center justify-center gap-2 rounded-none border border-zinc-200 dark:border-zinc-800 bg-transparent hover:border-emerald-500/40 px-5 py-2.5 text-xs font-semibold text-zinc-800 dark:text-zinc-200 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 w-full sm:w-auto"
               >
                 <FaLinkedin size={16} /> {t.connect.linkedin} <FiArrowUpRight size={14} />
               </Link>
@@ -392,7 +435,7 @@ function SocialLink({ href, icon, label }: { href: string; icon: React.ReactNode
       target="_blank" 
       rel="noopener noreferrer" 
       aria-label={label}
-      className="p-1.5 rounded text-zinc-500 dark:text-zinc-400 transition-all duration-200 hover:scale-110 hover:-translate-y-0.5 hover:text-emerald-500 dark:hover:text-emerald-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+      className="p-2 min-h-[40px] min-w-[40px] flex items-center justify-center rounded text-zinc-500 dark:text-zinc-400 transition-all duration-200 hover:scale-110 hover:-translate-y-0.5 hover:text-emerald-500 dark:hover:text-emerald-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
     >
       {icon}
     </Link>
@@ -415,7 +458,7 @@ function ProjectCard({
   visitLabel?: string;
 }) {
   const card = (
-    <div className="group flex h-full flex-col justify-between rounded-none border border-zinc-200 dark:border-zinc-800 bg-transparent p-6 transition-all hover:border-emerald-500/30 hover:shadow-lg focus-within:border-emerald-500/50">
+    <div className="group flex h-full flex-col justify-between rounded-none border border-zinc-200 dark:border-zinc-800 bg-transparent p-4 sm:p-6 transition-all hover:border-emerald-500/30 hover:shadow-lg focus-within:border-emerald-500/50">
       <div className="flex flex-col gap-4">
         {tag && (
           <span className="w-fit rounded-full bg-zinc-200 dark:bg-zinc-900 px-3 py-1 text-xs text-zinc-700 dark:text-zinc-300 border border-zinc-300 dark:border-zinc-800 font-medium">
@@ -423,7 +466,7 @@ function ProjectCard({
           </span>
         )}
         <div className="flex flex-col">
-          <h3 className="text-lg font-bold text-zinc-900 dark:text-white group-hover:text-emerald-500 dark:group-hover:text-emerald-400 transition-colors">
+          <h3 className="text-base sm:text-lg font-bold text-zinc-900 dark:text-white group-hover:text-emerald-500 dark:group-hover:text-emerald-400 transition-colors">
             {title}
           </h3>
           <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed flex-1">
@@ -496,27 +539,27 @@ function TimelineItem({
       {/* Central Dotted Dot */}
       <div 
         aria-hidden="true"
-        className="absolute left-[20px] md:left-1/2 w-4 h-4 rounded-full bg-emerald-500 border-4 border-white dark:border-black -translate-x-1/2 z-10 top-6 md:top-1/2 md:-translate-y-1/2 shadow-sm"
+        className="absolute left-[16px] sm:left-[20px] md:left-1/2 w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-emerald-500 border-4 border-white dark:border-black -translate-x-1/2 z-10 top-6 md:top-1/2 md:-translate-y-1/2 shadow-sm"
       ></div>
       
       {/* Spacer for the other side */}
       <div className="hidden md:block w-1/2"></div>
       
       {/* Content Card */}
-      <div className={`w-full md:w-1/2 pl-10 sm:pl-14 md:pl-0 ${position === 'left' ? 'md:ml-[48px]' : 'md:mr-[48px]'} mt-0`}>
-        <div className="group flex flex-col justify-between rounded-none border border-zinc-200 dark:border-zinc-800 bg-transparent p-6 transition-all hover:border-emerald-500/30 hover:shadow-lg">
+      <div className={`w-full md:w-1/2 pl-8 sm:pl-12 md:pl-0 ${position === 'left' ? 'md:ml-[48px]' : 'md:mr-[48px]'} mt-0`}>
+        <div className="group flex flex-col justify-between rounded-none border border-zinc-200 dark:border-zinc-800 bg-transparent p-4 sm:p-6 transition-all hover:border-emerald-500/30 hover:shadow-lg">
           <div className="flex flex-col gap-y-1">
-            <h3 className="text-lg font-semibold text-zinc-900 dark:text-white group-hover:text-emerald-500 dark:group-hover:text-emerald-400 transition-colors">
+            <h3 className="text-base sm:text-lg font-semibold text-zinc-900 dark:text-white group-hover:text-emerald-500 dark:group-hover:text-emerald-400 transition-colors">
               {role}
             </h3>
             <div className="flex flex-wrap justify-between items-start gap-2 mt-1">
-              <div className="flex flex-col">
-                <p className="text-sm font-medium text-zinc-600 dark:text-zinc-400">{company}</p>
+              <div className="flex flex-col min-w-0">
+                <p className="text-xs sm:text-sm font-medium text-zinc-600 dark:text-zinc-400">{company}</p>
                 {locationOrType && (
-                  <span className="text-xs text-zinc-500 dark:text-zinc-500 mt-0.5">{locationOrType}</span>
+                  <span className="text-[11px] sm:text-xs text-zinc-500 dark:text-zinc-500 mt-0.5">{locationOrType}</span>
                 )}
               </div>
-              <span className="rounded-full bg-zinc-200 dark:bg-zinc-900 px-3 py-1 text-xs text-zinc-700 dark:text-zinc-300 border border-zinc-300 dark:border-zinc-800 whitespace-nowrap">
+              <span className="rounded-full bg-zinc-200 dark:bg-zinc-900 px-2.5 sm:px-3 py-0.5 sm:py-1 text-[11px] sm:text-xs text-zinc-700 dark:text-zinc-300 border border-zinc-300 dark:border-zinc-800 whitespace-nowrap">
                 {duration}
               </span>
             </div>

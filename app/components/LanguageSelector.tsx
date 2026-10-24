@@ -78,7 +78,7 @@ export function LanguageSelector() {
         <div 
           role="listbox"
           aria-label={t.nav.selectLanguage}
-          className="absolute left-1/2 -translate-x-1/2 top-full mt-2 flex flex-col items-center gap-1.5 z-50 focus:outline-none"
+          className="absolute right-0 sm:left-1/2 sm:-translate-x-1/2 top-full mt-2 flex flex-col items-end sm:items-center gap-1.5 z-50 focus:outline-none"
         >
           {LANGUAGES.map((item) => {
             const isSelected = item.code === language;

@@ -142,7 +142,6 @@ export default function SkillsSection() {
       id: "programming-languages",
       title: t.skills.categories.programmingLanguages,
       icon: <TbCode className="text-emerald-500" size={19} />,
-      count: "4",
       items: [
         { name: "TypeScript", icon: <SiTypescript className="w-4 h-4 text-[#3178C6] shrink-0" aria-hidden="true" /> },
         { name: "JavaScript", icon: <SiJavascript className="w-4 h-4 text-[#F7DF1E] bg-black/90 rounded-[2px] p-[0.5px] shrink-0" aria-hidden="true" /> },
@@ -154,7 +153,6 @@ export default function SkillsSection() {
       id: "frontend",
       title: t.skills.categories.frontend,
       icon: <TbDeviceDesktop className="text-emerald-500" size={19} />,
-      count: "6",
       items: [
         { name: "React", icon: <SiReact className="w-4 h-4 text-[#61DAFB] shrink-0" aria-hidden="true" /> },
         { name: "Next.js", icon: <SiNextdotjs className="w-4 h-4 text-black dark:text-white shrink-0" aria-hidden="true" /> },
@@ -168,7 +166,6 @@ export default function SkillsSection() {
       id: "backend-apis",
       title: t.skills.categories.backendApis,
       icon: <TbCpu className="text-emerald-500" size={19} />,
-      count: "4",
       items: [
         { name: "Node.js", icon: <SiNodedotjs className="w-4 h-4 text-[#5FA04E] shrink-0" aria-hidden="true" /> },
         { name: "Hono", icon: <SiHono className="w-4 h-4 text-[#E36002] shrink-0" aria-hidden="true" /> },
@@ -180,7 +177,6 @@ export default function SkillsSection() {
       id: "deployment",
       title: t.skills.categories.deployment,
       icon: <TbRocket className="text-emerald-500" size={19} />,
-      count: "3",
       items: [
         { name: "iOS App Store", icon: <SiAppstore className="w-4 h-4 text-[#0D96F6] shrink-0" aria-hidden="true" /> },
         { name: "Google Play Store", icon: <GooglePlayLogo className="w-4 h-4 shrink-0" /> },
@@ -191,7 +187,6 @@ export default function SkillsSection() {
       id: "data-infrastructure",
       title: t.skills.categories.dataInfrastructure,
       icon: <TbDatabase className="text-emerald-500" size={19} />,
-      count: "12",
       items: [
         { name: "PostgreSQL", icon: <SiPostgresql className="w-4 h-4 text-[#4169E1] shrink-0" aria-hidden="true" /> },
         { name: "MongoDB", icon: <SiMongodb className="w-4 h-4 text-[#47A248] shrink-0" aria-hidden="true" /> },
@@ -222,86 +217,65 @@ export default function SkillsSection() {
         {t.skills.sectionSubtitle}
       </p>
 
-      {/* Grid of 6 Category Cards (2 columns on desktop, 1 on mobile) */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {/* Horizontal Stack of Skill Categories */}
+      <div className="flex flex-col gap-4 sm:gap-5">
         
         {/* Programming Languages */}
-        <SkillCard category={skillCategories[0]} />
+        <SkillRow category={skillCategories[0]} />
 
         {/* Frontend */}
-        <SkillCard category={skillCategories[1]} />
+        <SkillRow category={skillCategories[1]} />
 
         {/* Backend & APIs */}
-        <SkillCard category={skillCategories[2]} />
+        <SkillRow category={skillCategories[2]} />
 
         {/* Deployment */}
-        <SkillCard category={skillCategories[3]} />
+        <SkillRow category={skillCategories[3]} />
 
         {/* Data & Infrastructure */}
-        <SkillCard category={skillCategories[4]} />
+        <SkillRow category={skillCategories[4]} />
 
         {/* Spoken Languages */}
         <div 
-          className="group flex flex-col justify-between rounded-none border border-zinc-200 dark:border-zinc-800 bg-transparent p-5 sm:p-6 transition-[border-color,box-shadow] duration-200 hover:border-emerald-500/40 hover:shadow-lg"
+          className="group flex flex-col md:flex-row md:items-center gap-3 sm:gap-4 md:gap-6 rounded-none border border-zinc-200 dark:border-zinc-800 bg-transparent p-4 sm:p-5 transition-[border-color,box-shadow] duration-200 hover:border-emerald-500/40 hover:shadow-md"
           aria-labelledby="category-spoken-languages"
         >
-          <div>
-            <div className="flex items-center justify-between gap-2 pb-4 mb-4 border-b border-zinc-100 dark:border-zinc-800/80">
-              <div className="flex items-center gap-2.5">
-                <span aria-hidden="true" className="shrink-0">
-                  <TbLanguage className="text-emerald-500" size={19} />
-                </span>
-                <h3 id="category-spoken-languages" className="text-base font-bold text-zinc-900 dark:text-white">
-                  {t.skills.categories.spokenLanguages}
-                </h3>
-              </div>
-              <span className="rounded-full bg-zinc-200 dark:bg-zinc-900 px-2.5 py-0.5 text-xs text-zinc-700 dark:text-zinc-400 border border-zinc-300 dark:border-zinc-800 font-mono">
-                2
+          <div className="flex items-center gap-2.5 md:w-56 lg:w-64 shrink-0">
+            <span aria-hidden="true" className="shrink-0">
+              <TbLanguage className="text-emerald-500" size={19} />
+            </span>
+            <h3 id="category-spoken-languages" className="text-sm sm:text-base font-bold text-zinc-900 dark:text-white">
+              {t.skills.categories.spokenLanguages}
+            </h3>
+          </div>
+
+          <div className="flex flex-wrap gap-2.5 flex-1">
+            {/* Amharic */}
+            <div 
+              tabIndex={0}
+              className="flex items-center gap-2.5 rounded-none border border-zinc-200 dark:border-zinc-800/80 bg-zinc-50/70 dark:bg-zinc-900/40 px-3 py-1.5 sm:py-2 text-xs transition-[border-color,background-color] duration-200 hover:border-emerald-500/40 hover:bg-emerald-500/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 cursor-default"
+            >
+              <EthiopiaFlag className="w-5 h-3.5 shrink-0 rounded-xs shadow-xs" />
+              <span translate="no" className="font-semibold text-zinc-900 dark:text-white">
+                {t.skills.spokenAmharic.name}
+              </span>
+              <span className="text-[11px] text-zinc-500 dark:text-zinc-400">
+                ({t.skills.spokenAmharic.proficiency})
               </span>
             </div>
 
-            <div className="flex flex-col gap-3">
-              {/* Amharic */}
-              <div 
-                tabIndex={0}
-                className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 rounded-none border border-zinc-200 dark:border-zinc-800/80 bg-zinc-50/70 dark:bg-zinc-900/40 p-3.5 transition-[border-color,background-color] duration-200 hover:border-emerald-500/40 hover:bg-emerald-500/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
-              >
-                <div className="flex items-center gap-3">
-                  <EthiopiaFlag className="w-6 h-4 shrink-0 rounded-xs shadow-xs" />
-                  <div className="flex flex-col">
-                    <span translate="no" className="text-xs font-semibold text-zinc-900 dark:text-white">
-                      {t.skills.spokenAmharic.name}
-                    </span>
-                    <span className="text-[11px] text-zinc-500 dark:text-zinc-400">
-                      {t.skills.spokenAmharic.subtitle}
-                    </span>
-                  </div>
-                </div>
-                <span className="self-start sm:self-center shrink-0 rounded-full bg-emerald-500/10 px-2.5 py-0.5 text-[10.5px] font-medium text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
-                  {t.skills.spokenAmharic.proficiency}
-                </span>
-              </div>
-
-              {/* English */}
-              <div 
-                tabIndex={0}
-                className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 rounded-none border border-zinc-200 dark:border-zinc-800/80 bg-zinc-50/70 dark:bg-zinc-900/40 p-3.5 transition-[border-color,background-color] duration-200 hover:border-emerald-500/40 hover:bg-emerald-500/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
-              >
-                <div className="flex items-center gap-3">
-                  <EnglishFlag className="w-6 h-4 shrink-0 rounded-xs shadow-xs" />
-                  <div className="flex flex-col">
-                    <span translate="no" className="text-xs font-semibold text-zinc-900 dark:text-white">
-                      {t.skills.spokenEnglish.name}
-                    </span>
-                    <span className="text-[11px] text-zinc-500 dark:text-zinc-400">
-                      {t.skills.spokenEnglish.subtitle}
-                    </span>
-                  </div>
-                </div>
-                <span className="self-start sm:self-center shrink-0 rounded-full bg-emerald-500/10 px-2.5 py-0.5 text-[10.5px] font-medium text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
-                  {t.skills.spokenEnglish.proficiency}
-                </span>
-              </div>
+            {/* English */}
+            <div 
+              tabIndex={0}
+              className="flex items-center gap-2.5 rounded-none border border-zinc-200 dark:border-zinc-800/80 bg-zinc-50/70 dark:bg-zinc-900/40 px-3 py-1.5 sm:py-2 text-xs transition-[border-color,background-color] duration-200 hover:border-emerald-500/40 hover:bg-emerald-500/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 cursor-default"
+            >
+              <EnglishFlag className="w-5 h-3.5 shrink-0 rounded-xs shadow-xs" />
+              <span translate="no" className="font-semibold text-zinc-900 dark:text-white">
+                {t.skills.spokenEnglish.name}
+              </span>
+              <span className="text-[11px] text-zinc-500 dark:text-zinc-400">
+                ({t.skills.spokenEnglish.proficiency})
+              </span>
             </div>
           </div>
         </div>
@@ -311,56 +285,48 @@ export default function SkillsSection() {
   );
 }
 
-function SkillCard({ category }: { 
+function SkillRow({ category }: { 
   category: { 
     id: string; 
     title: string; 
     icon: React.ReactNode; 
-    count: string; 
     items: SkillItem[];
   } 
 }) {
   return (
     <div 
-      className="group flex flex-col justify-between rounded-none border border-zinc-200 dark:border-zinc-800 bg-transparent p-5 sm:p-6 transition-[border-color,box-shadow] duration-200 hover:border-emerald-500/40 hover:shadow-lg"
+      className="group flex flex-col md:flex-row md:items-center gap-3 sm:gap-4 md:gap-6 rounded-none border border-zinc-200 dark:border-zinc-800 bg-transparent p-4 sm:p-5 transition-[border-color,box-shadow] duration-200 hover:border-emerald-500/40 hover:shadow-md"
       aria-labelledby={`category-${category.id}`}
     >
-      <div>
-        {/* Category Header */}
-        <div className="flex items-center justify-between gap-2 pb-4 mb-4 border-b border-zinc-100 dark:border-zinc-800/80">
-          <div className="flex items-center gap-2.5">
-            <span aria-hidden="true" className="shrink-0">
-              {category.icon}
-            </span>
-            <h3 id={`category-${category.id}`} className="text-base font-bold text-zinc-900 dark:text-white">
-              {category.title}
-            </h3>
-          </div>
-          <span className="rounded-full bg-zinc-200 dark:bg-zinc-900 px-2.5 py-0.5 text-xs text-zinc-700 dark:text-zinc-400 border border-zinc-300 dark:border-zinc-800 font-mono">
-            {category.count}
-          </span>
-        </div>
+      {/* Category Title & Icon (No numbers) */}
+      <div className="flex items-center gap-2.5 md:w-56 lg:w-64 shrink-0">
+        <span aria-hidden="true" className="shrink-0">
+          {category.icon}
+        </span>
+        <h3 id={`category-${category.id}`} className="text-sm sm:text-base font-bold text-zinc-900 dark:text-white">
+          {category.title}
+        </h3>
+      </div>
 
-        {/* Skill Items Badges */}
-        <div 
-          className="flex flex-wrap gap-2" 
-          role="list"
-          aria-label={`${category.title} items`}
-        >
-          {category.items.map((skill) => (
-            <div 
-              key={skill.name}
-              role="listitem"
-              tabIndex={0}
-              className="group/item flex items-center gap-2.5 rounded-none border border-zinc-200 dark:border-zinc-800/80 bg-zinc-50/70 dark:bg-zinc-900/40 px-3 py-2 text-xs font-medium text-zinc-800 dark:text-zinc-200 transition-[border-color,background-color,transform] duration-200 hover:border-emerald-500/50 hover:bg-emerald-500/5 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 cursor-default"
-            >
-              {skill.icon}
-              <span translate="no" className="font-medium tracking-tight">
-                {skill.name}
-              </span>
-            </div>
-          ))}
-        </div>
+      {/* Horizontal Badges */}
+      <div 
+        className="flex flex-wrap gap-2 flex-1" 
+        role="list"
+        aria-label={`${category.title} items`}
+      >
+        {category.items.map((skill) => (
+          <div 
+            key={skill.name}
+            role="listitem"
+            tabIndex={0}
+            className="group/item flex items-center gap-2 rounded-none border border-zinc-200 dark:border-zinc-800/80 bg-zinc-50/70 dark:bg-zinc-900/40 px-3 py-1.5 sm:py-2 text-xs font-medium text-zinc-800 dark:text-zinc-200 transition-[border-color,background-color,transform] duration-200 hover:border-emerald-500/50 hover:bg-emerald-500/5 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 cursor-default"
+          >
+            {skill.icon}
+            <span translate="no" className="font-medium tracking-tight">
+              {skill.name}
+            </span>
+          </div>
+        ))}
       </div>
     </div>
   );

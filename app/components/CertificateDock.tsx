@@ -33,13 +33,13 @@ const certificateAssets: CertificateBase[] = [
   },
   {
     preview: "/certificates/udacity-tech-scholarship.png",
-    link: "/certificates/udacity-tech-scholarship.pdf",
+    link: "https://www.udacity.com/certificate/e/cfbb5a40-03b2-11f0-aee9-57e6f6f42d1e",
     width: 600,
     height: 463,
   },
   {
     preview: "/certificates/stanford-code-in-place.png",
-    link: "/certificates/stanford-code-in-place.pdf",
+    link: "https://codeinplace.stanford.edu/cip5/certificate/p1oxia",
     width: 600,
     height: 425,
   },
@@ -99,12 +99,12 @@ export default function CertificateDock() {
           type="button"
           aria-label={t.certificates.prev}
           onClick={handlePrev}
-          className="flex items-center justify-center rounded-none border border-zinc-200 dark:border-zinc-800 bg-transparent p-2.5 text-zinc-700 dark:text-zinc-300 transition-colors hover:border-emerald-500/50 hover:text-emerald-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+          className="flex min-h-[42px] min-w-[42px] items-center justify-center rounded-none border border-zinc-200 dark:border-zinc-800 bg-transparent p-2.5 text-zinc-700 dark:text-zinc-300 transition-colors hover:border-emerald-500/50 hover:text-emerald-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
         >
           <FiChevronLeft size={18} />
         </button>
 
-        <span className="text-xs font-mono text-zinc-500 dark:text-zinc-400">
+        <span className="text-xs font-mono text-zinc-500 dark:text-zinc-400 select-none">
           {currentIndex + 1} / {total}
         </span>
 
@@ -112,7 +112,7 @@ export default function CertificateDock() {
           type="button"
           aria-label={t.certificates.next}
           onClick={handleNext}
-          className="flex items-center justify-center rounded-none border border-zinc-200 dark:border-zinc-800 bg-transparent p-2.5 text-zinc-700 dark:text-zinc-300 transition-colors hover:border-emerald-500/50 hover:text-emerald-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+          className="flex min-h-[42px] min-w-[42px] items-center justify-center rounded-none border border-zinc-200 dark:border-zinc-800 bg-transparent p-2.5 text-zinc-700 dark:text-zinc-300 transition-colors hover:border-emerald-500/50 hover:text-emerald-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
         >
           <FiChevronRight size={18} />
         </button>
