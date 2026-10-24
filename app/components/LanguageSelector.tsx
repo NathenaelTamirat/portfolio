@@ -73,12 +73,12 @@ export function LanguageSelector() {
         <TbLanguage className="h-5 w-5 transition-transform duration-200" aria-hidden="true" />
       </button>
 
-      {/* Floating Vertical Disconnected Pills (No visible parent container) */}
+      {/* Floating Vertical Disconnected Pills (Centered under trigger) */}
       {isOpen && (
         <div 
           role="listbox"
           aria-label={t.nav.selectLanguage}
-          className="absolute right-0 top-full mt-2 flex flex-col items-end gap-1.5 z-50 focus:outline-none"
+          className="absolute left-1/2 -translate-x-1/2 top-full mt-2 flex flex-col items-center gap-1.5 z-50 focus:outline-none"
         >
           {LANGUAGES.map((item) => {
             const isSelected = item.code === language;
