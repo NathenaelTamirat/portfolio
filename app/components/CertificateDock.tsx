@@ -144,7 +144,7 @@ function CertificateCard({
       <div className="relative w-full aspect-[4/3] overflow-hidden rounded-none border border-zinc-100 dark:border-zinc-800/80 bg-zinc-50 dark:bg-zinc-900/40">
         <Image
           src={cert.preview}
-          alt={cert.title}
+          alt={`${cert.title} — Verified Credential by ${cert.subtitle}`}
           fill
           sizes="(max-width: 640px) 100vw, 50vw"
           className="object-contain p-2"
