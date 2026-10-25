@@ -8,16 +8,42 @@
 
 @layer base {
   :root {
+    color-scheme: light;
     --background: #ffffff;
     --foreground: #000000;
     --muted: #f4f4f5;
     --muted-foreground: #71717a;
   }
   .dark {
+    color-scheme: dark;
     --background: #000000;
     --foreground: #ffffff;
     --muted: #171717;
     --muted-foreground: #a3a3a3;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Rule 26: Suppress desktop rubber-banding while preserving mobile pull-to-refresh */
+  @media (pointer: fine) {
+    html {
+      overscroll-behavior: none;
+    }
+  }
+
+  /* Rule 21 & 22: Optimize touch interactions and prevent tap zoom latency */
+  button,
+  a,
+  input,
+  select,
+  textarea {
+    touch-action: manipulation;
+  }
+
+  * {
+    -webkit-tap-highlight-color: transparent;
   }
 }
 
@@ -27,7 +53,7 @@ body {
   font-family: var(--font-sans);
 }
 
-/* Hide scrollbar for a cleaner look */
+/* Hide scrollbar for clean horizontal/vertical tracks where specified */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }

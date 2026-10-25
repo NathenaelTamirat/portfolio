@@ -75,6 +75,14 @@ export type TranslationSchema = {
       subtitle: string;
     }[];
   };
+  faq: {
+    sectionTitle: string;
+    sectionSubtitle: string;
+    items: {
+      question: string;
+      answer: string;
+    }[];
+  };
   connect: {
     sectionTitle: string;
     heading: string;
@@ -243,6 +251,32 @@ export const translations: Record<LanguageCode, TranslationSchema> = {
         { title: "Programming Fundamentals", subtitle: "Udacity" },
         { title: "Code in Place", subtitle: "Stanford" },
         { title: "ALX - Professional Foundation", subtitle: "ALX" },
+      ],
+    },
+    faq: {
+      sectionTitle: "Frequently Asked Questions",
+      sectionSubtitle: "Direct answers to common questions about my technical background, core competencies, production systems, and availability.",
+      items: [
+        {
+          question: "Who is Nathenael Tamirat and what is his engineering background?",
+          answer: "Nathenael Tamirat is a full-stack software engineer based in Addis Ababa, Ethiopia. Beginning in 2018, he transitioned from building responsive web foundations to architecting production web platforms, healthcare management software, and modern cloud applications.",
+        },
+        {
+          question: "What enterprise and client systems has Nathenael built?",
+          answer: "Nathenael engineered the end-to-end clinical management system for Lewi Speciality Dental Clinic, developed production web solutions at Mentor Knowledge Solutions, built the institutional web portal for BITS College, and delivered responsive web platforms for corporate and legal clients.",
+        },
+        {
+          question: "What technologies and production environments does Nathenael specialize in?",
+          answer: "His core stack encompasses TypeScript, JavaScript, Rust, SQL, React, Next.js, React Native, Tailwind CSS, Node.js, Express, Hono, NestJS, PostgreSQL, MongoDB, Redis, Supabase, Docker, AWS, GCP, Vercel, and CI/CD automated deployment pipelines.",
+        },
+        {
+          question: "What community leadership experience does Nathenael have?",
+          answer: "Nathenael served as Technical Lead at Google Developer Groups on Campus BITS College, co-organized the Break The Pattern Tech Summit, mentored students in campus developer labs, and participated actively in the Cursor AI Hackathon Ethiopia.",
+        },
+        {
+          question: "Is Nathenael available for contract work or engineering roles?",
+          answer: "Yes, Nathenael is actively open to full-stack software engineering positions, freelance client projects, and technical partnerships. You can reach out directly via email, Telegram, or LinkedIn.",
+        },
       ],
     },
     connect: {
@@ -414,6 +448,32 @@ export const translations: Record<LanguageCode, TranslationSchema> = {
         { title: "ALX 职业基石卓越认证", subtitle: "ALX" },
       ],
     },
+    faq: {
+      sectionTitle: "常见问题解答",
+      sectionSubtitle: "关于我的技术背景、核心专业能力、生产级项目经验及合作意向的直接解答。",
+      items: [
+        {
+          question: "Nathenael Tamirat 是谁？他的技术背景如何？",
+          answer: "Nathenael Tamirat 是一名常驻埃塞俄比亚亚的斯亚贝巴的全栈软件工程师。自 2018 年开启编程之路以来，他专注于架构高可用 Web 应用、医疗管理系统以及现代云端应用。",
+        },
+        {
+          question: "Nathenael 主导或参与过哪些核心生产级系统？",
+          answer: "Nathenael 为 Lewi 专科口腔诊所研发了端到端全流程综合管理系统，在 Mentor Knowledge Solutions 参与核心生产软件研发，打造了 BITS College 官方学术门户，并为多家律所与商业机构交付了现代化数字平台。",
+        },
+        {
+          question: "Nathenael 擅长哪些技术栈与部署环境？",
+          answer: "其核心技术栈包括 TypeScript、JavaScript、Rust、SQL、React、Next.js、React Native、Tailwind CSS、Node.js、Express、Hono、NestJS、PostgreSQL、MongoDB、Redis、Supabase、Docker、AWS、GCP、Vercel 及 CI/CD 自动化流水线。",
+        },
+        {
+          question: "Nathenael 拥有哪些技术社群领导力经验？",
+          answer: "Nathenael 曾担任 Google Developer Groups 校园技术主管 (Technical Lead)，联合组织了大型 Break The Pattern 科技峰会，主持计算机实验室实操工作坊，并在埃塞俄比亚 Cursor AI 黑客松中协作研发。",
+        },
+        {
+          question: "Nathenael 目前是否接受工作邀请或项目合作？",
+          answer: "是的，Nathenael 目前积极寻求全栈工程师职位、自由职业独立承接项目及技术合作，欢迎随时通过邮件、Telegram 或 LinkedIn 取得联系。",
+        },
+      ],
+    },
     connect: {
       sectionTitle: "保持联系 · 开启合作",
       heading: "您有新项目构想或寻求技术合作吗？",
@@ -581,6 +641,32 @@ export const translations: Record<LanguageCode, TranslationSchema> = {
         { title: "प्रोग्रामिंग फंडामेंटल्स", subtitle: "Udacity" },
         { title: "Code in Place", subtitle: "स्टैनफोर्ड यूनिवर्सिटी" },
         { title: "ALX - प्रोफेशनल फाउंडेशन", subtitle: "ALX" },
+      ],
+    },
+    faq: {
+      sectionTitle: "अक्सर पूछे जाने वाले प्रश्न",
+      sectionSubtitle: "मेरी तकनीकी पृष्ठभूमि, मुख्य दक्षताओं, वास्तविक परियोजनाओं और उपलब्धता के सीधे उत्तर।",
+      items: [
+        {
+          question: "Nathenael Tamirat कौन हैं और उनकी इंजीनियरिंग पृष्ठभूमि क्या है?",
+          answer: "Nathenael Tamirat अदीस अबाबा, इथियोपिया में स्थित एक फुल-स्टैक सॉफ्टवेयर इंजीनियर हैं। 2018 से कोडिंग शुरू करके, वह आधुनिक वेब एप्लिकेशन, हेल्थकेयर मैनेजमेंट सिस्टम और क्लाउड सॉल्यूशंस बनाने में माहिर हैं।",
+        },
+        {
+          question: "Nathenael ने कौन से प्रमुख सिस्टम और प्रोजेक्ट विकसित किए हैं?",
+          answer: "Nathenael ने Lewi Speciality Dental Clinic के लिए क्लिनिकल मैनेजमेंट सिस्टम तैयार किया, Mentor Knowledge Solutions में सॉफ्टवेयर समाधान विकसित किए, BITS College का आधिकारिक पोर्टल बनाया और कानूनी संस्थाओं के लिए आधुनिक प्लेटफॉर्म विकसित किए।",
+        },
+        {
+          question: "Nathenael किन तकनीकों और टूल्स में विशेषज्ञता रखते हैं?",
+          answer: "उनके तकनीकी स्टैक में TypeScript, JavaScript, Rust, SQL, React, Next.js, React Native, Tailwind CSS, Node.js, Express, Hono, NestJS, PostgreSQL, MongoDB, Redis, Supabase, Docker, AWS, GCP, Vercel और CI/CD शामिल हैं।",
+        },
+        {
+          question: "Nathenael के पास तकनीकी समुदाय नेतृत्व का क्या अनुभव है?",
+          answer: "Nathenael ने Google Developer Groups ऑन कैंपस BITS College में टेक्निकल लीड के रूप में कार्य किया, Break The Pattern टेक समिट का सह-आयोजन किया और व्यावहारिक कोडिंग कार्यशालाओं का नेतृत्व किया।",
+        },
+        {
+          question: "क्या Nathenael नए प्रोजेक्ट्स या नौकरियों के लिए उपलब्ध हैं?",
+          answer: "हाँ, Nathenael फुल-स्टैक इंजीनियरिंग भूमिकाओं, फ्रीलांस अनुबंधों और तकनीकी साझेदारी के लिए सक्रिय रूप से उपलब्ध हैं। आप ईमेल, टेलीग्राम या लिंक्डइन के माध्यम से संपर्क कर सकते हैं।",
+        },
       ],
     },
     connect: {
@@ -752,6 +838,32 @@ export const translations: Record<LanguageCode, TranslationSchema> = {
         { title: "ALX - Professional Foundation", subtitle: "ALX" },
       ],
     },
+    faq: {
+      sectionTitle: "Preguntas Frecuentes",
+      sectionSubtitle: "Respuestas directas sobre mi trayectoria técnica, competencias clave, sistemas en producción y disponibilidad.",
+      items: [
+        {
+          question: "¿Quién es Nathenael Tamirat y cuál es su formación técnica?",
+          answer: "Nathenael Tamirat es un ingeniero de software full-stack radicado en Addis Abeba, Etiopía. Con experiencia desde 2018, se especializa en arquitecturas web de alto rendimiento, sistemas clínicos de salud y aplicaciones en la nube con TypeScript, React y Node.js.",
+        },
+        {
+          question: "¿Qué sistemas y proyectos empresariales ha construido?",
+          answer: "Nathenael diseñó el sistema de gestión integral para Lewi Speciality Dental Clinic, desarrolló soluciones en Mentor Knowledge Solutions, construyó el portal institucional de BITS College y creó múltiples plataformas web profesionales.",
+        },
+        {
+          question: "¿En qué tecnologías y entornos se especializa?",
+          answer: "Su stack comprende TypeScript, JavaScript, Rust, SQL, React, Next.js, React Native, Tailwind CSS, Node.js, Express, Hono, NestJS, PostgreSQL, MongoDB, Redis, Supabase, Docker, AWS, GCP, Vercel y CI/CD.",
+        },
+        {
+          question: "¿Qué experiencia de liderazgo comunitario posee?",
+          answer: "Se desempeñó como Technical Lead en Google Developer Groups en BITS College, coorganizó la cumbre tecnológica Break The Pattern, impartió talleres de código y participó en el Cursor AI Hackathon Ethiopia.",
+        },
+        {
+          question: "¿Está Nathenael disponible para roles de ingeniería o proyectos freelance?",
+          answer: "Sí, Nathenael está disponible activamente para roles full-stack, desarrollo de productos por contrato y colaboraciones técnicas internacionales. Puede contactarlo vía correo, Telegram o LinkedIn.",
+        },
+      ],
+    },
     connect: {
       sectionTitle: "Conectemos",
       heading: "¿Tienes un proyecto en mente o quieres colaborar?",
@@ -919,6 +1031,32 @@ export const translations: Record<LanguageCode, TranslationSchema> = {
         { title: "Programming Fundamentals", subtitle: "Udacity" },
         { title: "Code in Place", subtitle: "Stanford Universität" },
         { title: "ALX - Professional Foundation", subtitle: "ALX" },
+      ],
+    },
+    faq: {
+      sectionTitle: "Häufig Gestellte Fragen",
+      sectionSubtitle: "Direkte Antworten zu meinem technischen Werdegang, Kernkompetenzen, produktiven Systemen und Verfügbarkeit.",
+      items: [
+        {
+          question: "Wer ist Nathenael Tamirat und was ist sein technischer Hintergrund?",
+          answer: "Nathenael Tamirat ist ein Full-Stack Software-Ingenieur aus Addis Abeba, Äthiopien. Seit 2018 entwickelt er leistungsstarke Webanwendungen, klinische Gesundheitssysteme und moderne Cloud-Lösungen mit TypeScript, React, Next.js und Node.js.",
+        },
+        {
+          question: "Welche produktiven Unternehmenssysteme hat Nathenael entwickelt?",
+          answer: "Nathenael konzipierte das umfassende Managementsystem für die Lewi Speciality Dental Clinic, entwickelte Produktionssoftware bei Mentor Knowledge Solutions, baute das Hochschulportal des BITS College und lieferte Webplattformen für Kunden.",
+        },
+        {
+          question: "Auf welche Technologien und Produktionsumgebungen ist er spezialisiert?",
+          answer: "Sein Stack umfasst TypeScript, JavaScript, Rust, SQL, React, Next.js, React Native, Tailwind CSS, Node.js, Express, Hono, NestJS, PostgreSQL, MongoDB, Redis, Supabase, Docker, AWS, GCP, Vercel und CI/CD-Pipelines.",
+        },
+        {
+          question: "Welche Führungserfahrung in der Entwickler-Community bringt er mit?",
+          answer: "Er war Technical Lead bei Google Developer Groups on Campus BITS College, Mitorganisator des Break The Pattern Tech Summits, leitete Praxislabore und wirkte am Cursor AI Hackathon Ethiopia mit.",
+        },
+        {
+          question: "Ist Nathenael für Vollzeitstellen oder freiberufliche Projekte verfügbar?",
+          answer: "Ja, Nathenael steht für Full-Stack-Software-Positionen, freiberufliche Entwicklungsprojekte und technische Partnerschaften zur Verfügung. Kontaktaufnahme ist per E-Mail, Telegram oder LinkedIn möglich.",
+        },
       ],
     },
     connect: {
@@ -1090,6 +1228,32 @@ export const translations: Record<LanguageCode, TranslationSchema> = {
         { title: "ALX - Fondations Professionnelles", subtitle: "ALX" },
       ],
     },
+    faq: {
+      sectionTitle: "Foire Aux Questions",
+      sectionSubtitle: "Réponses directes concernant mon parcours technique, mes compétences fondamentales, mes projets en production et ma disponibilité.",
+      items: [
+        {
+          question: "Qui est Nathenael Tamirat et quel est son parcours d'ingénieur ?",
+          answer: "Nathenael Tamirat est un ingénieur logiciel full-stack basé à Addis-Abeba, en Éthiopie. Actif depuis 2018, il conçoit des applications web performantes, des systèmes de santé clinique et des infrastructures cloud modernes avec TypeScript, React et Node.js.",
+        },
+        {
+          question: "Quels systèmes en production et projets majeurs a-t-il réalisés ?",
+          answer: "Nathenael a conçu le système complet de gestion pour Lewi Speciality Dental Clinic, contribué aux solutions de Mentor Knowledge Solutions, développé le portail officiel de BITS College et déployé diverses plateformes web pour cabinets juridiques et entreprises.",
+        },
+        {
+          question: "Quelles sont ses technologies de prédilection et environnements de déploiement ?",
+          answer: "Son expertise couvre TypeScript, JavaScript, Rust, SQL, React, Next.js, React Native, Tailwind CSS, Node.js, Express, Hono, NestJS, PostgreSQL, MongoDB, Redis, Supabase, Docker, AWS, GCP, Vercel et CI/CD.",
+        },
+        {
+          question: "Quelle expérience de leadership communautaire possède-t-il ?",
+          answer: "Il a été Technical Lead pour Google Developer Groups on Campus à BITS College, coorganisateur du sommet technologique Break The Pattern, mentor en laboratoire informatique et participant au Cursor AI Hackathon Ethiopia.",
+        },
+        {
+          question: "Nathenael est-il disponible pour des missions ou opportunités professionnelles ?",
+          answer: "Oui, Nathenael est disponible pour des postes en ingénierie logicielle full-stack, des missions freelance et des partenariats technologiques. Contactez-le par e-mail, Telegram ou LinkedIn.",
+        },
+      ],
+    },
     connect: {
       sectionTitle: "Prenons contact",
       heading: "Vous avez un projet en tête ou souhaitez collaborer ?",
@@ -1257,6 +1421,32 @@ export const translations: Record<LanguageCode, TranslationSchema> = {
         { title: "プログラミング基礎", subtitle: "Udacity" },
         { title: "Code in Place", subtitle: "スタンフォード大学" },
         { title: "ALX プロフェッショナル基盤認定", subtitle: "ALX" },
+      ],
+    },
+    faq: {
+      sectionTitle: "よくあるご質問 (FAQ)",
+      sectionSubtitle: "技術的バックグラウンド、主要スキル、本番導入実績、稼働状況に関する直接的な回答です。",
+      items: [
+        {
+          question: "Nathenael Tamirat はどのようなエンジニアですか？",
+          answer: "エチオピア・アディスアベバを拠点とするフルスタック・ソフトウェアエンジニアです。2018年より開発を始め、TypeScript、React、Next.js、Node.jsを駆使した高性能Webアプリや医療機関向け業務システムを構築しています。",
+        },
+        {
+          question: "これまでに開発・納品した主要なシステムはどのようなものですか？",
+          answer: "Lewi 歯科専門クリニック向けの包括的業務管理システム、Mentor Knowledge Solutions での商用Webソリューション開発、BITS College 公式ポータルサイト、法律事務所向けWebサイトなどを手がけてきました。",
+        },
+        {
+          question: "得意とする技術スタックやインフラ環境は何ですか？",
+          answer: "TypeScript、JavaScript、Rust、SQL、React、Next.js、React Native、Tailwind CSS、Node.js、Express、Hono、NestJS、PostgreSQL、MongoDB、Redis、Supabase、Docker、AWS、GCP、Vercel、CI/CD などに対応しています。",
+        },
+        {
+          question: "技術コミュニティでのリーダーシップ経験はありますか？",
+          answer: "Google Developer Groups (GDG) on Campus BITS College でテクニカルリードを務め、Break The Pattern テックサミットの共同主催、技術ハンズオンの講師、Cursor AI ハッカソンでの共同開発を行いました。",
+        },
+        {
+          question: "新規案件やエンジニア採用の相談は可能ですか？",
+          answer: "はい、フルスタック開発の案件、フリーランス契約、技術提携などのご相談を歓迎しております。メール、Telegram、LinkedIn からお気軽にご連絡ください。",
+        },
       ],
     },
     connect: {
@@ -1428,6 +1618,32 @@ export const translations: Record<LanguageCode, TranslationSchema> = {
         { title: "ALX - Профессиональный фундамент", subtitle: "ALX" },
       ],
     },
+    faq: {
+      sectionTitle: "Часто Задаваемые Вопросы",
+      sectionSubtitle: "Прямые ответы о моем техническом опыте, ключевых компетенциях, реализованных системах и доступности.",
+      items: [
+        {
+          question: "Кто такой Nathenael Tamirat и каков его инженерный опыт?",
+          answer: "Nathenael Tamirat — full-stack инженер-программист из Аддис-Абебы, Эфиопия. Начав свой путь в 2018 году, он специализируется на высокопроизводительных веб-приложениях, медицинских системах и облачных сервисах на TypeScript, React и Node.js.",
+        },
+        {
+          question: "Какие корпоративные системы и проекты разработал Nathenael?",
+          answer: "Nathenael разработал комплексную систему управления для Lewi Speciality Dental Clinic, участвовал в создании решений в Mentor Knowledge Solutions, построил академический портал BITS College и платформы для юридических компаний.",
+        },
+        {
+          question: "Каковы основные технологии и стек развертывания?",
+          answer: "Стек включает TypeScript, JavaScript, Rust, SQL, React, Next.js, React Native, Tailwind CSS, Node.js, Express, Hono, NestJS, PostgreSQL, MongoDB, Redis, Supabase, Docker, AWS, GCP, Vercel и CI/CD.",
+        },
+        {
+          question: "Какой опыт лидерства в сообществе имеет Nathenael?",
+          answer: "Он был техническим руководителем (Technical Lead) в Google Developer Groups в BITS College, соорганизатором саммита Break The Pattern, вел практические мастер-классы и участвовал в Cursor AI Hackathon Ethiopia.",
+        },
+        {
+          question: "Доступен ли Nathenael для работы над проектами и предложений о работе?",
+          answer: "Да, Nathenael открыт к предложениям о full-stack разработке, проектной работе и техническому сотрудничеству. Вы можете связаться по почте, в Telegram или LinkedIn.",
+        },
+      ],
+    },
     connect: {
       sectionTitle: "Давайте общаться",
       heading: "Есть проект или хотите сотрудничать?",
@@ -1595,6 +1811,32 @@ export const translations: Record<LanguageCode, TranslationSchema> = {
         { title: "Fundamentos de Programação", subtitle: "Udacity" },
         { title: "Code in Place", subtitle: "Universidade de Stanford" },
         { title: "ALX - Fundações Profissionais", subtitle: "ALX" },
+      ],
+    },
+    faq: {
+      sectionTitle: "Perguntas Frequentes",
+      sectionSubtitle: "Respostas diretas sobre minha trajetória técnica, competências principais, sistemas em produção e disponibilidade.",
+      items: [
+        {
+          question: "Quem é Nathenael Tamirat e qual é seu histórico em engenharia?",
+          answer: "Nathenael Tamirat é um engenheiro de software full-stack baseado em Adis Abeba, Etiópia. Ativo desde 2018, é especialista em arquitetar aplicações web de alta performance, sistemas clínicos de saúde e plataformas em nuvem com TypeScript, React e Node.js.",
+        },
+        {
+          question: "Quais sistemas corporativos e em produção Nathenael construiu?",
+          answer: "Desenvolveu o sistema completo de gestão para a Lewi Speciality Dental Clinic, colaborou em soluções na Mentor Knowledge Solutions, construiu o portal acadêmico do BITS College e entregou plataformas digitais para escritórios jurídicos.",
+        },
+        {
+          question: "Em quais tecnologias e ferramentas Nathenael é especialista?",
+          answer: "Seu domínio técnico inclui TypeScript, JavaScript, Rust, SQL, React, Next.js, React Native, Tailwind CSS, Node.js, Express, Hono, NestJS, PostgreSQL, MongoDB, Redis, Supabase, Docker, AWS, GCP, Vercel e CI/CD.",
+        },
+        {
+          question: "Qual é a sua experiência em liderança comunitária?",
+          answer: "Atuou como Technical Lead no Google Developer Groups on Campus BITS College, foi coorganizador do Break The Pattern Tech Summit, conduziu workshops práticos de código e participou do Cursor AI Hackathon Ethiopia.",
+        },
+        {
+          question: "Nathenael está disponível para contratos freelance ou vagas de engenharia?",
+          answer: "Sim, Nathenael está ativamente disponível para oportunidades full-stack, projetos freelance e parcerias técnicas internacionais. Entre em contato via e-mail, Telegram ou LinkedIn.",
+        },
       ],
     },
     connect: {
@@ -1766,6 +2008,32 @@ export const translations: Record<LanguageCode, TranslationSchema> = {
         { title: "ALX - 프로페셔널 파운데이션", subtitle: "ALX" },
       ],
     },
+    faq: {
+      sectionTitle: "자주 묻는 질문 (FAQ)",
+      sectionSubtitle: "기술적 배경, 핵심 역량, 프로덕션 시스템 구축 경험 및 협업 가능 여부에 대한 답변입니다.",
+      items: [
+        {
+          question: "Nathenael Tamirat은 어떤 소프트웨어 엔지니어인가요?",
+          answer: "에티오피아 아디스아바바 기반의 풀스택 소프트웨어 엔지니어입니다. 2018년 개발을 시작하여 TypeScript, React, Next.js, Node.js를 기반으로 고성능 웹 애플리케이션, 의료 클리닉 관리 시스템, 클라우드 서비스를 설계·구축하고 있습니다.",
+        },
+        {
+          question: "주요 개발 및 프로덕션 프로젝트 이력은 무엇인가요?",
+          answer: "Lewi 치과 전문 클리닉의 종합 통합 관리 시스템을 설계 및 런칭하였고, Mentor Knowledge Solutions의 엔지니어링 솔루션 개발, BITS College 공식 포털 구축, 법률 법인 웹 플랫폼 등을 성공적으로 완수했습니다.",
+        },
+        {
+          question: "주로 사용하는 기술 스택과 인프라는 무엇인가요?",
+          answer: "TypeScript, JavaScript, Rust, SQL, React, Next.js, React Native, Tailwind CSS, Node.js, Express, Hono, NestJS, PostgreSQL, MongoDB, Redis, Supabase, Docker, AWS, GCP, Vercel, CI/CD 자동화 파이프라인 등을 전문적으로 다룹니다.",
+        },
+        {
+          question: "기술 커뮤니티 리더십 경험은 어떠한가요?",
+          answer: "Google Developer Groups on Campus BITS College에서 테크니컬 리드(Technical Lead)를 역임하였으며, Break The Pattern 테크 서밋 공동 주최, 실습 워크숍 진행, Cursor AI Hackathon Ethiopia 참가 등의 활동을 이어왔습니다.",
+        },
+        {
+          question: "새로운 프로젝트 의뢰나 채용 포지션 제안이 가능한가요?",
+          answer: "네, 풀스택 엔지니어 포지션, 프리랜서 프로젝트, 기술 파트너십 제안을 적극 환영합니다. 이메일, Telegram, LinkedIn을 통해 직접 문의하실 수 있습니다.",
+        },
+      ],
+    },
     connect: {
       sectionTitle: "함께 협업하기",
       heading: "새로운 프로젝트 아이디어가 있거나 기술 협업을 원하시나요?",
@@ -1933,6 +2201,32 @@ export const translations: Record<LanguageCode, TranslationSchema> = {
         { title: "የፕሮግራሚንግ መሰረታዊያን", subtitle: "Udacity" },
         { title: "Code in Place", subtitle: "ስታንፎርድ ዩኒቨርሲቲ" },
         { title: "ALX - ሙያዊ ፋውንዴሽን", subtitle: "ALX" },
+      ],
+    },
+    faq: {
+      sectionTitle: "ተደጋግመው የሚጠየቁ ጥያቄዎች",
+      sectionSubtitle: "ስለ ቴክኒካል ልምዴ፣ ዋና ዋና የሙያ ብቃቶቼ፣ የገነባኋቸው ሲስተሞች እና ለስራ ዝግጁነቴ የቀረቡ ቀጥተኛ ምላሾች።",
+      items: [
+        {
+          question: "ናጠናኤል ታምራት ማነው? የሙያ ልምዱስ ምን ይመስላል?",
+          answer: "ናጠናኤል ታምራት አዲስ አበባ ውስጥ የሚሰራ የሙሉ-ስታክ (Full-Stack) የሶፍትዌር መሃንዲስ ነው። ከ2018 ጀምሮ የኮዲንግ ጉዞውን የጀመረ ሲሆን፣ በTypeScript፣ React፣ Next.js እና Node.js ፈጣን እና አስተማማኝ የድር መተግበሪያዎችን እና የህክምና አስተዳደር ሲስተሞችን በመገንባት ላይ ያተኩራል።",
+        },
+        {
+          question: "ናጠናኤል የገነባቸው ዋና ዋና ፕሮጀክቶች እና ሲስተሞች የትኞቹ ናቸው?",
+          answer: "ናጠናኤል ለሌዊ ስፔሻሊቲ የጥርስ ክሊኒክ አጠቃላይ የክሊኒክ አስተዳደር ድር ሲስተም ንድፎ የሰራ ሲሆን፣ በMentor Knowledge Solutions ፕሮዳክሽን ሶፍትዌሮችን ሰርቷል፣ የBITS College ይፋዊ የድር ፖርታልን እና ለህግ አገልግሎት ድርጅቶች ዘመናዊ መድረኮችን ገንብቷል።",
+        },
+        {
+          question: "ናጠናኤል በዋናነት የሚጠቀምባቸው የቴክኖሎጂ መሳሪያዎች የትኞቹ ናቸው?",
+          answer: "ዋና ቴክኖሎጂዎቹ TypeScript፣ JavaScript፣ Rust፣ SQL፣ React፣ Next.js፣ React Native፣ Tailwind CSS፣ Node.js፣ Express፣ Hono፣ NestJS፣ PostgreSQL፣ MongoDB፣ Redis፣ Supabase፣ Docker፣ AWS፣ GCP፣ Vercel እና CI/CD ያካትታሉ።",
+        },
+        {
+          question: "ናጠናኤል በቴክኖሎጂ ማህበረሰብ ውስጥ ምን አይነት የአመራር ልምድ አለው?",
+          answer: "በGoogle Developer Groups on Campus BITS College ውስጥ የቴክኒካል መሪ (Technical Lead) በመሆን አገልግሏል፤ የBreak The Pattern የቴክኖሎጂ ጉባኤን በጋራ አዘጋጅቷል፤ በኮምፒውተር ላብራቶሪ ተግባራዊ ስልጠናዎችን ሰጥቷል፤ እንዲሁም በCursor AI ሃካቶን ተሳትፏል።",
+        },
+        {
+          question: "ናጠናኤል ለአዳዲስ የስራ እድሎች ወይም ፍሪላንስ ስራዎች ዝግጁ ነው?",
+          answer: "አዎ፣ ናጠናኤል ለሙሉ-ስታክ ሶፍትዌር ኢንጂነሪንግ ስራዎች፣ ለፍሪላንስ ኮንትራቶች እና ለቴክኒካል አጋርነቶች ሙሉ በሙሉ ዝግጁ ነው። በኢሜይል፣ በቴሌግራም ወይም በLinkedIn በቀጥታ ማግኘት ይችላሉ።",
+        },
       ],
     },
     connect: {

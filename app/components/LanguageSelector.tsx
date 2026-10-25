@@ -46,7 +46,7 @@ export function LanguageSelector() {
     return (
       <div 
         aria-hidden="true"
-        className="h-9 w-9 rounded-full border border-zinc-200 bg-white/50 dark:border-zinc-800 dark:bg-zinc-950/50"
+        className="h-11 w-11 sm:h-9 sm:w-9 rounded-full border border-zinc-200 bg-white/50 dark:border-zinc-800 dark:bg-zinc-950/50"
       />
     );
   }
@@ -66,7 +66,7 @@ export function LanguageSelector() {
         aria-haspopup="listbox"
         aria-expanded={isOpen}
         title={t.nav.selectLanguage}
-        className={`flex h-9 w-9 items-center justify-center rounded-full border border-zinc-200 bg-white text-zinc-600 transition-[transform,colors,box-shadow] duration-200 hover:text-emerald-500 hover:scale-105 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-400 dark:hover:text-emerald-400 shadow-sm ${
+        className={`flex h-11 w-11 sm:h-9 sm:w-9 items-center justify-center rounded-full border border-zinc-200 bg-white text-zinc-600 transition-[transform,colors,box-shadow] duration-200 hover:text-emerald-500 hover:scale-105 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-400 dark:hover:text-emerald-400 shadow-sm ${
           isOpen ? "border-emerald-500 text-emerald-500 ring-2 ring-emerald-500/20" : ""
         }`}
       >

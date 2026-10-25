@@ -99,7 +99,7 @@ export default function CertificateDock() {
           type="button"
           aria-label={t.certificates.prev}
           onClick={handlePrev}
-          className="flex min-h-[42px] min-w-[42px] items-center justify-center rounded-none border border-zinc-200 dark:border-zinc-800 bg-transparent p-2.5 text-zinc-700 dark:text-zinc-300 transition-colors hover:border-emerald-500/50 hover:text-emerald-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+          className="flex min-h-[44px] min-w-[44px] items-center justify-center rounded-none border border-zinc-200 dark:border-zinc-800 bg-transparent p-2.5 text-zinc-700 dark:text-zinc-300 transition-colors hover:border-emerald-500/50 hover:text-emerald-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 cursor-pointer"
         >
           <FiChevronLeft size={18} />
         </button>
@@ -112,7 +112,7 @@ export default function CertificateDock() {
           type="button"
           aria-label={t.certificates.next}
           onClick={handleNext}
-          className="flex min-h-[42px] min-w-[42px] items-center justify-center rounded-none border border-zinc-200 dark:border-zinc-800 bg-transparent p-2.5 text-zinc-700 dark:text-zinc-300 transition-colors hover:border-emerald-500/50 hover:text-emerald-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+          className="flex min-h-[44px] min-w-[44px] items-center justify-center rounded-none border border-zinc-200 dark:border-zinc-800 bg-transparent p-2.5 text-zinc-700 dark:text-zinc-300 transition-colors hover:border-emerald-500/50 hover:text-emerald-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 cursor-pointer"
         >
           <FiChevronRight size={18} />
         </button>

@@ -18,6 +18,7 @@ import {
 } from "react-icons/fi";
 import CertificateDock from "./components/CertificateDock";
 import SkillsSection from "./components/SkillsSection";
+import FaqSection from "./components/FaqSection";
 import { useLanguage } from "./context/LanguageContext";
 
 const eventMetadata = [
@@ -108,60 +109,63 @@ export default function Home() {
       className="no-scrollbar relative mx-auto w-full max-w-[96%] sm:max-w-2xl lg:max-w-3xl xl:max-w-4xl px-4 sm:px-6 pt-16 sm:pt-20 lg:pt-24 pb-20 min-h-screen outline-none"
     >
       
-      {/* Introduction / Hero Section */}
+      {/* Introduction / Hero Section with Unified Grid for 100% Mobile/Desktop Parity */}
       <section aria-labelledby="hero-heading" className="border-dashed border-zinc-200 dark:border-white/20 pb-12 mt-4 sm:mt-8 border-b">
         
-        {/* Mobile Header: Logo + Name + Title at the top */}
-        <div className="flex items-center gap-3.5 mb-6 lg:hidden">
-          <div className="relative h-14 w-14 sm:h-16 sm:w-16 shrink-0 overflow-hidden rounded-full border border-zinc-200 dark:border-zinc-800 shadow-sm">
-            <Image 
-              src="/logo.jpeg" 
-              alt="Nathenael Tamirat emblem" 
-              fill
-              sizes="64px"
-              priority
-              className="object-cover" 
-            />
-          </div>
-          <div className="flex flex-col gap-1 min-w-0">
-            <div className="flex flex-wrap items-center gap-2">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-6 lg:gap-x-8 items-start">
+          
+          {/* Mobile: Top Header Lockup (Emblem + Unified Semantic H1 + Availability Badge) */}
+          <div className="lg:hidden flex items-center gap-3.5 mb-2">
+            <div className="relative h-14 w-14 sm:h-16 sm:w-16 shrink-0 overflow-hidden rounded-full border border-zinc-200 dark:border-zinc-800 shadow-sm">
+              <Image 
+                src="/logo.jpeg" 
+                alt="Nathenael Tamirat emblem" 
+                fill
+                sizes="64px"
+                priority
+                className="object-cover" 
+              />
+            </div>
+            <div className="flex flex-col gap-1 min-w-0">
               <h1 
                 id="hero-heading"
-                className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-emerald-500 to-cyan-500 bg-clip-text text-transparent break-words"
+                className="flex flex-col gap-1"
               >
-                Nathenael Tamirat
-              </h1>
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 px-2 py-0.5 text-[10px] sm:text-[10.5px] font-medium text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 whitespace-nowrap">
-                <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-emerald-500 to-cyan-500 bg-clip-text text-transparent break-words">
+                    Nathenael Tamirat
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 px-2 py-0.5 text-[10px] sm:text-[10.5px] font-medium text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 whitespace-nowrap">
+                    <span className="relative flex h-2 w-2">
+                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
+                      <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
+                    </span>
+                    {t.hero.availableForWork}
+                  </span>
+                </div>
+                <span className="text-xs sm:text-sm font-medium text-zinc-600 dark:text-zinc-400">
+                  {t.hero.role}
                 </span>
-                {t.hero.availableForWork}
-              </span>
+              </h1>
             </div>
-            <p className="text-xs sm:text-sm font-medium text-zinc-600 dark:text-zinc-400">
-              {t.hero.role}
-            </p>
-          </div>
-        </div>
-
-        {/* Hero Body: Portrait Photo on Left (desktop) or Center (mobile), Bio on Right */}
-        <div className="flex flex-col items-center lg:items-start gap-8 lg:flex-row">
-          
-          {/* Portrait Photo */}
-          <div className="relative w-full max-w-[280px] sm:max-w-[320px] lg:max-w-none lg:w-[35%] aspect-[4/5] shrink-0 overflow-hidden rounded-xl border border-zinc-200 dark:border-white/10 hover:border-emerald-500/50 transition-colors shadow-lg dark:shadow-xl mx-auto lg:mx-0">
-            <Image 
-              src="/Nathenael.jpeg" 
-              alt="Nathenael Tamirat — Software Engineer" 
-              fill
-              priority
-              sizes="(max-width: 1024px) 320px, 35vw"
-              className="object-cover transition-transform duration-500 hover:scale-105"
-            />
           </div>
 
-          {/* Desktop details and bio */}
-          <div className="flex w-full flex-col justify-center gap-y-6 lg:w-[65%]">
+          {/* Portrait Photo (Left Column on Desktop, Centered on Mobile) */}
+          <div className="lg:col-span-4 flex justify-center w-full">
+            <div className="relative w-full max-w-[280px] sm:max-w-[320px] lg:max-w-none aspect-[4/5] shrink-0 overflow-hidden rounded-xl border border-zinc-200 dark:border-white/10 hover:border-emerald-500/50 transition-colors shadow-lg dark:shadow-xl mx-auto lg:mx-0">
+              <Image 
+                src="/Nathenael.jpeg" 
+                alt="Nathenael Tamirat — Software Engineer" 
+                fill
+                priority
+                sizes="(max-width: 1024px) 320px, 35vw"
+                className="object-cover transition-transform duration-500 hover:scale-105"
+              />
+            </div>
+          </div>
+
+          {/* Desktop details, bio, and social channels */}
+          <div className="lg:col-span-8 flex flex-col justify-center gap-y-6">
             
             {/* Desktop Header Lockup */}
             <div className="hidden lg:flex items-center gap-4">
@@ -194,13 +198,13 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Narrative Bio with Typographic Quotes */}
+            {/* Narrative Bio */}
             <div className="flex flex-col gap-y-4 text-[15px] sm:text-[16.5px] leading-relaxed text-zinc-700 dark:text-zinc-300">
               <p>{t.hero.bioP1}</p>
               <p>{t.hero.bioP2}</p>
             </div>
 
-            {/* Social Links Dock */}
+            {/* Social Links Dock with 44px minimum touch targets */}
             <nav aria-label="Social links and contact channels" className="flex flex-wrap gap-2 pt-1 justify-center sm:justify-start">
               <SocialLink href="https://www.linkedin.com/in/nathenael-tamirat/" label="LinkedIn Profile" icon={<FaLinkedin size={22} />} />
               <SocialLink href="https://github.com/NathenaelTamirat" label="GitHub Profile" icon={<FaGithub size={22} />} />
@@ -220,7 +224,7 @@ export default function Home() {
       <section aria-labelledby="experience-heading" className="pt-12">
         <h2 
           id="experience-heading"
-          className="w-fit rounded-none px-4 py-2 text-xl font-semibold bg-transparent border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-white shadow-sm mb-10"
+          className="w-fit rounded-none px-4 py-2 text-xl font-semibold bg-transparent border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-white shadow-sm mb-10 scroll-mt-24"
         >
           {t.experience.sectionTitle}
         </h2>
@@ -256,7 +260,7 @@ export default function Home() {
       <section aria-labelledby="events-heading" className="pt-16">
         <h2 
           id="events-heading"
-          className="w-fit rounded-none px-4 py-2 text-xl font-semibold bg-transparent border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-white shadow-sm mb-4"
+          className="w-fit rounded-none px-4 py-2 text-xl font-semibold bg-transparent border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-white shadow-sm mb-4 scroll-mt-24"
         >
           {t.events.sectionTitle}
         </h2>
@@ -331,7 +335,7 @@ export default function Home() {
       <section aria-labelledby="projects-heading" className="pt-16">
         <h2 
           id="projects-heading"
-          className="w-fit rounded-none px-4 py-2 text-xl font-semibold bg-transparent border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-white shadow-sm mb-10"
+          className="w-fit rounded-none px-4 py-2 text-xl font-semibold bg-transparent border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-white shadow-sm mb-10 scroll-mt-24"
         >
           {t.projects.sectionTitle}
         </h2>
@@ -357,7 +361,7 @@ export default function Home() {
       <section aria-labelledby="awards-heading" className="pt-16">
         <h2 
           id="awards-heading"
-          className="w-fit rounded-none px-4 py-2 text-xl font-semibold bg-transparent border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-white shadow-sm mb-4"
+          className="w-fit rounded-none px-4 py-2 text-xl font-semibold bg-transparent border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-white shadow-sm mb-4 scroll-mt-24"
         >
           {t.certificates.sectionTitle}
         </h2>
@@ -369,11 +373,14 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Frequently Asked Questions (AEO / GEO / Information Gain) Section */}
+      <FaqSection />
+
       {/* Connect & Contact CTA Section */}
       <section aria-labelledby="connect-heading" className="pt-16">
         <h2 
           id="connect-heading"
-          className="w-fit rounded-none px-4 py-2 text-xl font-semibold bg-transparent border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-white shadow-sm mb-6"
+          className="w-fit rounded-none px-4 py-2 text-xl font-semibold bg-transparent border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-white shadow-sm mb-6 scroll-mt-24"
         >
           {t.connect.sectionTitle}
         </h2>
@@ -388,26 +395,26 @@ export default function Home() {
             <div className="flex flex-wrap gap-2.5 sm:gap-3 pt-2">
               <Link
                 href="mailto:nathenaeltamiratbizuneh@gmail.com"
-                className="inline-flex items-center justify-center gap-2 rounded-none bg-emerald-600 hover:bg-emerald-500 text-white dark:text-black dark:bg-emerald-400 dark:hover:bg-emerald-300 px-5 py-2.5 text-xs font-semibold uppercase tracking-wider transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 w-full sm:w-auto"
+                className="inline-flex items-center justify-center gap-2 rounded-none bg-emerald-600 hover:bg-emerald-500 text-white dark:text-black dark:bg-emerald-400 dark:hover:bg-emerald-300 px-5 py-2.5 text-xs font-semibold uppercase tracking-wider transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 w-full sm:w-auto cursor-pointer"
               >
                 <FiMail size={16} /> {t.connect.getInTouch}
               </Link>
-              <Link
+              <a
                 href="https://t.me/nathenaeltamirat"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-none border border-zinc-200 dark:border-zinc-800 bg-transparent hover:border-emerald-500/40 px-5 py-2.5 text-xs font-semibold text-zinc-800 dark:text-zinc-200 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 w-full sm:w-auto"
               >
                 <FaTelegram size={16} /> {t.connect.telegram} <FiArrowUpRight size={14} />
-              </Link>
-              <Link
+              </a>
+              <a
                 href="https://www.linkedin.com/in/nathenael-tamirat/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-none border border-zinc-200 dark:border-zinc-800 bg-transparent hover:border-emerald-500/40 px-5 py-2.5 text-xs font-semibold text-zinc-800 dark:text-zinc-200 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 w-full sm:w-auto"
               >
                 <FaLinkedin size={16} /> {t.connect.linkedin} <FiArrowUpRight size={14} />
-              </Link>
+              </a>
             </div>
           </div>
         </div>
@@ -420,7 +427,7 @@ export default function Home() {
         </p>
         <p className="flex items-center gap-2">
           <span>{t.footer.craftedWith}</span>
-          <span className="font-semibold text-zinc-700 dark:text-zinc-300">Next.js &amp; Tailwind CSS</span>
+          <span className="font-semibold text-zinc-700 dark:text-zinc-300">Next.js&nbsp;&amp;&nbsp;Tailwind&nbsp;CSS</span>
         </p>
       </footer>
 
@@ -435,7 +442,7 @@ function SocialLink({ href, icon, label }: { href: string; icon: React.ReactNode
       target="_blank" 
       rel="noopener noreferrer" 
       aria-label={label}
-      className="p-2 min-h-[40px] min-w-[40px] flex items-center justify-center rounded text-zinc-500 dark:text-zinc-400 transition-all duration-200 hover:scale-110 hover:-translate-y-0.5 hover:text-emerald-500 dark:hover:text-emerald-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+      className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded text-zinc-500 dark:text-zinc-400 transition-all duration-200 hover:scale-110 hover:-translate-y-0.5 hover:text-emerald-500 dark:hover:text-emerald-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 cursor-pointer"
     >
       {icon}
     </Link>
@@ -466,7 +473,7 @@ function ProjectCard({
           </span>
         )}
         <div className="flex flex-col">
-          <h3 className="text-base sm:text-lg font-bold text-zinc-900 dark:text-white group-hover:text-emerald-500 dark:group-hover:text-emerald-400 transition-colors">
+          <h3 translate="no" className="text-base sm:text-lg font-bold text-zinc-900 dark:text-white group-hover:text-emerald-500 dark:group-hover:text-emerald-400 transition-colors">
             {title}
           </h3>
           <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed flex-1">
@@ -499,14 +506,14 @@ function ProjectCard({
   );
 
   return url ? (
-    <Link 
+    <a 
       href={url} 
       target="_blank" 
       rel="noopener noreferrer" 
       className="block h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
     >
       {card}
-    </Link>
+    </a>
   ) : (
     card
   );
@@ -554,7 +561,7 @@ function TimelineItem({
             </h3>
             <div className="flex flex-wrap justify-between items-start gap-2 mt-1">
               <div className="flex flex-col min-w-0">
-                <p className="text-xs sm:text-sm font-medium text-zinc-600 dark:text-zinc-400">{company}</p>
+                <p translate="no" className="text-xs sm:text-sm font-medium text-zinc-600 dark:text-zinc-400">{company}</p>
                 {locationOrType && (
                   <span className="text-[11px] sm:text-xs text-zinc-500 dark:text-zinc-500 mt-0.5">{locationOrType}</span>
                 )}
@@ -582,14 +589,14 @@ function TimelineItem({
             )}
 
             {proofLink && (
-              <Link 
+              <a 
                 href={proofLink} 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-xs font-semibold text-emerald-600 dark:text-emerald-400 hover:underline w-fit border border-emerald-500/20 bg-emerald-500/10 px-3 py-1.5 rounded-none transition-colors hover:bg-emerald-500/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
               >
                 <FiExternalLink size={14} /> {linkText || "View Work Proof"}
-              </Link>
+              </a>
             )}
           </div>
         </div>

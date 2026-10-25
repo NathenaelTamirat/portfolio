@@ -209,7 +209,7 @@ export default function SkillsSection() {
       {/* Section Header */}
       <h2 
         id="skills-heading"
-        className="w-fit rounded-none px-4 py-2 text-xl font-semibold bg-transparent border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-white shadow-sm mb-4 scroll-mt-20"
+        className="w-fit rounded-none px-4 py-2 text-xl font-semibold bg-transparent border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-white shadow-sm mb-4 scroll-mt-24"
       >
         {t.skills.sectionTitle}
       </h2>
