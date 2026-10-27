@@ -240,7 +240,7 @@ export const translations: Record<LanguageCode, TranslationSchema> = {
       ],
     },
     certificates: {
-      sectionTitle: "Awards and Certifications",
+      sectionTitle: "Awards & Certifications",
       sectionSubtitle: "A selection of verified certifications and academic programs completed.",
       prev: "Previous certificates",
       next: "Next certificates",

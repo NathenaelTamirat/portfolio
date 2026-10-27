@@ -4,6 +4,7 @@
 
 @theme {
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 }
 
 @layer base {
@@ -26,6 +27,21 @@
     scroll-behavior: smooth;
   }
 
+  /* Rule 38: Honor prefers-reduced-motion across animations and scroll behavior */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
   /* Rule 26: Suppress desktop rubber-banding while preserving mobile pull-to-refresh */
   @media (pointer: fine) {
     html {
@@ -44,6 +60,12 @@
 
   * {
     -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Rule 48: Cross-browser SVG transforms */
+  svg g {
+    transform-box: fill-box;
+    transform-origin: center;
   }
 }
 

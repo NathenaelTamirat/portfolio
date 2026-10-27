@@ -1,15 +1,39 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { FiChevronDown } from "react-icons/fi";
 import { useLanguage } from "../context/LanguageContext";
 
 export default function FaqSection() {
   const { t } = useLanguage();
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const buttonRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
   const toggle = (idx: number) => {
     setOpenIndex((current) => (current === idx ? null : idx));
+  };
+
+  // Rule 7 & 9: Keyboard navigation for WAI-ARIA Accordion Pattern
+  const handleKeyDown = (e: React.KeyboardEvent, index: number) => {
+    const total = t.faq.items.length;
+    switch (e.key) {
+      case "ArrowDown":
+        e.preventDefault();
+        buttonRefs.current[(index + 1) % total]?.focus();
+        break;
+      case "ArrowUp":
+        e.preventDefault();
+        buttonRefs.current[(index - 1 + total) % total]?.focus();
+        break;
+      case "Home":
+        e.preventDefault();
+        buttonRefs.current[0]?.focus();
+        break;
+      case "End":
+        e.preventDefault();
+        buttonRefs.current[total - 1]?.focus();
+        break;
+    }
   };
 
   return (
@@ -33,16 +57,20 @@ export default function FaqSection() {
           return (
             <div
               key={item.question}
-              className="rounded-none border border-zinc-200 dark:border-zinc-800 bg-transparent transition-[border-color,box-shadow] duration-200 hover:border-emerald-500/40"
+              className="rounded-none border border-zinc-200 dark:border-zinc-800 bg-transparent transition-[border-color,box-shadow] duration-200 hover:border-emerald-500/40 hover:shadow-sm"
             >
               <h3>
                 <button
+                  ref={(el) => {
+                    buttonRefs.current[idx] = el;
+                  }}
                   type="button"
                   id={questionId}
                   aria-expanded={isOpen}
                   aria-controls={answerId}
                   onClick={() => toggle(idx)}
-                  className="w-full flex items-center justify-between gap-4 p-4 sm:p-5 text-left font-semibold text-sm sm:text-base text-zinc-900 dark:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 cursor-pointer min-h-[48px]"
+                  onKeyDown={(e) => handleKeyDown(e, idx)}
+                  className="w-full flex items-center justify-between gap-4 p-4 sm:p-5 text-left font-semibold text-sm sm:text-base text-zinc-900 dark:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-black cursor-pointer min-h-[48px]"
                 >
                   <span className="flex-1">{item.question}</span>
                   <FiChevronDown

@@ -31,15 +31,16 @@ export function ThemeToggle({ className }: { className?: string }) {
       type="button"
       onClick={() => setTheme(isDark ? "light" : "dark")}
       aria-label={`Switch to ${isDark ? "light" : "dark"} theme`}
+      title={`Switch to ${isDark ? "light" : "dark"} theme`}
       className={
         className ||
-        "flex h-11 w-11 sm:h-9 sm:w-9 items-center justify-center rounded-full border border-zinc-200 bg-white text-zinc-600 hover:text-emerald-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 transition-colors dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-400 dark:hover:text-emerald-400 shadow-sm"
+        "flex h-11 w-11 sm:h-9 sm:w-9 items-center justify-center rounded-full border border-zinc-200 bg-white text-zinc-600 hover:text-emerald-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-black transition-[colors,transform] duration-200 hover:scale-105 active:scale-95 dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-400 dark:hover:text-emerald-400 shadow-sm cursor-pointer"
       }
     >
       {isDark ? (
-        <FiSun className="h-5 w-5 rotate-0 scale-100 transition-transform duration-200" />
+        <FiSun className="h-5 w-5 rotate-0 scale-100 transition-transform duration-200" aria-hidden="true" />
       ) : (
-        <FiMoon className="h-5 w-5 rotate-0 scale-100 transition-transform duration-200" />
+        <FiMoon className="h-5 w-5 rotate-0 scale-100 transition-transform duration-200" aria-hidden="true" />
       )}
       <span className="sr-only">Toggle theme</span>
     </button>

@@ -6,19 +6,20 @@ import {
   FaGithub, 
   FaLinkedin, 
   FaInstagram, 
-  FaXTwitter,
-  FaTiktok,
-  FaTelegram
+  FaXTwitter, 
+  FaTiktok, 
+  FaTelegram 
 } from "react-icons/fa6";
 import { 
   FiMail, 
-  FiMessageCircle,
-  FiExternalLink,
-  FiArrowUpRight
+  FiMessageCircle, 
+  FiExternalLink, 
+  FiArrowUpRight 
 } from "react-icons/fi";
 import CertificateDock from "./components/CertificateDock";
 import SkillsSection from "./components/SkillsSection";
 import FaqSection from "./components/FaqSection";
+import { BrandLogo } from "./components/BrandLogo";
 import { useLanguage } from "./context/LanguageContext";
 
 const eventMetadata = [
@@ -106,53 +107,48 @@ export default function Home() {
     <main 
       id="main-content" 
       tabIndex={-1}
-      className="no-scrollbar relative mx-auto w-full max-w-[96%] sm:max-w-2xl lg:max-w-3xl xl:max-w-4xl px-4 sm:px-6 pt-16 sm:pt-20 lg:pt-24 pb-20 min-h-screen outline-none"
+      className="no-scrollbar relative mx-auto w-full max-w-[96%] sm:max-w-2xl lg:max-w-3xl xl:max-w-4xl px-4 sm:px-6 pt-16 sm:pt-20 lg:pt-24 pb-[max(5rem,env(safe-area-inset-bottom))] min-h-screen outline-none"
     >
       
-      {/* Introduction / Hero Section with Unified Grid for 100% Mobile/Desktop Parity */}
+      {/* Introduction / Hero Section with 100% Mobile/Desktop DOM Parity & Single Semantic H1 */}
       <section aria-labelledby="hero-heading" className="border-dashed border-zinc-200 dark:border-white/20 pb-12 mt-4 sm:mt-8 border-b">
         
+        {/* Unified Semantic Header Lockup: Emblem + H1 + Availability Badge + Role */}
+        <div className="flex items-center gap-3.5 sm:gap-4 mb-6 sm:mb-8">
+          <BrandLogo size={68} priority />
+          <div className="flex flex-col gap-1 min-w-0">
+            <h1 
+              id="hero-heading"
+              className="flex flex-col gap-1"
+            >
+              <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+                <span 
+                  translate="no"
+                  className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-emerald-500 to-cyan-500 bg-clip-text text-transparent break-words tracking-tight"
+                >
+                  Nathenael Tamirat
+                </span>
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 px-2.5 py-0.5 text-[10.5px] sm:text-xs font-medium text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 whitespace-nowrap">
+                  <span className="relative flex h-2 w-2" aria-hidden="true">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
+                    <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
+                  </span>
+                  {t.hero.availableForWork}
+                </span>
+              </div>
+              <span className="text-xs sm:text-sm font-medium text-zinc-600 dark:text-zinc-400">
+                {t.hero.role}
+              </span>
+            </h1>
+          </div>
+        </div>
+
+        {/* Content Layout: Portrait Photo & Narrative Bio + Socials */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-6 lg:gap-x-8 items-start">
           
-          {/* Mobile: Top Header Lockup (Emblem + Unified Semantic H1 + Availability Badge) */}
-          <div className="lg:hidden flex items-center gap-3.5 mb-2">
-            <div className="relative h-14 w-14 sm:h-16 sm:w-16 shrink-0 overflow-hidden rounded-full border border-zinc-200 dark:border-zinc-800 shadow-sm">
-              <Image 
-                src="/logo.jpeg" 
-                alt="Nathenael Tamirat emblem" 
-                fill
-                sizes="64px"
-                priority
-                className="object-cover" 
-              />
-            </div>
-            <div className="flex flex-col gap-1 min-w-0">
-              <h1 
-                id="hero-heading"
-                className="flex flex-col gap-1"
-              >
-                <div className="flex flex-wrap items-center gap-2">
-                  <span className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-emerald-500 to-cyan-500 bg-clip-text text-transparent break-words">
-                    Nathenael Tamirat
-                  </span>
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 px-2 py-0.5 text-[10px] sm:text-[10.5px] font-medium text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 whitespace-nowrap">
-                    <span className="relative flex h-2 w-2">
-                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
-                      <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
-                    </span>
-                    {t.hero.availableForWork}
-                  </span>
-                </div>
-                <span className="text-xs sm:text-sm font-medium text-zinc-600 dark:text-zinc-400">
-                  {t.hero.role}
-                </span>
-              </h1>
-            </div>
-          </div>
-
           {/* Portrait Photo (Left Column on Desktop, Centered on Mobile) */}
           <div className="lg:col-span-4 flex justify-center w-full">
-            <div className="relative w-full max-w-[280px] sm:max-w-[320px] lg:max-w-none aspect-[4/5] shrink-0 overflow-hidden rounded-xl border border-zinc-200 dark:border-white/10 hover:border-emerald-500/50 transition-colors shadow-lg dark:shadow-xl mx-auto lg:mx-0">
+            <div className="relative w-full max-w-[280px] sm:max-w-[320px] lg:max-w-none aspect-[4/5] shrink-0 overflow-hidden rounded-xl border border-zinc-200 dark:border-white/10 hover:border-emerald-500/50 transition-[border-color,box-shadow] duration-200 shadow-lg dark:shadow-xl mx-auto lg:mx-0">
               <Image 
                 src="/Nathenael.jpeg" 
                 alt="Nathenael Tamirat — Software Engineer" 
@@ -164,47 +160,16 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Desktop details, bio, and social channels */}
+          {/* Details, Bio, and Social Channels */}
           <div className="lg:col-span-8 flex flex-col justify-center gap-y-6">
             
-            {/* Desktop Header Lockup */}
-            <div className="hidden lg:flex items-center gap-4">
-              <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-full border border-zinc-200 dark:border-zinc-800 shadow-sm">
-                <Image 
-                  src="/logo.jpeg" 
-                  alt="Nathenael Tamirat emblem" 
-                  fill
-                  sizes="80px"
-                  priority
-                  className="object-cover" 
-                />
-              </div>
-              <div className="flex flex-col gap-1.5">
-                <div className="flex items-center gap-2.5">
-                  <span className="text-3xl font-bold bg-gradient-to-r from-emerald-500 to-cyan-500 bg-clip-text text-transparent">
-                    Nathenael Tamirat
-                  </span>
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 px-2.5 py-0.5 text-[11px] font-medium text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
-                    <span className="relative flex h-2 w-2">
-                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
-                      <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
-                    </span>
-                    {t.hero.availableForWork}
-                  </span>
-                </div>
-                <p className="text-base font-medium text-zinc-600 dark:text-zinc-400">
-                  {t.hero.role}
-                </p>
-              </div>
-            </div>
-
             {/* Narrative Bio */}
             <div className="flex flex-col gap-y-4 text-[15px] sm:text-[16.5px] leading-relaxed text-zinc-700 dark:text-zinc-300">
               <p>{t.hero.bioP1}</p>
               <p>{t.hero.bioP2}</p>
             </div>
 
-            {/* Social Links Dock with 44px minimum touch targets */}
+            {/* Social Links Dock with 44px minimum touch targets (Rule 10) */}
             <nav aria-label="Social links and contact channels" className="flex flex-wrap gap-2 pt-1 justify-center sm:justify-start">
               <SocialLink href="https://www.linkedin.com/in/nathenael-tamirat/" label="LinkedIn Profile" icon={<FaLinkedin size={22} />} />
               <SocialLink href="https://github.com/NathenaelTamirat" label="GitHub Profile" icon={<FaGithub size={22} />} />
@@ -273,7 +238,7 @@ export default function Home() {
             const meta = eventMetadata[idx] || eventMetadata[0];
             const cardContent = (
               <div 
-                className="group flex h-full flex-col justify-between rounded-none border border-zinc-200 dark:border-zinc-800 bg-transparent p-4 sm:p-5 transition-colors hover:border-emerald-500/40 hover:shadow-lg focus-within:border-emerald-500/50"
+                className="group flex h-full flex-col justify-between rounded-none border border-zinc-200 dark:border-zinc-800 bg-transparent p-4 sm:p-5 transition-[border-color,box-shadow] duration-200 hover:border-emerald-500/40 hover:shadow-lg focus-within:border-emerald-500/50"
               >
                 <div>
                   <div className="relative w-full aspect-[16/10] overflow-hidden rounded-none border border-zinc-100 dark:border-zinc-800/80 mb-4 bg-zinc-50 dark:bg-zinc-900/40">
@@ -301,8 +266,8 @@ export default function Home() {
 
                 {meta.url && (
                   <div className="mt-4 pt-2">
-                    <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 bg-emerald-500/10 px-3 py-1.5 rounded-none transition-colors group-hover:bg-emerald-500/20">
-                      <FiExternalLink size={13} /> {t.projects.visitProject}
+                    <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 bg-emerald-500/10 px-3 py-1.5 rounded-none transition-[background-color,border-color] duration-150 group-hover:bg-emerald-500/20">
+                      <FiExternalLink size={13} aria-hidden="true" /> {t.projects.visitProject}
                     </span>
                   </div>
                 )}
@@ -315,7 +280,7 @@ export default function Home() {
                 href={meta.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+                className="block h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-black cursor-pointer"
               >
                 {cardContent}
               </a>
@@ -395,25 +360,25 @@ export default function Home() {
             <div className="flex flex-wrap gap-2.5 sm:gap-3 pt-2">
               <Link
                 href="mailto:nathenaeltamiratbizuneh@gmail.com"
-                className="inline-flex items-center justify-center gap-2 rounded-none bg-emerald-600 hover:bg-emerald-500 text-white dark:text-black dark:bg-emerald-400 dark:hover:bg-emerald-300 px-5 py-2.5 text-xs font-semibold uppercase tracking-wider transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 w-full sm:w-auto cursor-pointer"
+                className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-none bg-emerald-600 hover:bg-emerald-500 text-white dark:text-black dark:bg-emerald-400 dark:hover:bg-emerald-300 px-5 py-2.5 text-xs font-semibold uppercase tracking-wider transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-black w-full sm:w-auto cursor-pointer"
               >
-                <FiMail size={16} /> {t.connect.getInTouch}
+                <FiMail size={16} aria-hidden="true" /> {t.connect.getInTouch}
               </Link>
               <a
                 href="https://t.me/nathenaeltamirat"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-none border border-zinc-200 dark:border-zinc-800 bg-transparent hover:border-emerald-500/40 px-5 py-2.5 text-xs font-semibold text-zinc-800 dark:text-zinc-200 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 w-full sm:w-auto"
+                className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-none border border-zinc-200 dark:border-zinc-800 bg-transparent hover:border-emerald-500/40 px-5 py-2.5 text-xs font-semibold text-zinc-800 dark:text-zinc-200 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-black w-full sm:w-auto cursor-pointer"
               >
-                <FaTelegram size={16} /> {t.connect.telegram} <FiArrowUpRight size={14} />
+                <FaTelegram size={16} aria-hidden="true" /> <span translate="no">{t.connect.telegram}</span> <FiArrowUpRight size={14} aria-hidden="true" />
               </a>
               <a
                 href="https://www.linkedin.com/in/nathenael-tamirat/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-none border border-zinc-200 dark:border-zinc-800 bg-transparent hover:border-emerald-500/40 px-5 py-2.5 text-xs font-semibold text-zinc-800 dark:text-zinc-200 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 w-full sm:w-auto"
+                className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-none border border-zinc-200 dark:border-zinc-800 bg-transparent hover:border-emerald-500/40 px-5 py-2.5 text-xs font-semibold text-zinc-800 dark:text-zinc-200 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-black w-full sm:w-auto cursor-pointer"
               >
-                <FaLinkedin size={16} /> {t.connect.linkedin} <FiArrowUpRight size={14} />
+                <FaLinkedin size={16} aria-hidden="true" /> <span translate="no">{t.connect.linkedin}</span> <FiArrowUpRight size={14} aria-hidden="true" />
               </a>
             </div>
           </div>
@@ -422,12 +387,12 @@ export default function Home() {
 
       {/* Production Footer */}
       <footer className="mt-20 pt-8 border-t border-dashed border-zinc-200 dark:border-zinc-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500 dark:text-zinc-500">
-        <p>
-          &copy; {new Date().getFullYear()} Nathenael Tamirat. {t.footer.rights}
+        <p className="font-mono tabular-nums">
+          &copy; {new Date().getFullYear()} <span translate="no">Nathenael Tamirat</span>. {t.footer.rights}
         </p>
         <p className="flex items-center gap-2">
           <span>{t.footer.craftedWith}</span>
-          <span className="font-semibold text-zinc-700 dark:text-zinc-300">Next.js&nbsp;&amp;&nbsp;Tailwind&nbsp;CSS</span>
+          <span translate="no" className="font-semibold text-zinc-700 dark:text-zinc-300">Next.js&nbsp;&amp;&nbsp;Tailwind&nbsp;CSS</span>
         </p>
       </footer>
 
@@ -442,7 +407,7 @@ function SocialLink({ href, icon, label }: { href: string; icon: React.ReactNode
       target="_blank" 
       rel="noopener noreferrer" 
       aria-label={label}
-      className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded text-zinc-500 dark:text-zinc-400 transition-all duration-200 hover:scale-110 hover:-translate-y-0.5 hover:text-emerald-500 dark:hover:text-emerald-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 cursor-pointer"
+      className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded text-zinc-500 dark:text-zinc-400 transition-[transform,color] duration-200 hover:scale-110 hover:-translate-y-0.5 hover:text-emerald-500 dark:hover:text-emerald-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-black cursor-pointer"
     >
       {icon}
     </Link>
@@ -465,7 +430,7 @@ function ProjectCard({
   visitLabel?: string;
 }) {
   const card = (
-    <div className="group flex h-full flex-col justify-between rounded-none border border-zinc-200 dark:border-zinc-800 bg-transparent p-4 sm:p-6 transition-all hover:border-emerald-500/30 hover:shadow-lg focus-within:border-emerald-500/50">
+    <div className="group flex h-full flex-col justify-between rounded-none border border-zinc-200 dark:border-zinc-800 bg-transparent p-4 sm:p-6 transition-[border-color,box-shadow] duration-200 hover:border-emerald-500/30 hover:shadow-lg focus-within:border-emerald-500/50">
       <div className="flex flex-col gap-4">
         {tag && (
           <span className="w-fit rounded-full bg-zinc-200 dark:bg-zinc-900 px-3 py-1 text-xs text-zinc-700 dark:text-zinc-300 border border-zinc-300 dark:border-zinc-800 font-medium">
@@ -497,8 +462,8 @@ function ProjectCard({
           </div>
         )}
         {url && (
-          <span className="flex items-center gap-2 text-xs font-semibold text-emerald-600 dark:text-emerald-400 w-fit border border-emerald-500/20 bg-emerald-500/10 px-3 py-1.5 rounded-none transition-colors group-hover:bg-emerald-500/20">
-            <FiExternalLink size={14} /> {visitLabel}
+          <span className="flex items-center gap-2 text-xs font-semibold text-emerald-600 dark:text-emerald-400 w-fit border border-emerald-500/20 bg-emerald-500/10 px-3 py-1.5 rounded-none transition-[background-color,border-color] duration-150 group-hover:bg-emerald-500/20">
+            <FiExternalLink size={14} aria-hidden="true" /> {visitLabel}
           </span>
         )}
       </div>
@@ -510,7 +475,7 @@ function ProjectCard({
       href={url} 
       target="_blank" 
       rel="noopener noreferrer" 
-      className="block h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+      className="block h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-black cursor-pointer"
     >
       {card}
     </a>
@@ -554,7 +519,7 @@ function TimelineItem({
       
       {/* Content Card */}
       <div className={`w-full md:w-1/2 pl-8 sm:pl-12 md:pl-0 ${position === 'left' ? 'md:ml-[48px]' : 'md:mr-[48px]'} mt-0`}>
-        <div className="group flex flex-col justify-between rounded-none border border-zinc-200 dark:border-zinc-800 bg-transparent p-4 sm:p-6 transition-all hover:border-emerald-500/30 hover:shadow-lg">
+        <div className="group flex flex-col justify-between rounded-none border border-zinc-200 dark:border-zinc-800 bg-transparent p-4 sm:p-6 transition-[border-color,box-shadow] duration-200 hover:border-emerald-500/30 hover:shadow-lg">
           <div className="flex flex-col gap-y-1">
             <h3 className="text-base sm:text-lg font-semibold text-zinc-900 dark:text-white group-hover:text-emerald-500 dark:group-hover:text-emerald-400 transition-colors">
               {role}
@@ -566,7 +531,7 @@ function TimelineItem({
                   <span className="text-[11px] sm:text-xs text-zinc-500 dark:text-zinc-500 mt-0.5">{locationOrType}</span>
                 )}
               </div>
-              <span className="rounded-full bg-zinc-200 dark:bg-zinc-900 px-2.5 sm:px-3 py-0.5 sm:py-1 text-[11px] sm:text-xs text-zinc-700 dark:text-zinc-300 border border-zinc-300 dark:border-zinc-800 whitespace-nowrap">
+              <span className="rounded-full bg-zinc-200 dark:bg-zinc-900 px-2.5 sm:px-3 py-0.5 sm:py-1 text-[11px] sm:text-xs text-zinc-700 dark:text-zinc-300 border border-zinc-300 dark:border-zinc-800 whitespace-nowrap font-mono tabular-nums">
                 {duration}
               </span>
             </div>
@@ -592,10 +557,10 @@ function TimelineItem({
               <a 
                 href={proofLink} 
                 target="_blank" 
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-xs font-semibold text-emerald-600 dark:text-emerald-400 hover:underline w-fit border border-emerald-500/20 bg-emerald-500/10 px-3 py-1.5 rounded-none transition-colors hover:bg-emerald-500/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+                rel="noopener noreferrer" 
+                className="flex items-center gap-2 text-xs font-semibold text-emerald-600 dark:text-emerald-400 hover:underline w-fit border border-emerald-500/20 bg-emerald-500/10 px-3 py-1.5 rounded-none transition-[background-color,border-color] duration-150 hover:bg-emerald-500/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-black cursor-pointer"
               >
-                <FiExternalLink size={14} /> {linkText || "View Work Proof"}
+                <FiExternalLink size={14} aria-hidden="true" /> {linkText || "View Work Proof"}
               </a>
             )}
           </div>

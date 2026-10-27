@@ -64,6 +64,17 @@ export default function CertificateDock() {
     setCurrentIndex((prev) => (prev + 1) % total);
   };
 
+  // Rule 7: Keyboard navigation (ArrowLeft & ArrowRight) for pagination
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "ArrowLeft") {
+      e.preventDefault();
+      handlePrev();
+    } else if (e.key === "ArrowRight") {
+      e.preventDefault();
+      handleNext();
+    }
+  };
+
   const certData = certificateAssets.map((asset, index) => {
     const item = t.certificates.items[index] || {
       title: "Certificate",
@@ -80,7 +91,13 @@ export default function CertificateDock() {
   const item2 = certData[(currentIndex + 1) % total];
 
   return (
-    <div className="w-full flex flex-col items-center">
+    <div 
+      className="w-full flex flex-col items-center focus-visible:outline-none"
+      onKeyDown={handleKeyDown}
+      role="region"
+      aria-roledescription="carousel"
+      aria-label={t.certificates.sectionTitle}
+    >
       
       {/* Mobile View: 1 Certificate Card */}
       <div className="w-full sm:hidden">
@@ -99,22 +116,26 @@ export default function CertificateDock() {
           type="button"
           aria-label={t.certificates.prev}
           onClick={handlePrev}
-          className="flex min-h-[44px] min-w-[44px] items-center justify-center rounded-none border border-zinc-200 dark:border-zinc-800 bg-transparent p-2.5 text-zinc-700 dark:text-zinc-300 transition-colors hover:border-emerald-500/50 hover:text-emerald-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 cursor-pointer"
+          className="flex min-h-[44px] min-w-[44px] items-center justify-center rounded-none border border-zinc-200 dark:border-zinc-800 bg-transparent p-2.5 text-zinc-700 dark:text-zinc-300 transition-[border-color,color,background-color] duration-150 hover:border-emerald-500/50 hover:text-emerald-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-black cursor-pointer active:scale-95"
         >
-          <FiChevronLeft size={18} />
+          <FiChevronLeft size={18} aria-hidden="true" />
         </button>
 
-        <span className="text-xs font-mono text-zinc-500 dark:text-zinc-400 select-none">
-          {currentIndex + 1} / {total}
+        {/* Rule 67: Tabular numbers for comparisons and counters */}
+        <span 
+          aria-live="polite"
+          className="text-xs font-mono tabular-nums text-zinc-500 dark:text-zinc-400 select-none tracking-wider"
+        >
+          {currentIndex + 1}&nbsp;/&nbsp;{total}
         </span>
 
         <button
           type="button"
           aria-label={t.certificates.next}
           onClick={handleNext}
-          className="flex min-h-[44px] min-w-[44px] items-center justify-center rounded-none border border-zinc-200 dark:border-zinc-800 bg-transparent p-2.5 text-zinc-700 dark:text-zinc-300 transition-colors hover:border-emerald-500/50 hover:text-emerald-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 cursor-pointer"
+          className="flex min-h-[44px] min-w-[44px] items-center justify-center rounded-none border border-zinc-200 dark:border-zinc-800 bg-transparent p-2.5 text-zinc-700 dark:text-zinc-300 transition-[border-color,color,background-color] duration-150 hover:border-emerald-500/50 hover:text-emerald-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-black cursor-pointer active:scale-95"
         >
-          <FiChevronRight size={18} />
+          <FiChevronRight size={18} aria-hidden="true" />
         </button>
       </div>
 
@@ -139,7 +160,7 @@ function CertificateCard({
       href={cert.link}
       target="_blank"
       rel="noopener noreferrer"
-      className="group flex flex-col justify-between rounded-none border border-zinc-200 dark:border-zinc-800 bg-transparent p-4 transition-colors hover:border-emerald-500/40 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+      className="group flex flex-col justify-between rounded-none border border-zinc-200 dark:border-zinc-800 bg-transparent p-4 transition-[border-color,box-shadow] duration-200 hover:border-emerald-500/40 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-black cursor-pointer"
     >
       <div className="relative w-full aspect-[4/3] overflow-hidden rounded-none border border-zinc-100 dark:border-zinc-800/80 bg-zinc-50 dark:bg-zinc-900/40">
         <Image
@@ -152,11 +173,17 @@ function CertificateCard({
       </div>
 
       <div className="mt-4 flex flex-col gap-1">
-        <h3 className="text-base font-semibold text-zinc-900 dark:text-white group-hover:text-emerald-500 dark:group-hover:text-emerald-400 transition-colors">
+        <h3 
+          translate="no"
+          className="text-base font-semibold text-zinc-900 dark:text-white group-hover:text-emerald-500 dark:group-hover:text-emerald-400 transition-colors"
+        >
           {cert.title}
         </h3>
-        <span className="flex items-center gap-1.5 text-xs font-medium text-emerald-600 dark:text-emerald-400">
-          {cert.subtitle} <FiExternalLink size={13} />
+        <span 
+          translate="no"
+          className="flex items-center gap-1.5 text-xs font-medium text-emerald-600 dark:text-emerald-400"
+        >
+          {cert.subtitle} <FiExternalLink size={13} aria-hidden="true" />
         </span>
       </div>
     </a>

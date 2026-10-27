@@ -253,7 +253,7 @@ export default function SkillsSection() {
             {/* Amharic */}
             <div 
               tabIndex={0}
-              className="flex items-center gap-2.5 rounded-none border border-zinc-200 dark:border-zinc-800/80 bg-zinc-50/70 dark:bg-zinc-900/40 px-3 py-1.5 sm:py-2 text-xs transition-[border-color,background-color] duration-200 hover:border-emerald-500/40 hover:bg-emerald-500/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 cursor-default"
+              className="flex items-center gap-2.5 rounded-none border border-zinc-200 dark:border-zinc-800/80 bg-zinc-50/70 dark:bg-zinc-900/40 px-3 py-1.5 sm:py-2 text-xs transition-[border-color,background-color] duration-200 hover:border-emerald-500/40 hover:bg-emerald-500/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-black cursor-default"
             >
               <EthiopiaFlag className="w-5 h-3.5 shrink-0 rounded-xs shadow-xs" />
               <span translate="no" className="font-semibold text-zinc-900 dark:text-white">
@@ -267,7 +267,7 @@ export default function SkillsSection() {
             {/* English */}
             <div 
               tabIndex={0}
-              className="flex items-center gap-2.5 rounded-none border border-zinc-200 dark:border-zinc-800/80 bg-zinc-50/70 dark:bg-zinc-900/40 px-3 py-1.5 sm:py-2 text-xs transition-[border-color,background-color] duration-200 hover:border-emerald-500/40 hover:bg-emerald-500/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 cursor-default"
+              className="flex items-center gap-2.5 rounded-none border border-zinc-200 dark:border-zinc-800/80 bg-zinc-50/70 dark:bg-zinc-900/40 px-3 py-1.5 sm:py-2 text-xs transition-[border-color,background-color] duration-200 hover:border-emerald-500/40 hover:bg-emerald-500/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-black cursor-default"
             >
               <EnglishFlag className="w-5 h-3.5 shrink-0 rounded-xs shadow-xs" />
               <span translate="no" className="font-semibold text-zinc-900 dark:text-white">
@@ -319,7 +319,7 @@ function SkillRow({ category }: {
             key={skill.name}
             role="listitem"
             tabIndex={0}
-            className="group/item flex items-center gap-2 rounded-none border border-zinc-200 dark:border-zinc-800/80 bg-zinc-50/70 dark:bg-zinc-900/40 px-3 py-1.5 sm:py-2 text-xs font-medium text-zinc-800 dark:text-zinc-200 transition-[border-color,background-color,transform] duration-200 hover:border-emerald-500/50 hover:bg-emerald-500/5 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 cursor-default"
+            className="group/item flex items-center gap-2 rounded-none border border-zinc-200 dark:border-zinc-800/80 bg-zinc-50/70 dark:bg-zinc-900/40 px-3 py-1.5 sm:py-2 text-xs font-medium text-zinc-800 dark:text-zinc-200 transition-[border-color,background-color,transform] duration-200 hover:border-emerald-500/50 hover:bg-emerald-500/5 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-black cursor-default"
           >
             {skill.icon}
             <span translate="no" className="font-medium tracking-tight">

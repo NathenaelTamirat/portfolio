@@ -20,9 +20,11 @@ const geistMono = Geist_Mono({
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://nathenaeltamirat.dev";
 
+// Rule 55 & 132: Respect safe areas and match browser theme color
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
+  viewportFit: "cover",
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#ffffff" },
     { media: "(prefers-color-scheme: dark)", color: "#000000" },
@@ -117,10 +119,10 @@ export const metadata: Metadata = {
     description: metaDescription,
     images: [
       {
-        url: "/Nathenael.jpeg",
-        width: 800,
-        height: 800,
-        alt: "Nathenael Tamirat — Software Engineer",
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Nathenael Tamirat — Software Engineer & Full-Stack Developer",
       },
     ],
   },
@@ -129,7 +131,7 @@ export const metadata: Metadata = {
     title: metaTitle,
     description: metaDescription,
     creator: "@Nathenaeltamira",
-    images: ["/Nathenael.jpeg"],
+    images: ["/twitter-image"],
   },
   icons: {
     icon: [
@@ -192,6 +194,34 @@ const structuredDataGraph = {
           "https://www.instagram.com/nathenaeltamirat",
         ],
         knowsLanguage: ["en", "am"],
+        worksFor: [
+          {
+            "@type": "MedicalOrganization",
+            name: "Lewi Speciality Dental Clinic",
+            url: "https://lewidentalclinic.com",
+          },
+          {
+            "@type": "Organization",
+            name: "Mentor Knowledge Solutions PLC",
+          },
+        ],
+        alumniOf: [
+          {
+            "@type": "EducationalOrganization",
+            name: "Stanford University Code in Place",
+            url: "https://codeinplace.stanford.edu",
+          },
+          {
+            "@type": "EducationalOrganization",
+            name: "ALX Africa",
+            url: "https://www.alxafrica.com",
+          },
+          {
+            "@type": "EducationalOrganization",
+            name: "BITS College",
+            url: "https://www.bitscollege.edu.et",
+          },
+        ],
         hasOccupation: {
           "@type": "Occupation",
           name: "Software Engineer",
@@ -286,12 +316,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased bg-white text-zinc-900 selection:bg-emerald-500/30 selection:text-emerald-800 dark:bg-black dark:text-white dark:selection:text-emerald-200 min-h-screen`}
       >
-        {/* Skip to Content Link for Accessibility (WAI-ARIA) */}
+        {/* Rule 80: Skip to Content Link for Accessibility (WAI-ARIA Pattern) */}
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 z-50 rounded bg-emerald-500 px-4 py-2 text-xs font-bold uppercase tracking-wider text-black shadow-lg focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 z-50 rounded bg-emerald-500 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-black shadow-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-black"
         >
-          Skip to content
+          Skip to Content
         </a>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           <LanguageProvider>
